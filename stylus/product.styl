@@ -1,0 +1,787 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+
+
+$item-description-height-max = 5.2em
+$item-description-height-min = 3.5em
+$product-detail-height = 2em
+$product-variant-v-padding = 0.5em
+
+/* FILE: product.styl
+ * ------------------
+ * These styles represent all of the styling for the
+ * content of the product page.
+ */
+
+.page-saleproductdetail
+	text-align center
+
+.product-gallery-image
+	position relative
+	padding-top 8px
+	padding-bottom 2.5em
+
+	img
+		display block
+		margin-left auto
+		margin-right auto
+		max-width 200px
+
+	.zoomWrapper
+		border-width 0
+		border-bottom-width 1px
+
+	.zoomWrapperImage
+
+		/*
+		 * Set height to 0 when not active to
+		 * prevent iOS bug where the user can't
+		 * scroll after the zoom has been activated.
+		 */
+		height 0
+
+		/*
+		 * Override the image styling for magnifier
+		 */
+		img
+			max-width none
+			max-height none
+
+	.zoomWindow
+		height 100% + 8px + 2.5em
+		margin-top -8px	/* top padding size */
+
+		/*
+		 * Set the height to 100% when the zoom is
+		 * active.
+		 */
+		&.active
+			.zoomWrapperImage
+				height 100%
+
+
+.magnified-image-container
+	height 100%
+	width 0
+	background-color $white
+	position absolute
+	opacity 0
+	transition all 0.3s ease-in-out
+	z-index 10
+	max-height 0
+
+	&.active
+		max-height 100%
+		width 90%
+		right 1em
+		opacity 1
+		top 0
+
+	.zoomWindow
+		height 80%
+		max-height 80vh
+		min-height 500px
+
+
+.zoom-activate
+	position absolute
+	right 1em
+	top 0.75em
+
+	background-color rgba($white, 0.5)
+	border-radius 1em
+	box-shadow 0 1px 3px 0 rgba(0,0,0, 0.3)
+	color $default
+	height 2em
+	width 2em
+	opacity 0
+	text-align center
+	transition all 0.3s ease-in-out
+	z-index 20
+
+	&:active,
+	&:hover
+		color $default
+
+	.slick-active &
+		opacity 1
+		transition all 0.7s ease-in-out
+
+	.glyphicon
+		line-height 2em
+
+		&:before
+			content "\e015"
+
+	.zoom-active &
+		background-color $highlight
+		color $white
+
+		.glyphicon
+			&:before
+				content: "\e016"
+
+
+	/* ** Text on Zoom Activate button
+	 * not needed.
+	 *
+	&.zoom-in:after
+		content '拡大画像を表示'
+	&.zoom-out:after
+		content '拡大画像を非表示'
+	** */
+
+
+/*
+ * Hide slider controls when the zoom is activated
+ * on touch and small-screen devices.
+ */
+
+.product-gallery
+	.hasZoomActivated
+		button.slick-prev
+		button.slick-next
+			visibility hidden
+		.slick-dots
+			visibility hidden
+
+/* Text for zoom activate button.
+ * Not needed.
+ *
+html.no-touch
+	.zoom-activate:after
+		content 'マウスを合わせると拡大画像が表示されます'
+
+*/
+
+
+
+
+.product-thumbnails
+	position relative
+	padding 0 1em
+
+	> li, .slick-slide
+		padding-bottom 10px
+
+		img
+			border 1px solid $gray-warm
+			display block
+			max-width 100%
+			transition all 0.3s ease
+
+			&:hover
+				border 1px solid $gray-medium
+				cursor pointer
+				opacity 0.8
+
+		&.selected
+			img
+				border 1px solid $highlight
+				opacity 1
+
+				&:hover
+					cursor default
+					opacity 1
+
+	/*
+	 * Position relative set to position up
+	 * and down arrows
+	 */
+	.slick-list
+		position relative
+		width 100%
+		height 100%
+
+		.slick-track
+			max-height 100%
+
+
+	/*
+	 * Hide product thumbnails controls
+	 * on non-touch devices and reveal
+	 * on mouseover.
+	 */
+
+	.no-touch &
+		.thumbnails-nav
+			opacity 0
+			transition opacity 0.4s ease
+		&:hover
+			.thumbnails-nav
+				opacity 1
+
+
+
+
+.product-shopping-info
+	text-align left
+	position relative
+
+	.product-shopping-info-wrap
+		margin-left auto
+		margin-right auto
+
+	/*
+	 * This makes the chevron icon appear in the middle
+	 * No idea why this works, but it's needed.
+	 */
+
+	.btn-close
+		line-height 1.9em
+
+	.priceretail, .priceshop
+		display inline-block
+		font-size 1.2em
+
+	.priceretail
+		color $gray-medium
+
+	.priceshop
+		color $highlight
+
+		.taxInclude
+			font-size 0.6em
+			font-weight 500
+
+	.size-guide
+
+		a
+			color $default
+			display inline-block
+			font-size 0.8em
+			position relative
+			text-decoration underline
+
+			&:after
+				content ''
+				position absolute
+				top 50%
+				right -20px
+				margin-top -3px
+				border-top 5px solid $default
+				border-left 5px solid transparent
+				border-right 5px solid transparent
+
+			.no-touch &:hover
+				color $highlight
+
+				&:after
+					border-top-color $highlight
+
+			&.isActive
+				color $highlight
+				text-decoration none
+
+				.no-touch &:hover
+					text-decoration underline
+
+				&:after
+					border-top 0
+					border-bottom 5px solid $highlight
+
+	.size-guide-display
+		text-align left
+
+		&:not(.height-transition-hidden)
+			border-top 1px solid darken($gray-light, 3%)
+
+	.size-guide-display-content
+		background-color $gray-light
+		color $default
+		width 100%
+		padding 1em 1.5em
+		font-size 0.8em
+
+	&.product-price-invisible
+		.buy
+			display none
+
+	.members-only
+		a
+			color $highlight
+			font-size 0.8em
+
+	.go-to-login
+	.go-to-signup
+		width 100%
+
+
+.product-name-info
+	font-family $font-title
+
+	.brand-name
+		a
+			color $gray-cool
+			line-height 1em
+
+	.product-title
+		line-height 1.3em
+		color $gray-dark
+		font-size 1.3em
+		font-weight 500
+		letter-spacing 0.5px
+
+		/*
+		 * (0.5 - 0.5*.3) = 0.3335
+		 * to account for increased font-size
+		 */
+		margin 0.3335em 0
+
+
+.item-description
+	position relative
+	max-height $item-description-height-max
+	overflow hidden
+	margin 2em 0
+	line-height 1.5
+
+	.item-description-content.height-transition-hidden
+		position relative
+		max-height $item-description-height-max
+		overflow hidden
+	p
+		font-size .9em
+		font-weight normal
+
+	strong
+		font-size .9em
+	.read-more
+		position absolute
+		top $item-description-height-max
+		width 100%
+		background-color white
+		font-size .8em
+		color $highlight
+		line-height 1.5
+		&:before
+			content '続きを読む'
+	&.open
+		max-height none
+		overflow visible
+		.read-more
+			position relative
+			top 0
+			&:before
+				content '閉じる'
+
+
+.buy
+	background-color $gray-light
+	border 1px solid $gray-warm
+	padding 1em
+
+	.buy-selectable-option-title
+		color $highlight
+		display block
+		font-weight bold
+		position relative
+
+	.product-option
+		background-color $white
+		margin-bottom 1em
+		border-radius 2px
+		border 1px solid $gray-warm
+
+	#variantSelect
+		display none
+
+	.quantity-select
+		position relative
+		overflow hidden
+
+		&:before, &:after
+			position absolute
+			content ''
+			right 1em
+			border-right 5px solid transparent
+			border-left 5px solid transparent
+			pointer-events none
+
+		&:before
+			margin-bottom 2px
+			bottom 50%
+			border-bottom 5px solid $gray-dark
+
+		&:after
+			margin-top 2px
+			top 50%
+			border-top 5px solid $gray-dark
+
+		#amountSelect
+			background transparent
+			border 0
+			border-radius 0
+			color $highlight
+			font-size 16px
+			font-weight bold
+			margin 0
+			padding 1em 1em 1em 0.5em
+			width 100%
+			z-index 20
+			-webkit-appearance none
+			-moz-appearance none
+
+			&::-ms-expand
+				display none
+				outline 0
+			&:focus
+				outline 0
+			option
+				padding-right 3em
+
+	.add-to-cart
+		width 100%
+
+.ie9
+	.product-shopping-info
+		.quantity-select
+			&:before, &:after
+				border-style none
+
+.size-selector
+
+	.size
+		display inline-block
+		position relative
+		margin-left 0.5em
+		margin-bottom 0.5em
+
+		a
+			background-color $white
+			border 1px solid $gray-medium
+			color $highlight
+			display block
+			font-size 0.9em
+			min-width 5em
+			padding $product-variant-v-padding 5px
+			text-align center
+			transition all 0.3s ease
+			vertical-align middle
+			white-space no-wrap
+
+			&:hover
+				text-decoration none
+				background-color lighten($highlight, 75%)
+				border-color $highlight
+				color $highlight
+
+			&.disabled
+				position relative
+				border-color $gray-warm
+				background-color $gray-light
+				color $gray-medium
+
+				&:before
+					position absolute
+					content ''
+					left 0
+					top 50%
+					right 0
+					border-top 1px solid
+					border-color inherit
+					transform rotate(-28deg)
+
+				&:hover
+					background-color $gray-light
+					border-color $gray-warm
+					color $gray-medium
+					cursor default
+
+
+		.tooltip.top
+			position absolute
+			margin-top 20px
+			margin-left -0.75em
+			width 80px
+
+		&.selected
+			a
+				background-color $highlight
+				border-color $highlight
+				color $white
+
+				&:hover
+					color $white
+
+.unavailable-reason
+	margin-bottom 20px
+
+.product-detail
+	padding 0.75em 1em
+	background $gray-light
+	font-weight normal
+	border 1px solid $gray-warm
+	border-top 0
+
+	&.product-description-others
+		border-top 1px solid $gray-warm
+
+
+	a.product-detail-title
+		position relative
+		color $default
+		display block
+		font-weight bold
+		text-decoration none
+		transition all 0.3s ease
+
+		.no-touch &:hover
+			color $highlight
+
+			&:after
+				color $highlight
+
+		&:after
+			content ''
+			position absolute
+			top 50%
+			right 10px
+			border-top 5px solid $gray-dark
+			border-left 5px solid transparent
+			border-right 5px solid transparent
+
+		&.open
+			color $highlight
+
+			&:after
+				border-bottom 5px solid $highlight
+				border-top none
+
+	.product-detail-content
+		background-color $gray-light
+		div:first-child
+		p:first-child
+			padding-top 1em
+	p
+	strong
+		font-size .9em
+	p
+		font-weight normal
+
+
+.mp-product-description-table
+	border 1px solid $gray-medium
+	border-radius 2px
+	display block
+	overflow-x auto
+	-webkit-overflow-scrolling touch
+	position relative
+	white-space nowrap
+
+	/*
+	 * Add a shadow to the right side of the table so it
+	 * looks scrollable on touch devices.
+	 */
+	.touch &
+		box-shadow inset -3px 0 6px -2px rgba($black, 0.2)
+		overflow-x scroll
+
+	thead
+	tbody
+	tfoot
+		display table
+		min-width 100%
+		white-space normal
+
+	th
+	td
+		border-bottom 1px solid $gray-medium
+		border-right 1px solid $gray-medium
+		color $default
+		font-weight normal
+		min-width 55px
+		max-width 300px
+		padding-left 7px
+		padding-right 7px
+		text-align left
+
+	th:last-child
+	td:last-child
+		border-right 0
+
+	th:last-child:first-child
+		border-right 1px
+
+	tr:last-child
+		th
+		td
+			border-bottom 0
+	th
+		font-weight bold
+
+	caption
+		text-align left
+
+.product-detail-content .mp-product-description-table
+	font-size .9em
+
+
+.related-products
+
+	.brand-name
+		color $gray-dark
+		font-weight 500
+		line-height 1.2em
+
+		a
+			transition color 0.3s ease
+
+			&:hover
+				text-decoration none
+
+	.current_true
+		display none
+
+	.productlisting
+		padding .5em
+		transition opacity 0.3s ease-in-out
+
+		&:hover
+			opacity 0.7
+
+		img
+			width 100%
+			max-width 100%
+			max-height 100%
+
+	.see-all-link
+		color $gray-cool
+		font-family $font--serif
+		text-transform uppercase
+		transition color 0.3s ease
+
+		&:hover
+			color $highlight
+			text-decoration none
+
+
+
+
+
+/* ***************************** *
+ * ----- RESPONSIVE STYLES ----- *
+ * ***************************** *
+ */
+
+
+@media $smallScreensQuery
+	.product-gallery-image
+		img
+			max-width 300px
+
+	.product-shopping-info
+		.product-shopping-info-wrap
+			max-width 30em
+
+
+@media $mediumScreensQuery
+
+	.product-shopping-info
+		.product-shopping-info-wrap
+			max-width none
+
+	/*
+	 * width auto needed to be added for Firefox.  This
+	 * still manages to maintain the correct size for
+	 * the image and its aspect ratio.  Not entirely
+	 * sure why.
+	 */
+	.product-gallery-image
+		padding-top 0
+
+		img
+			max-height 500px
+			width auto
+			max-width 100%
+
+		.zoomWindow
+			height 100%
+			margin-top 0
+
+		.zoomWrapper
+			border-width 1px
+
+	.product-gallery
+		.hasZoomActivated
+			button.slick-prev
+			button.slick-next
+				visibility visible
+			.slick-dots
+				visibility visible
+
+	.no-touch
+		.zoom-activate
+			display none
+
+		.product-gallery-image
+			.zoomPad
+				display inline-block
+
+	.touch
+		.product-gallery
+			.hasZoomActivated
+				button.slick-prev
+				button.slick-next
+					visibility hidden
+				.slick-dots
+					visibility visible
+
+
+@media $largeScreensQuery
+
+	.product-gallery-image
+		padding-bottom 0
+
+		img
+			max-width 100%
+
+	.touch
+		.product-gallery
+			.zoomPad
+				display block
+
+			.zoomWindow
+				padding-left 0
+
+
+
+
+/*
+ * Manually set values of the media query because variables
+ * alone don't work for the size values.  REMEMBER TO CHANGE
+ * these values too if the media query sizes change!!!
+ *
+ * For really big screens, allow the product image to scale
+ * with the screen size.
+ */
+
+@media screen and (min-width: 1010px) and (min-height: 750px)
+
+	.product-gallery-image
+		img
+			max-height none
+			max-width 400px
+			height auto
+			width auto
+
+		.zoomWrapperImage
+			img
+				height auto
+
+@media screen and (min-width: 1010px) and (min-height: 800px)
+
+	.product-gallery-image
+		img
+			max-width 450px
+
+
+/*
+ * Prevent zooming on the form on iPhone
+ */
+@media screen and (-webkit-min-device-pixel-ratio:0)
+	.product-shopping-info .quantity-select #amountSelect:focus
+		font-size 16px
+		background #eee
+

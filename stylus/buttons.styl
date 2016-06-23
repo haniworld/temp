@@ -1,0 +1,271 @@
+@import 'nib'
+@import 'variables'
+
+
+.btn-default
+	background #FFF
+
+
+.action
+.action-mini
+	display inline-block
+	box-sizing border-box
+	background $highlight
+	border-style none
+	border-radius 0
+	color $white
+	font-weight normal
+	font-size 14px
+	line-height 1em
+	min-width 90px
+	opacity 1
+	padding 1em 1.5em
+	text-align center
+	/* text-shadow 1px 1px 0 rgba(181, 181, 181, 0.75) */
+	text-decoration none !important
+	transition 0.3s all ease-in-out
+
+	&::-moz-focus-inner
+		border none
+		padding 0
+
+	input&
+		appearance none
+
+	&:focus
+	&:hover
+		color $white
+		background $orange
+		box-shadow 0 3px 5px rgba(0, 0, 0, 0.16)
+		opacity 1
+		text-decoration none
+		cursor pointer
+		outline 0
+
+	&:active
+		background-color $orange-dark
+		box-shadow none
+		margin-bottom -1px
+
+	&:disabled
+		opacity 0.3
+		background-color $gray-medium
+		text-shadow none
+		opacity 0.3
+		cursor default
+		&:hover
+		&:focus
+			opacity 0.3
+			cursor default
+
+
+	input&[type=submit]
+		cursor pointer
+
+	&.action--dark
+		background $gray-dark
+		border-color $gray-dark
+
+		&:hover
+		&:focus
+			background lighten($gray-dark, 30%)
+			border-color lighten($gray-dark, 30%)
+
+		&:active
+			background darken($orange, 30%)
+			border-color darken($orange, 30%)
+
+		&:disabled
+			&:hover
+			&:focus
+				background $gray-dark
+				border-color $gray-dark
+
+	&.action--highlight-alt
+		background $highlight-alt
+		border-color darken($highlight-alt, 20%)
+
+		&:hover
+		&:focus
+			background lighten($highlight-alt, 30%)
+			border-color lighten($highlight-alt, 20%)
+
+		&:active
+			background darken($highlight-alt, 20%)
+			border-color darken($highlight-alt, 20%)
+
+		&:disabled
+			&:hover
+			&:focus
+				background $highlight-alt
+				border-color $highlight-alt
+
+.action-mini
+	font-size 12px
+	padding 3px 8px
+
+.action--large
+	font-size 110%
+	padding 1em 2em
+	height auto
+
+
+.action-simple
+	background url($arrowRight) no-repeat -5px
+	padding 0 0 0 13px
+	display inline-block
+	position: relative
+
+.action-back
+	background url($arrowLeft) no-repeat 5px
+	padding 0 0 0 18px
+	display inline-block
+
+.actions
+	text-align right
+	margin 2em 0
+	clear both
+	clearfix()
+
+	li
+		list-style none
+		display inline
+
+	& > div
+	ul
+		float right
+
+	& > div
+	li
+		padding 0 0 0 10px
+
+	li:first-child
+		padding-left 0
+
+	.action-simple
+	.action-back
+		margin-top 4px
+
+
+.bag-close
+.dialog .close
+.modal .close
+	image-replacement url(/static/images/close.gif) 15px 15px
+	background-position center center
+	border 0
+	cursor pointer
+
+
+
+/* ----- OUTLINE BUTTON ----- */
+
+.action.action--outline
+	background transparent
+	border-color $highlight
+	border-width 2px
+	border-style solid
+	color $highlight
+	font-weight bold
+
+	&:hover
+	&:focus
+		background-color lighten($highlight, 80%)
+
+	&.action--white
+		border-color $white
+		color white
+
+		&:hover
+		&:focus
+			//border 1px solid $white
+			background-color rgba($white, 0.5)
+			color $white
+
+	&.action--gray
+		background-color $gray-xlight
+		border-color $gray-warm
+		color $default
+
+		&:hover
+			background-color $gray-warm
+
+	&.action--highlight
+		border-color $highlight
+		color $highlight
+
+	&.action--highlight-alt
+		border-color $highlight-alt
+		color $highlight-alt
+
+	&.action--gray-medium
+		border-color $default
+		color $default
+
+		&:hover
+		&:focus
+			background-color $gray-medium
+			background-color rgba(0,0,0,0.2)
+
+	&.action--dark
+		border-color $gray-dark
+		color $gray-dark
+
+		&:hover
+		&:focus
+			background-color $gray-warm
+			background-color rgba(0,0,0,0.2)
+
+	&.action--outline-dashed
+		border-style dashed
+
+	&.action--outline-tier-2
+		border-width 1px
+		font-weight normal
+
+
+
+/* --------- TEXT BUTTON ----------- */
+
+.action-text
+	display inline-block
+	box-sizing border-box
+
+	background transparent
+	border 0
+	color $gray-dark
+	font-size 0.85em
+	font-weight 700
+	padding 0.75em 1.5em
+	transition all 0.3s ease-in-out
+
+	&:hover
+		color $highlight
+		cursor pointer
+		text-decoration none
+
+	&:focus
+	&:active
+		outline 0
+
+
+// Commented Until Stylus fixes support for -o-min-device-pixel-ratio
+//@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1)
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2)
+
+	.bag-close
+	.dialog .close
+		background-image url(/static/images/close_v2.gif)
+		background-size 15px 15px
+
+
+
+@media only screen and (max-width: 480px)
+
+	.actions
+		.action-simple
+		.action-back
+			margin-top 10px
+
+
+
+

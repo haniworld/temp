@@ -1,0 +1,37 @@
+/* FILE: scroll-old-ie
+ * -------------------
+ * Styles for older versions of IE (<9) that don't support
+ * media queries.  The styles here are essentially the
+ * media query styles replicated without the media query
+ * declarations.
+ */
+
+/* *** MIXIN *** */
+
+h-scroll()
+	height auto
+	width 100%
+	overflow-x scroll
+	-webkit-overflow-scrolling touch
+	white-space nowrap
+
+
+
+/* *** STYLES *** */
+
+.h-scroll
+	h-scroll()
+
+.h-scroll-md
+	h-scroll()
+
+.h-scroll-md-none
+	overflow-x visible
+	white-space normal
+
+.h-scroll-lg
+	h-scroll()
+
+.h-scroll-lg-none
+	overflow-x visible
+	white-space normal

@@ -1,0 +1,44 @@
+@import 'variables'
+
+
+#faqQuestion
+	margin-bottom 2em
+
+	/* Adds a 'Q' before the title of each question on each
+	 * FAQ page
+	 */
+	h2:before
+		content 'Q:'
+		display inline-block
+		margin-right 0.7em
+
+	h3
+		margin-top 1em
+		margin-bottom 1em
+		color #666
+		font-weight bold
+
+.faq-topics
+	margin 0 0 2px
+	background-color $gray-light
+	padding 2em
+
+	ul
+		list-style disc
+
+	h1
+		margin 0 0 1em
+		font-size 1.2em
+
+	li
+		margin 0 0 0.5em 1em
+		padding-left 1em
+
+	a.active
+		color $highlight
+
+	/* Adds more spacing between the FAQ question list and
+	 * the backlink itself.  Only appears on FAQ question page
+	 */
+	& + .backlink
+		margin-top 1em

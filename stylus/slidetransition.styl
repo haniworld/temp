@@ -1,0 +1,18 @@
+.height-transition
+	-webkit-transition max-height 0.5s ease-in-out
+	-moz-transition max-height 0.5s ease-in-out
+	-o-transition max-height 0.5s ease-in-out
+	transition max-height 0.5s ease-in-out
+	overflow-y hidden
+
+.height-transition-hidden
+	max-height 0
+
+.android
+.safari-lte5
+	.height-transition
+		transition-property none
+
+	.height-transition:not(.height-transition-hidden)
+		max-height none !important
+		transition-property none

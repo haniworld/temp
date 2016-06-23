@@ -1,0 +1,83 @@
+/* FILE backgrounds.styl
+ * ---------------------
+ * This file defines background colors used
+ * throughout the site as well as background
+ * images used on various pages.
+ */
+
+
+/* BACKGROUND COLORS
+ * -----------------
+ *
+ */
+
+.bg--white
+	background-color $white
+
+	h1, h2, h3, h4, h5, h6
+		color $gray-dark
+
+.bg--highlight
+	background-color $highlight
+	color $white
+
+	h1, h2, h3, h4, h5, h6
+		font-weight bold
+
+.bg--gray
+	background-color $gray-light
+
+	h1, h2, h3, h4, h5, h6
+		color $gray-dark
+
+.bg--gray-warm
+	background-color $gray-warm
+
+.bg--gray-cold
+	background-color $gray-cold
+	color $white
+
+	h1, h2, h3, h4, h5, h6
+		color $white
+
+	p > a
+		color $white
+
+		&:hover
+			color $highlight
+
+.bg--dark
+	background-color $gray-dark
+	color $white
+
+	h1, h2, h3, h4, h5, h6
+		font-weight bold
+
+.bg--still-background
+	background-attachment fixed
+
+
+
+
+
+/* BACKGROUND IMAGES
+ * -----------------
+ *
+ */
+
+.background-img-padding
+	padding 8em 1em
+
+.image-header
+	.page-aboutrecruiting &
+		@extend .background-img-padding
+		background-image url($imagesPath + 'about/recruiting-header.jpg')
+
+	.page-aboutmilleporte &
+		@extend .background-img-padding
+		background-image url($imagesPath + 'about/about-header.jpg')
+
+	.page-aboutcompany &
+		@extend .background-img-padding
+		background-image url($imagesPath + 'home/boutique-bg.jpg')
+

@@ -1,0 +1,11 @@
+<ul class="pagination">
+	{{#if prevEnabled}}
+		<li><a id="paging-prev" href="#{{resetScrollPointId}}"><span class="glyphicon glyphicon-chevron-left"></span></a></li>
+	{{/if}}
+	{{#each pages}}
+		<li class="{{#if isCurrent}}active{{/if}}"><a class="paging {{#if isCurrent}}current{{/if}}" data-page="{{num}}" href="#{{../resetScrollPointId}}">{{num}}</a></li>
+	{{/each}}
+	{{#if nextEnabled}}
+		<li><a id="paging-next" href="#{{resetScrollPointId}}"><span class="glyphicon glyphicon-chevron-right"></span></a></li>
+	{{/if}}
+</ul>

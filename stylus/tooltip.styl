@@ -1,0 +1,268 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+
+
+/* ************************ *
+ * ---- CUSTOM TOOLTIP ---- *
+ * ************************ *
+ *
+ * Custom tooltip that appears as a notification
+ * for users about information on the site.
+ */
+
+.help
+	background url('/static/images/help.png') no-repeat right 4px
+	padding 0 18px 0 0
+	display inline-block
+	cursor pointer
+	color $default
+
+	&:hover
+		background-position right -46px
+		color $highlight
+
+
+
+.tooltip
+	font-size em(12/14)
+	line-height em(18/14)
+
+
+
+.tooltip
+	position absolute
+	z-index 2503	/* Set to be higher than category-submenu */
+	display block
+	padding 10px
+	font-size 11px
+	opacity 0
+	filter unquote('alpha(opacity=0)')
+	visibility visible
+
+	p
+		margin 1em 0
+
+
+.tooltip.in
+	opacity 0.8
+	filter unquote('alpha(opacity=80)')
+
+
+.tooltip-inner
+	line-height 1.5em
+	max-width 260px
+	padding 3px 8px
+	text-align left
+	text-decoration none
+	background-color #333
+	color white
+	border-radius 3px
+	letter-spacing normal
+
+
+
+.tooltip-arrow
+	position absolute
+	width 0
+	height 0
+	border-color transparent
+	border-style solid
+
+
+.tooltip.top .tooltip-arrow
+	bottom 5px
+	left 50%
+	margin-left -5px
+	border-top-color #333
+	border-width 5px 5px 0
+
+
+.tooltip.right .tooltip-arrow
+	top 50%
+	left 0
+	margin-top -5px
+	border-right-color #333
+	border-width 5px 5px 5px 0
+
+
+.tooltip.left .tooltip-arrow
+	top 50%
+	right 0
+	margin-top -5px
+	border-left-color #333
+	border-width 5px 0 5px 5px
+
+
+.tooltip.bottom .tooltip-arrow
+	top 0
+	left 50%
+	margin-left -5px
+	border-bottom-color #333
+	border-width 0 5px 5px
+
+
+.tooltip.top
+	margin-top -3px
+
+
+.tooltip.right
+	margin-left 3px
+	.tooltip-arrow
+		left 5px
+
+.tooltip.bottom
+	margin-top 3px
+
+
+.tooltip.left
+	margin-left -3px
+
+
+
+
+.fade
+	opacity 0
+	transition opacity 0.15s linear
+
+
+.fade.in
+	opacity 1
+
+
+.collapse
+	position relative
+	height 0
+	overflow hidden
+	transition height 0.35s ease
+
+
+.collapse.in
+	height auto
+
+
+
+.tooltip-message
+	position absolute
+	background $white
+	background rgba($white, 0.95)
+	border 4px solid $gray-medium
+	text-align left
+	min-width 200px
+	width auto
+	padding 20px 15px
+
+	a
+		text-decoration underline
+
+	div
+		background transparent
+	.tooltip-close
+		position absolute
+		top 0
+		right 0
+		text-align right
+		padding 8px
+		transition opacity 0.3s ease
+
+		&:hover
+			opacity 0.5
+			cursor pointer
+	.tooltip-inner
+		color $gray-dark
+	&.tooltip.bottom
+		margin-top 10px
+	&.tooltip.bottom .tooltip-arrow
+		border-bottom-color transparent
+		border-bottom-style none
+		margin-top 10px
+		top -20px
+	.tooltip-arrow
+		&:before, &:after
+			content ''
+			position absolute
+			top 0
+			border-right 10px solid transparent
+			border-left 10px solid transparent
+	&.tooltip.bottom .tooltip-arrow
+		&:before
+			border-bottom 10px solid $gray-medium
+		&:after
+			border-bottom 10px solid $white
+			margin-top 5px
+	&.tooltip.top .tooltip-arrow
+		&:before
+			border-top 10px solid $gray-medium
+		&:after
+			border-top 10px solid $white
+			margin-top -5px
+	.tooltip-title
+		padding 3px 8px
+		font-size 1.5em
+		line-height 1.5em
+		max-width 260px
+		margin-bottom 0.5em
+
+
+
+/* LOGIN TOOLTIP
+ * --------------
+ */
+
+.tooltip-login-message
+	right 0px
+	width 220px
+
+	&.tooltip.bottom .tooltip-arrow
+		left 95%
+		right 10px
+	.tooltip-arrow
+		&:before, &:after
+			right 10px
+
+
+
+/* PRESALES NOTIFICATION TOOLTIP
+ * -----------------------------
+ */
+
+.tooltip-presales-message
+	left 1em
+
+	&.tooltip.bottom .tooltip-arrow
+		right 95%
+		left 0px
+	.tooltip-arrow
+		&:before, &:after
+			left 0px
+
+
+/* PRICE IS MEMBERS ONLY TOOLTIP
+ * ------------------------------
+ */
+
+.product-details-container
+	position relative
+
+.tooltip-memberonly
+	z-index 5
+	box-shadow 0 -10px 30px rgba(255,255,255, 1)
+
+	.tooltip-inner
+		min-width 200px
+
+	.tooltip-arrow
+		left 40%
+
+.page-saleproductdetail.modal-open
+.page-saledetail.modal-open
+	.tooltip
+		z-index 5
+
+
+
+
+
+
+
+

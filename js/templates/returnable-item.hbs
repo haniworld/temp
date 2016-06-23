@@ -1,0 +1,148 @@
+<div class="pure-g return-item-container">
+	<div class="return-item-selection pure-u-1-6 pure-u-sm-1-12">
+		<label class="checkbox checkbox--large">
+			<input type="checkbox" class="select-item" {{#if isSelected}}checked{{/if}}>
+			<span><!-- this is checkbox --></span>
+		</label>
+	</div>
+	<div class="pure-u-5-6 pure-u-sm-11-12">
+		<div class="return-item-summary pure-u-1">
+			<div class="pure-g">
+				<div class="return-item-face pure-u-1-3 pure-u-sm-1-6">
+					<div class="return-item-img">
+						<img src="{{img}}" />
+					</div>
+				</div>
+				<div class="pure-u-2-3 pure-u-sm-5-6 return-item-desc">
+					<div class="pure-g">
+						<div class="pure-u-1 pure-u-sm-1-2 return-item-prod-info">
+							<div class="brand-name"><b>{{sale-name}}</b></div>
+							<div class="return-item-name">{{product-name}}</div>
+							<div>
+								<span class="nobreak">{{variant}}</span>  {{product-code}}
+								<span class="order-detail-link nobreak">
+									(<a href="{{link}}" target="_blank" class="">注文詳細</a>)
+								</span>
+							</div>
+						</div>
+						<div class="pure-u-1 pure-u-sm-1-2 return-item-secondary-info pad-sm-r--small pad-sm-l--small">
+							<div class="display-available">
+								<div>発送日: <span class="nobreak">{{ship-date}}</span></div>
+								<div>アイテム数: {{qty}}</div>
+								<div>ご注文金額: {{price}}</div>
+								<div>お支払い方法: {{payment-type-name}}</div>
+							</div>
+							<div class="display-selected">
+								<div>返品理由: {{returnReasonText}}</div>
+								<div>返品数: {{selectedQty}}</div>
+								<div>ご注文金額: {{price}}</div>
+								<div>お支払い方法: {{payment-type-name}}</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<fieldset class="pure-g return-item-detail-wrapper hidden">
+	<div class="return-item-detail pad--small pure-g">
+		<div class="pure-u-sm-1-12"></div>
+		<div class="pure-u-sm-11-12">
+			{{#if returnable}}
+			<div class="pure-g return-detail-quantity mar-b--small">
+				<h4 class="pure-u-1 asterisk">返品するアイテム数</h4>
+				<div class="pure-u-1">
+					<div class="form-dropdown">
+						<select class="return-item-quantity" data-required="true" data-validation-message="今回返品したい数量を選択してください。">
+							<option value="">返品数を選択</option>
+							{{#each qtyOpts}}
+								<option value="{{this}}">{{this}}</option>
+							{{/each}}
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="pure-g return-detail-reasons mar-b--medium">
+				<h4 class="pure-u-1 asterisk return-reason-label-{{id}}">返品理由</h4>
+				<ul class="pure-u-1 return-reason-group return-detail-inputs-list validation-group" data-validation-message="ご返品理由をご選択してください。" data-message-attach=".return-reason-label-{{id}}" data-message-placement="right" >
+					{{#each reasons}}
+					<li>
+						<label class="radio-button">
+							<input name="return-reason-{{../id}}" type="radio" value="{{value}}" data-required="true" class="return-reason" {{checked}} />
+							<span></span>{{label}}
+						</label>
+					</li>
+					{{/each}}
+					<li>
+						<label class="radio-button">
+							<input name="return-reason-{{../id}}" type="radio" value="other" class="return-reason" /> その他の理由<span class="radio-head"></span>
+						</label>
+						<div class="pure-g return-cs-form mar-t--xsmall hidden">
+							<h4 class="pure-u-1 unreturnable-item-message mar-b--small">その他の理由の場合、こちらのフォームよりメンバー・サービス・デスクにご連絡ください。
+							</h4>
+							<form id="form-returns-cs-{{id}}" method="post" action="/json/return">
+								<div class="pure-u-1 mar-t--medium">
+									<label class="asterisk">返品を希望する理由をご記入下さい。</label>
+									<textarea name="unreturnalbe-item-description" data-required="true"></textarea>
+									<input type="hidden" name="unreturnable-cs-query" value="true" />
+								</div>
+								<div class="pure-u-1 mar-b--xsmall">
+									<input value="送信する" class="unreturnable-item-submit action" type="button" />
+									<input value="キャンセル" class="unreturnable-item-cancel action action--outline action--outline-tier-2 action--gray" type="button" />
+								</div>
+								<input type="hidden" class="return-item-quantity" id="return-item-quantity-{{../id}}" />
+							</form>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="pure-g return-detail-pledges mar-b--medium">
+				<h4 class="pure-u-1 asterisk" title="下記すべての事項にチェックを入れて下さい。">下記に同意してください</h4>
+				<ul class="pure-u-1 return-pledge-group return-detail-inputs-list">
+					{{#each pledges}}
+					<li>
+						<label class="checkbox">
+							<input id="{{../id}}-pledge-{{value}}" type="checkbox" value="{{value}}" data-required="true" {{checked}} />
+							<span></span> <span class="checkbox-label">{{label}}</span>
+						</label>
+					</li>
+					{{/each}}
+				</ul>
+			</div>
+			<div class="mar-b--xsmall return-detail-actions">
+				<input value="この商品を選択" class="return-details-ok action" type="button" />
+				<input value="キャンセル" class="return-details-cancel action action--outline action--outline-tier-2 action--gray" type="button" />
+			</div>
+			{{else}}
+			<div class="pure-g unreturnable-item-form pad--small">
+				<h4 class="pure-u-1 unreturnable-item-message pad-b--small">この商品は通常返品の対象外です。商品の欠損などの場合は、こちらのフォームからメンバー・サービス・デスクにご連絡ください。</h4>
+				<form id="form-returns-cs-{{id}}" method="post" action="/json/return">
+					<div class="pure-g return-detail-quantity">
+						<h4 class="pure-u-1 asterisk">数量</h4>
+						<div class="form-dropdown pure-u-1">
+							<select class="return-item-quantity" data-required="true" data-validation-message="今回返品したい数量を選択してください。">
+								<option value="">返品数を選択</option>
+								{{#each qtyOpts}}
+									<option value="{{this}}">{{this}}</option>
+								{{/each}}
+							</select>
+						</div>
+					</div>
+					<div class="pure-u-1 mar-t--medium">
+						<h4 class="asterisk">返品を希望する理由をご記入下さい。</h4>
+						<textarea name="unreturnalbe-item-description" data-required="true" data-validation-message="ご返品理由をご記入ください。"></textarea>
+						<input type="hidden" name="unreturnable-cs-query" value="true" />
+					</div>
+					<div class="pure-u-1 mar-b--xsmall mar-t--xsmall">
+						<input value="送信する" class="unreturnable-item-submit action" type="button" />
+						<input value="キャンセル" class="unreturnable-item-cancel action action--outline action--outline-tier-2 action--gray" type="button" />
+					</div>
+				</form>
+			</div>
+			{{/if}}
+		</div>
+	</div>
+</fieldset>
+
+

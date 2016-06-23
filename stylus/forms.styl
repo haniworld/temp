@@ -1,0 +1,434 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+@import 'bootstrap'
+
+/* FILE: forms.styl
+ * ----------------
+ * Defines form and input styles (text boxes, etc.)
+ * used throughout the application.  Forms that are
+ * edited for a specific page should appear on that
+ * page's styl file.
+ */
+
+/*
+ * validation styles
+ */
+
+.asterisk:after
+	content '*'
+	color $highlight
+
+/*
+ * Text field and input styles
+ */
+
+textarea
+input[type="text"]
+input[type="password"]
+input[type="email"]
+input[type="tel"]
+input[type="number"]
+	box-sizing border-box
+	color #555555!important
+	display inline-block
+	font-size 13px
+	min-height 18px
+	padding 0.75em 1em
+	width 100%
+	transition border 0.4s linear 0.4s, box-shadow 0.4s linear 0.4s, background-color 0.2s linear 0s
+	background-color white
+	border 1px solid $gray-medium
+	border-radius 0
+	box-shadow 0 1px 1px rgba(0, 0, 0, 0.075) inset
+
+	&:focus
+		border-color rgba($highlight, 0.8)
+		background-color white
+		outline 0 none
+
+	&.error
+		background lighten($red, 90%)
+
+/*
+ * Select Box Styles
+ */
+
+select
+	margin 0 3px 0 0
+
+
+html:not(.ie8)
+	.page-accountreturns
+	.page-accountreturnhistory
+	.page-accountrefund
+		.checkbox
+			position relative
+			overflow hidden
+			&:hover
+				cursor pointer
+				input[type=checkbox] + span
+					border-color $orange-light
+			input[type=checkbox]
+				position absolute
+				top 0px
+				left -9999px
+				& + span
+					width 22px
+					height 22px
+					background white
+					border 2px solid $gray-medium
+					box-shadow none
+					@extend .glyphicon
+					position relative
+				&:focus
+					outline 0px !important
+					-webkit-appearance none
+					-moz-appearance none
+					-ms-appearance none
+					appearance none
+				&:checked + span
+					color $white
+					background-color $orange-light
+					border 2px solid $orange
+					&:before
+						color $white
+						font-size 14px
+						@extend .glyphicon-ok:before
+						background-color $orange-light
+						display block
+						vertical-align middle
+						position absolute
+						top 50%
+						margin-top -7px
+						margin-left 2px
+				&.checkbox--large + span
+					width 26px
+					height 26px
+			&.error
+				color $red
+				input[type=checkbox] + span
+					border-color $red
+
+
+		.radio-button
+			line-height 26px
+			position relative
+			padding-left 10px
+			input[type=radio]
+				visibility hidden
+			input[type=radio] + span
+				position absolute
+				top -2px
+				left 0
+				display block
+				height 22px
+				width 22px
+				border-radius 11px
+				border 2px solid $gray-medium
+				background-color $white
+			input[type=radio]:checked + span
+				padding 1px
+				border 2px solid $highlight
+				&:before
+					content ''
+					width 14px
+					height 14px
+					position absolute
+					top 2px
+					left 2px
+					border-radius 7px
+					background-color $orange-light
+			input[type=radio]:disabled + span
+				opacity .5
+				&:before
+					background-color $gray-warm
+		.validation-group.error
+			.radio-button
+				color $red
+				input[type=radio] + span
+					border-color $red
+
+		.form-dropdown
+			display inline-block
+			position relative
+			overflow hidden
+			border 1px solid $gray-medium
+			border-radius 2px
+			transition all 0.3s ease-in-out
+
+			&:hover
+				border-color $gray-cool
+
+			&:before
+			&:after
+				content ''
+				display block
+				position absolute
+				top 50%
+				right 1em
+				height 0
+				width 0
+				border-left 5px solid transparent
+				border-right 5px solid transparent
+
+			&:before
+				border-bottom 5px solid $gray-dark
+				margin-top -6px
+
+			&:after
+				border-top 5px solid $gray-dark
+				margin-top 2px
+
+
+			select
+				-webkit-appearance none
+				padding 0.75em 6em 0.75em 1.5em
+				background-color $gray-light
+				box-shadow none
+				border 0
+				border-radius 0
+				color $default
+				transition all 0.3s ease-in-out
+				margin-right -3em
+				width 100%
+
+				&:hover
+				&:focus
+					background-color $gray-warm
+					color $black
+
+					option
+						color $gray-dark
+
+				&:hover
+					cursor pointer
+
+				&:focus
+					box-shadow 0 2px 10px rgba($highlight, 0.3)
+					outline none
+
+				&::-ms-expand
+					display none
+					outline 0
+
+				&:disabled
+				&:disabled:hover
+				&:disabled:focus
+					background-color $white
+					color $gray-cool
+					cursor default
+
+				/*
+				 * Only affects Firefox.
+				 */
+
+				option
+					border-bottom 1px solid $gray-warm
+					margin 0.5em 0
+
+			&.error
+				color $red
+				border 1px solid $red
+				select
+					background lighten($red, 90%)
+
+
+
+
+textarea
+	transition 0.4s border linear, box-shadow 0.4s linear 0.4s, background-color 0.2s linear 0s
+
+// Some types of fields aren't required to expand full width
+input.zipcode
+input.points
+input.pay
+	width auto !important
+
+
+
+/*
+ * Control group.  Styles for a label and input set.
+ */
+
+.label-star
+	color $highlight
+
+	.control-label &
+	label &
+		position absolute
+
+.control-group
+.control-group-nolabel
+.control-group-actions
+	clear both
+	clearfix()
+	margin 1em 0 0
+
+
+	&:first-child
+		margin-top 0
+
+.control-group-actions
+	margin-top 2em
+
+
+.control-label
+	font-weight bold
+	display block
+	margin 2px 0 3px
+	color $title
+
+
+.controls-radio-alt
+	margin 3px 0 0
+
+	label
+		margin 0 0 0 20px
+
+		&:first-child
+			margin-left 0
+
+.control-group
+	.hint
+		font-size em(12/14)
+		line-height em(18/12)
+		color $gray-cool
+		margin 0.5em 0
+		font-weight normal
+
+.control-group, select
+	&.error
+		color inherit
+		background lighten($red, 90%)
+
+
+
+/*
+ * Special input types.
+ */
+
+.input--stacked
+	border-top-width 0
+	display block
+
+	&:first-child()
+		border-top-width 1px
+
+
+.input--outline
+	box-shadow none
+	transition box-shadow 0.4s ease-out
+
+	&:focus
+		box-shadow inset 0 0 6px rgba($highlight, 0.5)
+
+
+/*
+ * Big Input fields
+ */
+
+textarea
+input[type="text"]
+input[type="password"]
+input[type="email"]
+input[type="tel"]
+input[type="submit"]
+input[type="number"]
+
+	&.input--large
+		padding 1em 1.25em
+		height auto
+		max-height none
+		font-size: 1em
+
+
+/*
+ * These versions of IE must show a placeholder and
+ * therefore cannot show stacked forms
+ */
+
+.ie7
+.ie8
+.ie9
+	input.input--stacked
+		border-top-width 1px
+
+
+// Prevent zooming on input
+@media only screen and (max-width: 1009px)
+
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"]
+		font-size 16px
+		box-sizing border-box
+
+	select
+		font-size 16px
+
+	//.controls
+	.control-group
+		.hint
+			font-size em(12/$mobFontSize)
+
+
+
+
+@media only screen and (min-width: 568px) and (max-width: 1009px)
+
+	// This is a temporary and hacky fix to the above restriction
+	// Should be removed when the use case for the above is found
+	// and what it possibly breaks when removed.
+	.content-section
+		textarea,
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="number"]
+			max-width 100%
+
+	.pop-up
+
+		textarea,
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		input[type="tel"],
+		input[type="number"]
+			max-width 100%
+
+
+
+
+// One column form
+@media only screen and (max-width: 567px)
+
+	textarea,
+	input[type="text"],
+	input[type="password"],
+	input[type="email"],
+	input[type="tel"],
+	input[type="number"]
+		width 100%
+
+	.control-group-nolabel
+	.control-group-actions
+		margin-left 0
+
+	.control-label
+		float none
+		margin-top 0
+		padding 0
+		width auto
+		text-align left
+
+	.controls
+		margin 0
+
+
+

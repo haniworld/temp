@@ -1,0 +1,74 @@
+/* FILE: salelist-background.styl
+ * ------------------------------
+ * Styles associated with the editable background image on the
+ * salelist page.  Removing this file will remove all added
+ * styles on other elements in the page associated with the 
+ * background image.
+ */
+
+.page-salelist
+
+	/*
+	 * Sets the available campaigns container to be position
+	 * relative so the top of the absolutely positioned
+	 * background does not appear above the beginning of
+	 * the container.
+	 */
+
+	.available-campaigns
+		padding-bottom 2em
+		position relative
+
+	/*
+	 * Height set to 100% so the background occupies the
+	 * entire space.  Overflow-y set to hidden in the
+	 * event that the available sales container is shorter
+	 * than the background.
+	 */
+
+	.salelist-bg-image
+		position absolute
+		top 0
+		left 0
+		overflow-y hidden
+		height 100%
+		width 100%
+		z-index 1
+
+		img
+			width 100%
+
+	/*
+	 * Add white background to sales container.
+	 * Add higher z-index than background.
+	 */
+
+	.available-campaigns-container
+		background-color rgba($white, 0.9)
+		padding-top 1px
+		position relative
+		z-index 2
+
+	/*
+	 * Add higher z-index than background.
+	 */
+
+	.promotion-banner
+		.promotion-banner-content
+			position relative
+			z-index 2
+
+/* ******************* *
+ * -- FIXES FOR IE8 -- *
+ * ******************* *
+ *
+ * Add background image as the background to the sales
+ * since 
+ */
+
+.ie8
+	.page-salelist
+		&.logged-in
+			.available-campaigns-container
+				background-image url($imagesPath + 'backgrounds/white-80pct.png')
+				background-repeat repeat

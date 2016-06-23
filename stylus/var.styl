@@ -1,0 +1,107 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+
+
+
+.saved-address
+	.wrap
+		border-top 1px solid $gray-medium
+		margin .5em 0
+		padding 5px 0 0
+
+
+.address-list
+	margin 0 0 -3em
+	padding 0 0 1em
+
+	.saved-address
+		margin 0 0 3em 0
+
+
+.address-actions
+	border-top 1px solid #c2c2c2
+	padding 5px 0 0
+	text-align right
+
+	li
+		display inline-block
+		margin 0 0 0 25px
+
+		&:first-child
+			margin-left 0
+
+.order-items
+	width 100%
+
+	tr
+	td
+		border-collapse collapse
+
+	th
+	td
+		border solid #c2c2c2
+
+	th
+		border-width 0 0 1px
+
+	td
+		border-width 0 1px 1px 0
+		padding 5px 10px
+
+	td:first-child
+		padding-left 0
+
+	.last
+		border-right none
+		padding-right 0
+
+	.product-image
+		width 62px
+		vertical-align middle
+		padding-left 0
+		padding-right 0
+		border-right none
+
+		img
+			display block
+
+
+td.quantity
+	text-align center
+
+td.amount
+	min-width 100px
+	text-align right
+
+
+.order-totals
+	width 100%
+
+	th
+	td
+		border none
+		padding 5px 0
+		border-top solid 1px #c2c2c2
+
+
+	tr:first-child th
+	tr:first-child td
+		border-top none
+
+
+	th
+		font-weight normal
+		text-align left
+
+	td
+		text-align right
+
+
+	.total th
+	.total td
+		font-size em(20/$defFontSize)
+		color $link
+		padding-top 10px
+
+

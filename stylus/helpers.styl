@@ -1,0 +1,47 @@
+image-replacement(src, width, height)
+	background src no-repeat left top
+	width width
+	height height
+	display block
+	text-indent -9000px
+	overflow hidden
+	text-align left
+
+
+em(size)
+	unit(size, 'em')
+
+
+
+valign-middle-parent()
+	&:before
+		content: "";
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+		margin-right: -0.25em;
+
+valign-middle-child()
+	display: inline-block;
+	vertical-align: middle;
+	zoom: 1;
+
+
+
+/* MIXIN: section-background
+ * -------------------------
+ * Takes in background and text colors and applies them
+ * to a particular section.  Allows for easier modification
+ * and control of section colors and backgrounds
+ */
+
+ /**  STILL TESTING
+section-background($bg-color: $white, $text-color: $default, $title-color: $default, $title-weight: bold)
+	background-color $bg-color
+	color $text-color
+
+	h1, h2, h3, h4, h5 h6
+		color $title-color
+		font-weight $title-weight
+
+**/

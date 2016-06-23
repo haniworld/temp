@@ -1,0 +1,88 @@
+/* jQuery Growl
+ * Copyright 2013 Kevin Sylvestre
+ * 1.2.4
+ */
+
+#growls {
+  z-index: 50000;
+  position: fixed;
+
+  &.default {
+    top: 6.5em;
+    right: 0; }
+  &.tl {
+    top: 10px;
+    left: 10px; }
+  &.tr {
+    top: 10px;
+    right: 10px; }
+  &.bl {
+    bottom: 10px;
+    left: 10px; }
+  &.br {
+    bottom: 10px;
+    right: 10px; }
+  &.tc {
+    top: 10px;
+    right: 10px;
+    left: 10px; }
+  &.bc {
+    bottom: 10px;
+    right: 10px;
+    left: 10px; }
+  &.tc .growl,
+  &.bc .growl {
+    margin-left: auto;
+    margin-right: auto; }
+}
+
+
+.growl {
+  border: 4px solid $gray-medium;
+  box-shadow: 0 5px 20px rgba($black, 0.3);
+  color: $gray-dark;
+  font-family: $font--sans-serif;
+  opacity: 0.95;
+  position: relative;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  transition: opacity 0.6s ease-in-out;
+  word-wrap: break-word;
+
+  &.growl-incoming {
+    opacity: 0; }
+  &.growl-outgoing {
+    opacity: 0; }
+  &.growl-small {
+    width: 200px;
+    padding: 10px;
+    margin: 10px; }
+  &.growl-medium {
+    width: 250px;
+    padding: 15px;
+    margin: 15px; }
+  &.growl-large {
+    width: 300px;
+    padding: 20px;
+    margin: 20px; }
+  &.growl-default {
+    color: $gray-dark;
+    background: $white; }
+
+  .growl-close {
+    cursor: pointer;
+    position: absolute;
+    padding 8px;
+    top 0;
+    right 0;
+    font-size: 10px;
+    line-height: 10px;
+    font-weight: normal;
+    font-family: helvetica, verdana, sans-serif; }
+  .growl-title {
+    font-size: 18px;
+    line-height: 24px; }
+  .growl-message {
+    font-size: 14px;
+    line-height: 18px; }
+}

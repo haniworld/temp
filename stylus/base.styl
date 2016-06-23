@@ -1,0 +1,116 @@
+@import 'variables'
+@import 'helpers'
+
+
+
+
+body
+	background white
+	font 87.5%/1.5em $font--sans-serif
+	color $default
+
+	*
+		box-sizing border-box
+
+select
+	font-size 100%
+
+a
+	color $link
+	text-decoration none
+
+	&:hover
+		color $highlight
+		text-decoration underline
+
+	&.color--highlight
+		color $highlight
+
+		&:hover
+			color darken($highlight, 20%)
+
+	&.style--underline
+		text-decoration underline
+
+em
+	font-style normal
+	color $title
+
+
+hr
+	margin 1em 0
+	border 1px solid $gray-warm
+	border-width 1px 0 0
+	clear both
+
+p
+	margin 0 0 1em
+	
+	a
+		text-decoration underline
+
+
+table
+	border-collapse separate
+	margin 1em 0
+
+	.ordernum
+	.date
+	.quantity
+	.price
+	.status
+		white-space nowrap
+
+th
+	margin 0
+	padding 0.5em
+	text-align center
+	white-space nowrap
+	color $title
+
+
+
+.tracking img
+	float left
+
+.nobreak
+	display inline-block
+
+::selection
+	background $selectionBackground
+	color $selectionText
+
+
+::-moz-selection
+	background $selectionBackground
+	color $selectionText
+
+
+::-webkit-selection
+	background $selectionBackground
+	color $selectionText
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1009px)
+
+	body
+		font-size (100/16*$mobFontSize)%
+		line-height em(22/$mobFontSize)
+		
+
+
+
+
+@media only screen and (max-width: 568px)
+
+	html
+		-webkit-text-size-adjust none
+
+
+

@@ -1,0 +1,50 @@
+/* FILE: layout-alignment.styl
+ * ---------------------------------
+ * Text and other alignment classes
+ */
+ */
+
+
+
+.align-center
+	text-align center
+
+.align-left
+	text-align left
+
+.align-right
+	text-align right
+
+
+
+.pull-right
+	float right
+
+
+/* This is a duplicate class and should be refactored */
+.text-right
+	text-align right
+
+
+@media $smallScreensQuery
+
+	.align-sm-center
+		text-align center
+
+	.align-sm-left
+		text-align left
+
+	.align-sm-right
+		text-align right
+
+
+@media $mediumScreensQuery
+	
+	.align-md-center
+		text-align center
+
+	.align-md-left
+		text-align left
+
+	.align-md-right
+		text-align right

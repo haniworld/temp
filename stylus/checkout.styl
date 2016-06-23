@@ -1,0 +1,403 @@
+@import 'shop'
+
+.taxNotice, .taxInclude
+	font-size 12px
+	color #b2b2b2
+
+.checkout-steps
+	margin 0 0 2em
+	font-size em(16/$defFontSize)
+	text-align center
+
+	li
+		background url(/static/images/v2/arrow_grey.gif) no-repeat right
+		display inline-block
+		margin 0 25px 0 0
+		padding 0 36px 0 0
+
+	.last
+		background none
+		margin-right 0 !important
+		padding-right 0 !important
+
+	.active_true
+		color $highlight
+
+.basket-countdown
+	margin 0 0 4em
+	text-align left
+
+.basket-countdown-wrap
+	background url(/static/images/v2/clock_cart.gif) no-repeat left center
+	padding 0 0 0 40px
+	min-height 40px
+	display inline-block
+
+
+
+.checkout-step-title
+	margin 0 auto 1em
+	text-align center
+	clear both
+
+
+.retail-price
+	text-decoration line-through
+
+.coupon-select
+	margin 4em 0 1em
+
+.couponcode-input
+	margin 10px 0 0
+
+
+.order-items
+	.product-image
+		width 62px
+		vertical-align middle
+		padding-left 0
+		padding-right 0
+		border-right none
+
+		img
+			display block
+
+	.product-name
+		font-size em(13/$defFontSize)
+		line-height em(18/13)
+
+
+	.quantity
+		width 75px
+
+	.empty
+		border-width 0
+
+
+
+/*
+ * SSL Seal next to submit button.
+ */
+
+.actions
+	.ssl-seal
+		height 3.1em
+		margin-right 1.75em
+		vertical-align bottom
+
+
+
+
+
+
+.saved-address
+	margin 0 0 2em
+
+
+
+.about-checkout
+	width 100%
+	font-size em(12/$defFontSize)
+	line-height em(18/12)
+
+	section
+		background #eee
+		margin 0 0 2em
+		padding 10px
+
+	ul
+		padding 0 0 0 16px
+		list-style disc
+
+
+
+#selectpayment
+#payment
+	margin 3em 0 2em
+
+
+.paymenttype
+	height 25px
+	margin 0 0 0 10px
+	vertical-align middle
+
+
+.creditcard-infos
+	margin 1em 0
+
+.creditcard-verificationcode
+	width auto !important
+
+#paidy-explanation
+	box-sizing border-box
+	border 3px solid darken($gray-light, 6%)
+	display none
+
+	*
+		box-sizing border-box
+
+	ol li
+		margin-top 1.5em
+
+	.step-number
+		border 2px solid #cacaca
+		border-radius 1.25em
+		color #cacaca
+		font-family $font--sans-serif
+		font-weight 500
+		line-height 2.25em
+		margin-right 1.5em
+		width 2.5em
+		height 2.5em
+		text-align center
+
+	.explanation-text
+		vertical-align middle
+
+#selectpayment
+	.control-group.radio
+		margin-bottom 1em
+
+
+
+/* ************************************* *
+ * -- PAYMENT CONFIRMATION FINAL PAGE -- *
+ * ************************************* *
+ */
+
+/*
+ * This section contains styles to position a
+ * lock icon above the submit button.  This
+ * is currently commented out as the lock icon
+ * to use is under debate.
+ */
+
+/* *************
+
+#paymentcontrol
+	position relative
+
+	#checkoutSubmit
+		padding-left 3em
+
+	.checkoutSubmit-icon
+		color $white
+		position absolute
+		top 0.9em
+		right 9em
+		pointer-events none
+
+		.page-shopcheckoutorderdetails &
+			right 6em
+
+* ************** */
+
+
+.paidy-selected
+	#checkoutSubmit
+		display none
+
+	.checkoutSubmit-icon
+		display none
+
+/*
+ * Dialog that appears after Paidy submission.
+ */
+
+#processing-dialog.pop-up
+	position fixed
+	top 20%
+
+	&:hover
+		cursor default
+
+.agreement-acceptance
+	display block
+	padding 1em 10px 1em 10px
+	background $gray-warm
+
+
+
+
+/* ************************* *
+ * --- CONFIRMATION PAGE --- *
+ * ************************* *
+ *
+ * Styles for the final order confirmation page.
+ */
+
+
+/*
+ * Animations
+ */
+
+@keyframes message-entrance
+	0%
+		box-shadow 0 1px 3px rgba(0,0,0,0.1)
+		opacity: 0
+		transform: scale(0.95)
+
+	100%
+		box-shadow 0 10px 30px rgba(0,0,0,0.25)
+		opacity: 1
+		transform: scale(1)
+
+/*
+ * Styles
+ */
+
+.final
+	.status-message-box
+		padding 4em 2em
+
+		h1
+			font-size 1.6em
+			font-weight bold
+			letter-spacing 0.5px
+			line-height 1.4em
+			margin-bottom 0.25em
+		p
+			font-size 1em
+
+		small
+			font-size 0.85em
+
+		strong
+			font-weight bold
+
+	.actions
+		text-align center
+
+	.actions--tier-2 a
+		margin 0.5em 0
+
+	.actions-final
+		padding 0 2em
+
+		li
+			display block
+			width 100%
+
+
+
+
+
+
+
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ *
+ * The existing styles take a non-mobile-first
+ * approach.  The first set of media queries
+ * here are from the new mobile-first approach.
+ *
+ * Eventually all styles on the site will need
+ * to be rewritten to accommodate this.
+ */
+
+
+@media $mediumScreensQuery
+	.final
+		.status-message-box
+			box-shadow 0 10px 30px rgba(0,0,0, 0.25)
+			animation message-entrance 1.5s ease-out 1 forwards
+
+		.actions-final
+			padding 0
+
+			.action
+				width auto
+
+
+
+
+
+@media only screen and (max-width: 1009px)
+
+	// Adjust fonts
+	.checkout-steps
+		font-size em(14/$mobFontSize)
+
+	.about-checkout
+		font-size em(12/$mobFontSize)
+
+
+
+
+@media only screen and (max-width: 959px)
+
+	.checkout-steps
+		li
+			margin-right 15px
+			padding-right 26px
+
+	// One column layout
+	.countdown-addresses
+		float none
+
+
+	.basket-countdown
+		line-height 40px
+		margin-bottom 2em
+		font-size .8em
+		line-height 2em
+
+	.about-checkout
+		font-size 1em
+
+
+
+
+@media only screen and (max-width: 719px)
+
+	// Hide steps and show page title instead
+	.checkout-steps
+		display none
+
+	// Show lite countdown below header
+	.basket-countdown
+		text-align center
+		font-size em(12/$mobFontSize)
+		line-height inherit
+		padding 2px 0
+		background $gray-warm
+		max-width 1000px
+
+	.basket-countdown-wrap
+		background none
+		padding 0
+		min-height 0
+
+
+@media only screen and (max-width: 479px)
+
+	// Make bag items list smaller
+	.order-items
+		font-size em(12/$mobFontSize)
+		line-height em(16/12)
+
+		.product-name
+			font-size 1em
+			line-height inherit
+
+		.quantity
+			width auto
+
+			select
+				display block
+				margin 0 auto .5em
+
+	// Make billing/shipping addresses smaller
+	.addresses .saved-address .wrap
+		font-size em(12/$mobFontSize)
+		line-height em(16/12)
+
+
+
+
+
+
+

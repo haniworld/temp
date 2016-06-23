@@ -1,0 +1,90 @@
+/* FILE: banner-list
+ * -----------------
+ * Styles for banner list (mainly used by the sale component).
+ * A banner list is a general list of clickable
+ * banners in rows.
+ */
+
+.banner-list {}
+
+.banner-block
+	font-size 1.1em
+	a
+		position relative
+		display block
+
+	img
+		display block
+		width 100%
+
+		/* This is loaded for Chrome.
+		 * Other replacement images are handled directly in the
+		 * source via an onerror property call.
+		 */
+
+		&.has-no-image
+			content url($imagesPath + 'banner-defaults/no-image.gif')
+
+	.block-info
+		position absolute
+		top 0
+		left 0
+
+		background-image linear-gradient(bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.04) 62%, rgba(0,0,0, 0) 100%)
+		color $white
+		font-family $font--serif
+		font-style italic
+		font-weight normal
+		height 100%
+		width 100%
+		overflow hidden
+		text-align center
+		text-shadow 0 1px 1px rgba(0,0,0,0.5)
+
+		/* IE9 doesn't support CSS gradients, so use an image instead */
+		.ie9 &
+			background-image url($imagesPath + 'backgrounds/black-gradient.png')
+			background-size cover
+
+	.block-info-content
+		position absolute
+		bottom 10%
+		width 100%
+
+	.block-title
+		letter-spacing 2px
+		font-weight 500
+		font-family $font--sans-serif
+		font-style normal
+		text-align center
+		text-transform uppercase
+
+	&:focus
+	&:hover
+		a
+			text-decoration none
+
+
+/* ----- TOUCH/NO-TOUCH STYLES ----- */
+
+.no-touch
+	.block-info-content
+	.block-info
+	.extra-info
+		transition all 0.5s ease
+
+	.banner-block
+		&:hover
+			cursor pointer
+
+			.block-info
+				background-color rgba(black, 0.5)
+
+
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+

@@ -1,0 +1,280 @@
+/* FILE: sem.styl
+ * --------------
+ * Styles specific to the SEM page.  Some of these
+ * styles can be generalized and reused throughout the
+ * site.
+ */
+
+
+/* GENERAL CLASSES
+ * ---------------
+ * General classes on the page that should be moved to
+ * different files at a later time.
+ */
+
+
+.image-header
+	background-position center 10%
+	background-repeat no-repeat
+
+.image-header-content
+	background-color rgba(0,0,0,0.6);
+	color $white
+	padding 8em 0
+	transition padding 0.4s ease
+
+.image-header-content-title
+
+	h4
+		font-size 0.9em
+		letter-spacing 1px
+		text-transform uppercase
+	h1
+		font-size 2em
+		line-height 1.2em
+		letter-spacing 1px
+
+		.countdown
+			font-size 1.75em
+			line-height 1.12em
+
+
+
+.other-sales-list
+	.campaign-list li
+		display none
+
+	ul.genre-menu
+		font-weight 300
+		letter-spacing 1px
+		margin-bottom 1em
+		text-align center
+		text-transform uppercase
+
+		white-space nowrap
+		overflow-y hidden
+		overflow-x scroll
+		-webkit-overflow-scrolling touch
+
+		li
+			display inline
+
+			a
+				color $gray-medium
+				display inline-block
+				position relative
+				padding 0 5px
+				margin 0 0.5em
+
+				&:hover
+					color $gray-dark
+					text-decoration none
+
+				&.active
+					color $gray-dark
+					border-bottom 3px solid $highlight
+
+	#current-sales .sale-block,
+	.sale-block
+		margin-left 0
+		padding 0 5px
+		width 100%
+
+		.sale-banner
+			height auto
+			width 100%
+
+		.date
+			color $gray-medium
+
+
+
+
+/* SEM-SPECIFIC CLASSES
+ * ---------------------
+ * Classes unique to the SEM pages.
+ */
+
+
+/* UNIQUE SEM HEADER */
+
+#header.sem-header
+	padding 1.5em 0 1em
+	border-bottom 1px solid $gray-warm
+
+	.sitename
+		padding 0
+
+	.sem-header-nav
+		margin-top 1em
+		text-align center
+
+		li
+			display inline-block
+			margin-left 1.5em
+			padding-left 1.5em
+			vertical-align middle
+
+			&:first-child
+				border-left 0
+				margin-left 0
+				padding-left 0
+
+.page-branddetail
+
+	/*
+	 * REGISTRATION SECTION
+	 */
+
+	.registration-section
+		.registration-section-text
+			.registration-text-title
+				font-size 3.5em
+				letter-spacing 1px
+				margin-top 0.1em
+				margin-bottom 0.1em
+			.timer-title
+				font-size 1.1em
+				font-family $font--sans-serif
+				font-weight bold
+				letter-spacing 2px
+
+
+.sem-about-site
+	.about-site-title
+		color $gray-dark
+		font-family $font--serif
+		font-size 3.25em
+		line-height 1em
+		margin-bottom 0.2em
+		text-transform none
+
+	.about-site-point-title
+		font-family $font--serif
+		text-transform none
+
+.sem-product-list
+
+	.lazy-loading
+		display none
+
+	.more-products
+		width 100%
+		font-family $font--serif
+		letter-spacing 1px
+		text-align center
+		text-transform uppercase
+		position relative
+		transition all 0.3s ease-in-out
+
+		&:before, &:after
+			position absolute
+			content ""
+			width 0px
+			height 0px
+			border-top 1em solid $gray-medium
+			border-right 1.75em solid transparent
+			border-left 1.75em solid transparent
+			bottom -30px
+			right 50%
+			margin-right -1.75em
+
+		&:after
+			border-top-color #FFF
+			bottom -29px
+
+		&:hover
+			cursor pointer
+			color $highlight
+
+			&:before
+				border-top-color $highlight
+
+.sem-product-page-container
+	#product-page-register-action
+		width 100%
+
+
+
+/* ************************* *
+* --- RESPONSIVE STYLES --- *
+* ************************* *
+*/
+
+
+/* Overrides large space at bottom of product-shopping
+ * container.
+ */
+
+@media only screen and (max-width: 720px)
+	.sem-product-page-container
+		.product-shopping
+			min-height 0
+			padding-bottom 2em
+
+
+
+/* Other media queries */
+
+@media $xsmallScreensQuery
+	.page-branddetail:not(.logged-in)
+		#main
+			padding-top 3.1em
+
+
+@media $mediumScreensQuery
+
+	.page-branddetail:not(.logged-in)
+		#main
+			padding-top 0
+
+	.image-header
+		background-size cover
+
+	.other-sales-list
+		ul.genre-menu
+			white-space nowrap
+			overflow-x visible
+			-webkit-overflow-scrolling touch
+
+			li a
+				transition all 0.3s ease-in-out
+
+	#header.sem-header
+
+		.sem-header-content
+			-webkit-align-items center
+			align-items center
+
+		.sem-header-nav
+			margin-top 0
+			text-align right
+
+			li
+				border-left 1px dotted $gray-medium
+
+	.page-branddetail
+		.registration-section
+			.registration-section-text
+				.registration-text-title
+					font-size 4em
+
+	.sem-product-page-container
+		#product-page-register-action
+			margin-top 2em
+			width auto
+
+@media $largeScreensQuery
+	.image-header-content
+		padding 10em 0
+
+	#header.sem-header
+		padding 2em
+
+@media $xlargeScreensQuery
+	.image-header
+		background-size 1750px auto
+
+	.image-header-content
+		padding 14em 0
+

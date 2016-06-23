@@ -1,0 +1,254 @@
+/* FILE: specialsale.styl
+ * ----------------------
+ * Styles for special sale page, which contains a countdown and
+ * a list of promotional sales for users with the link to the
+ * promotion.  This page makes use of the csswizardry grid for
+ * easier layout.  This file is loaded by the shop.styl stylesheet.
+ */
+
+@import 'helpers'
+
+
+/* *************************************** *
+ * ------- PAGE-SPECIFIC VARIABLES ------- *
+ * *************************************** *
+ *
+ * Variables that only apply to the special sale page
+ */
+
+$titleSize = 20px
+$titleSize-Section = 24px
+$specialSaleImagesPath = $imagesPath + 'earlyaccess/diners/'
+$specialSaleLogoWidth = 366px
+$specialSaleLogoHeight = 31px
+
+$bannerHeightMobile = 493px
+$bannerHeightDesktop = 430px
+
+
+/* *************************************** *
+ * ------------- PAGE STYLES ------------- *
+ * *************************************** *
+ *
+ * Specific page styles.  Items are nested to the level where they can be
+ * replicated in other pages if necessary.
+ */
+
+
+
+// ---- GENERAL STYLES ----- //
+
+.special-sale-header
+	width 100%
+	height $bannerHeightMobile
+	background-image url($specialSaleImagesPath + 'header-m.jpg')
+	background-position left top
+	background-size cover
+	background-repeat no-repeat
+	position relative
+
+	.countdown
+		color white
+		font-size 38px
+		font-weight bold
+		position absolute
+		top 50%
+		margin-top -25px
+		width 100%
+		text-align center
+
+		&:before
+			content 'セール開始まで'
+			font-size 14px
+			font-weight normal
+			display block
+			text-align center
+			margin-bottom 0.5em
+
+	.special-sale-logo
+		image-replacement(url($specialSaleImagesPath + 'sale-logo.png'), $specialSaleLogoWidth, $specialSaleLogoHeight)
+		background-size 90%
+		background-position center center
+
+		//width 100%
+		max-width 100%
+		position relative
+		top 20px
+		margin auto
+
+
+
+.special-sale-summary
+	padding-right 1em
+	padding-left 1em
+	margin-top 3em
+	margin-bottom 3em
+
+
+.special-sale-extra-info
+	box-sizing border-box
+	margin-top 2em
+
+	h2
+		color $gray-dark
+		font-weight bold
+		margin-bottom 0.75em
+
+	.special-sale-extra-info-image
+		text-align center
+
+	.special-sale-extra-info-text
+		padding-left 1em
+
+
+.special-sale-item
+	margin-bottom 2.5em
+
+	.special-sale-image
+
+		img
+			display block
+			width 100%
+			transition all 0.35s ease-in-out
+
+	.special-sale-link
+		&:hover
+			img
+				opacity 0.5
+				cursor pointer
+
+	&.closed
+
+		.special-sale-image
+
+			.image-wrapper
+				background-color $black
+				position relative
+
+				&:before
+					content 'このセールは終了しました'
+					display block
+					position absolute
+					top 50%
+					left 0
+					width 100%
+					text-align center
+					color $white
+					font-size 16px
+					margin-top -8px
+					z-index 10
+
+
+				img
+					opacity 0.4
+
+		/* Alternate way to hide unneeded items in the list */
+		/* Commented out for now
+
+		.special-sale-list--hideClosed &:nth-child(n+6)
+			display none
+
+		**** end of comment */
+
+
+.special-sale-description
+	padding 1.5em 1em 1em
+
+	.special-sale-title
+		font-family $font-title
+		font-size $titleSize
+		font-weight bold
+		color $gray-dark
+		text-transform uppercase
+		border-bottom 1px solid $gray-dark
+		padding-bottom 0.75em
+		margin-bottom 0.75em
+
+	.special-sale-date
+		font-size 90%
+		text-align right
+
+
+.additional-sales
+	margin-top 8em
+	background-color #f5f5f5
+	padding 115px 0
+
+	h2
+		margin-bottom 2em
+		border-bottom 1px solid $gray-medium
+		color $gray-dark
+		font-family $font-title
+		font-size $titleSize-Section
+		font-weight bold
+		padding-bottom 1em
+		text-align center
+		text-transform uppercase
+
+
+.additional-sales-see-more
+	text-align center
+
+	.action
+		margin-top 0
+		border-width 1px
+		font-weight normal
+
+
+
+
+
+
+
+/* ************************* *
+ * --- RESPONSIVE STYLES --- *
+ * ************************* *
+ *
+ * Styles are organized in a mobile-first manner.  The styles
+ * from this point only apply to larger screens and are also
+ * replicated for versions of IE that don't support media
+ * queries in the ie7-8.styl file.
+ */
+
+
+@media $mediumScreensQuery
+
+	.special-sale-header
+		height $bannerHeightDesktop
+		background-image url($specialSaleImagesPath + 'header.jpg')
+
+		.special-sale-logo
+			position relative
+			top 20px
+			margin-left 20px
+			background-size 100%
+
+		.countdown
+			font-size 60px
+			margin-top -40px
+
+			&:before
+				margin-bottom 1em
+
+	.special-sale-content-wrap
+		max-width 1200px
+		margin 0 auto
+		padding 0 2em
+
+	.special-sale-extra-info
+		padding-left 2em
+		margin-top 0
+
+		.special-sale-extra-info-image
+			text-align right
+
+	.special-sale-description
+		padding-left 2em
+		padding-top 1em
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2)
+
+	.special-sale-header
+
+		.special-sale-logo
+			background-image url($specialSaleImagesPath + 'sale-logo-x2.png')

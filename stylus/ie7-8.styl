@@ -1,0 +1,893 @@
+@import 'nib'
+@import 'variables'
+@import 'libraries/grid-responsive-old-ie'
+@import 'libraries/grid-responsive-extensions-old-ie'
+@import 'libraries/layout-alignment-old-ie'
+@import 'libraries/layout-margins-old-ie'
+@import 'libraries/layout-padding-old-ie'
+@import 'libraries/layout-line-breaks-old-ie'
+@import 'libraries/scroll-old-ie'
+@import 'pages/shopping-guide-old-ie'
+
+
+body
+input
+select
+	font-family "ＭＳ Ｐゴシック", sans-serif
+
+select
+	padding 3px
+
+
+#main
+	padding-top 0
+
+	.page-saleproductdetail &
+		padding-top 0
+
+
+// No alpha support :/
+.navigation.fixed
+#header .account-nav
+#main-nav .category-submenu
+	background white
+
+.navigation.fixed
+	border-bottom 1px solid #aeaeae
+
+
+
+
+/* ----- WRAPS ----- */
+
+.narrow-wrap
+	padding-left 0
+	padding-right 0
+
+.wide-wrap
+	margin-left auto
+	margin-right auto
+	max-width $largerScreens
+
+.medium-wrap
+	margin-left auto
+	margin-right auto
+	max-width 1000px
+
+
+/* ------ FORMS --- */
+.checkbox
+	&.error
+		input[type=checkbox]
+			outline 2px solid lighten($red, 90%)
+
+
+/* ---- OTHERS ---- */
+
+.border-header
+	margin 2em 0
+	h1
+		font-size 1em
+
+.banner--contain
+	height 350px
+
+
+#category-mast .highlights
+	border 1px solid #eee
+
+
+#backtotop
+	background-color $gray-cool
+	border 1px solid darken($gray-cool, 30%)
+
+
+
+
+.modal
+	border 1px solid $gray-warm
+
+
+.display--desktop-only
+	display block
+
+.display--mobile-only
+	display none
+
+.border-box-text
+	.headline
+		font-size 1.25em
+		letter-spacing 5px
+
+
+
+
+/* ****************************** *
+ * ----------- ICONS ------------ *
+ * ****************************** *
+ */
+
+.mp-icon-x
+
+	/* ROTATE FOR IE6, IE7 */
+	filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"
+
+	/* ROTATE FOR IE8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Matrix(SizingMethod='auto expand', M11=0.7071067811865476, M12=-0.7071067811865475, M21=0.7071067811865475, M22=0.7071067811865476)"
+
+	/* Remove border from icon because it turns the
+	 * shape into a diamond which doesn't look good
+	 */
+	&.mp-icon-circle
+		border 0
+
+
+
+/* **************************** *
+ * -------- OVERLAYS ---------- *
+ * **************************** *
+ */
+
+.overlay
+	background-color transparent
+	background-image url($imagesPath + 'backgrounds/white-80pct.png')
+
+	&.overlay--black
+		background-color transparent
+		background-image url($imagesPath + 'backgrounds/black-60pct.png')
+
+	&.overlay--gray
+		background-color transparent
+		background-image url($imagesPath + 'backgrounds/gray-74pct.png')
+
+
+/* ******************************* *
+ * ----------- HEADER ------------ *
+ * ******************************* *
+ */
+
+#header
+	position relative
+
+	.site-header
+		line-height 1
+		padding-top 1.75em
+
+	#account-menu
+		.menu-text:before
+			display inline-block
+
+	.sitename
+		img
+			width $logoWidth
+			height auto
+
+	.navigation
+		box-shadow none
+
+	#category-nav
+		font-size 0.9em
+
+	.bag-infos
+		.countdown-amount
+			position static
+			height auto
+			bottom auto
+			right auto
+			overflow visible
+			text-align left
+
+		.countdown-amount-content
+			position static
+			animation none
+
+	.header-previous-level-link
+		display none
+
+	.bag-contents
+		opacity 1
+
+	.login-menu
+		.signup-link
+		.login-link
+			padding 5px 10px
+			border-radius 2px
+			border 1px solid $highlight
+			color $highlight
+			line-height 1em
+			font-weight normal
+			transition 0.3s all ease-in-out
+
+			&:hover
+				background-color darken($highlight, 10%)
+				border-color darken($highlight, 20%)
+				color $white
+
+		.signup-link
+			background-color $highlight
+			border-color $highlight
+			color $white
+
+
+#shop-menu
+	height auto
+
+	#category-nav
+		position static
+
+		.sale-category
+			position static
+			border-bottom-style none
+
+			> a
+				color $gray-cool
+				padding 0.25em 1em 0 1em
+
+				&.invite-friend
+					color $highlight
+					font-weight normal
+
+			&.selected:after
+				content none
+
+/* show category menus */
+.page-saledetail
+.page-saleproductdetail
+	#shop-menu
+		#category-nav
+			display block
+		#sales-nav
+		#products-nav
+			display none
+
+
+/* *********************************** *
+ * ---------- ACCOUNT MENU ----------- *
+ * *********************************** *
+ */
+
+#account-menu-pane
+	left -($account-menu-width)
+	width $account-menu-width
+
+	li
+		text-align left
+		border-bottom 1px solid $gray-warm
+
+	li.menu-group
+		text-align center
+		border-bottom none
+
+body.menu-open
+	overflow-y scroll
+
+	#account-menu-pane
+		left 0
+	#page
+		left $account-menu-width
+
+/* *********************************** *
+ * ---------- CATEGORY MENU ----------- *
+ * *********************************** *
+ */
+
+#shop-menu #category-nav .sale-category
+	position static
+	padding 1em
+	border-bottom-style none
+
+	&.selected:after
+		content none
+
+	&:hover
+		a
+			text-decoration none
+			color $gray-dark
+		.category-submenu
+			top auto
+
+	.category-submenu
+		display block
+		position absolute
+		top -1000px
+		background rgba(#fff, 1)
+		border-top 1px solid $gray-warm
+		font-size 0.8em
+		overflow hidden
+		padding 2em 0 5em
+		width 100%
+		white-space nowrap
+		z-index -2
+
+		ul li
+			display inline-block
+
+
+/* *********************************** *
+ * --------- IMAGE HEADER ------------ *
+ * *********************************** *
+ *
+ */
+
+.image-header-content
+	background-image url($imagesPath + 'backgrounds/black-60pct.png')
+	background-repeat repeat
+
+
+
+
+/* ************************* *
+ * --------- NAGBAR -------- *
+ * ************************* *
+ */
+
+.nagbar
+	font-size 1em
+
+	.action
+		font-size 1em
+
+	h2
+		margin-bottom 0.75em
+
+	p.nag-text
+	.nagbar-action
+		max-height 10em
+
+	&.nagbar-open
+		padding-top 1em
+
+		.nagbar-close
+			display none
+
+	/* Show the nagbar on certain pages */
+	.page-saledetail &
+	.page-saleproductdetail &
+		display block
+
+/*
+ * And the nag button.
+ */
+
+.nagbutton
+	display none
+
+	/*
+	 * Hide the nagbutton from all pages it appears on
+	 * on larger screens
+	 */
+
+	.page-salelist &
+	.page-saledetail &
+	.page-saleproductdetail &
+	.page-branddetail &
+		display none
+
+
+
+/* ********************************* *
+ * --------- EDITORIALS ------------ *
+ * ********************************* *
+ *
+ */
+
+.page-salelist
+	.editorial
+		.editorial-slide
+			opacity 0.1
+			transition opacity 0.5s ease
+
+			&.slick-center
+				opacity 1
+
+		&.is-single-slide
+			.editorial-slide
+				float none /* Cancel out slick styles */
+				margin-right auto
+				margin-left auto
+				opacity 1
+
+/* For sale detail page */
+.editorial
+	margin-right 2em
+	.editorial-text
+		.editorial-text-title
+			font-size 3.5em
+			line-height 1.1em
+		.editorial-text-content
+			font-size 1em
+			line-height 1.9em
+
+/* ************************* *
+ * ------ BANNER LIST ------ *
+ * ************************* *
+ */
+
+.banner-block
+	.block-info
+		background-image url($imagesPath + 'backgrounds/black-gradient.png')
+		background-repeat repeat-x
+
+	&:hover
+		.block-info
+			background-image url($imagesPath + 'backgrounds/black-60pct.png')
+			background-repeat repeat
+
+
+/* ********************************** *
+ * ----------- SALE LIST ------------ *
+ * ********************************** *
+ *
+ */
+
+.sale-list
+
+	.banner-block
+		font-size 1.05em
+
+		&.pure-u-md-1-3
+			font-size 1em
+			line-height 1.2em
+
+		&.pure-u-md-1-4
+			font-size 0.95em
+			line-height 1.1em
+
+		.block-info
+			font-size 0.9em
+
+		&:hover
+			.sale-banner-overlay
+				background-image url($imagesPath + 'backgrounds/black-30pct.png')
+
+	&.sale-list-early-access
+		text-align center
+
+	&.sale-list-upcoming
+		padding-left 1em
+		padding-right 1em
+
+		.banner-block
+			padding 4px
+			font-size 90%
+
+
+
+/*
+ * Hide 'New' and 'Last Day' labels in
+ * IE8, because IE8 can't display them
+ * properly. Do this until a proper
+ * solution is found.
+ */
+
+.banner-block
+	.sale-new
+	.sale-end
+	.sale-presale
+		.block-image-container:after
+			content ''
+			display none
+
+
+/* ---- SHOPPING GUIDE BANNER ---- */
+
+.page-salelist
+	.shopping-guide-banner.all
+		background-image url($imagesPath + '/shopping-guide/salelist-banner/banner-bag-bg.jpg')
+		background-position center center
+
+
+
+
+/* ********************************* *
+ * --------- PRODUCT LIST ---------- *
+ * ********************************* *
+ *
+ */
+
+
+.product-filters
+	label
+		&.size-filter-select
+		&.category-filter-select
+			font-size 14px
+
+#product-list
+	.priceretail,
+	.priceshop,
+	.taxInclude
+		display inline-block
+		margin-bottom 0
+
+	.inmemberscart
+	.soldout
+		background-color $white
+
+	.product-details
+		padding 1em 0.5em 0.5em
+
+	.product-preview
+		.product-name
+			margin-top 0
+
+		img
+			max-height 432px
+
+		&:hover
+			img
+				border-color $gray-medium
+
+			.priceshop
+				color $highlight
+
+			.product-name
+				color $black
+
+
+
+/* ********************************* *
+ * --------- PRODUCT PAGE ---------- *
+ * ********************************* *
+ *
+ */
+
+.product-shopping-info
+	.product-shopping-info-wrap
+		max-width none
+
+
+.product-gallery-image
+	padding-bottom 0
+
+	img
+		max-height 550px
+		max-width 100%
+
+	.zoom-activate
+		display none
+
+	.zoomPad
+		display inline-block
+
+	.zoomWrapper
+		border-width 1px
+
+
+.product-description
+	table
+		overflow-x scroll
+
+.product-gallery
+    .editorial-slider
+		.slick-prev,
+		.slick-next
+			height 40px
+			width 40px
+			margin-top -20px
+
+		.slick-prev:before,
+		.slick-next:before
+			font-size 40px
+
+.product-detail p
+.size-guide-display-content
+	font-size 0.8em
+
+
+/*
+ * Tables can't scroll in IE8, so make the table's fit
+ * the width of the container.
+ */
+
+.mp-product-description-table
+	display table
+	white-space normal
+
+	th
+	td
+		min-width 0
+		word-wrap break-word
+
+
+/*
+ * This has to be made very specific or it doesn't work
+ */
+
+.no-touch
+	.product-gallery
+		.hasZoomActivated
+			button.slick-prev
+			button.slick-next
+				visibility visible
+			.slick-dots
+				visibility visible
+
+
+/* *********************************** *
+ * ----------- BRAND LIST ------------ *
+ * *********************************** *
+ *
+ * Styles for the brand list.
+ */
+
+.brand-list-items
+		text-align right
+
+	.brand-list-category
+		max-height 4.5em
+
+		h3
+			text-align left
+			margin-left 0
+
+		&:hover
+			h3:before
+				color $highlight
+
+
+
+
+/* *********************************** *
+ * ----------- SIDEBAR NAV ----------- *
+ * *********************************** *
+ *
+ * Sidebar Navigation.
+ */
+
+.sidebar
+	width 170px
+
+
+/* ********************************** *
+ * ---- LOGIN / SIGNUP COMPONENT ---- *
+ * ********************************** *
+ */
+
+.login-signup
+	.narrow-wrap
+		.modal &
+			padding-left 2em
+			padding-right 2em
+
+	.control-group
+		&.gender
+			label
+				margin-right 2em
+
+		&.birthdate
+			label
+				&:after
+					padding-right 1em
+	.social-login
+		.pure-u-1
+			margin-bottom 0
+
+		.grid-1st
+			padding-right 2px
+
+		.grid-2nd
+			padding-left 2px
+
+
+
+/* ****************************** *
+ * ---- REGISTRATION IN PAGE ---- *
+ * ****************************** *
+ */
+
+.registration-section
+
+	.registration-section-container
+		background-image url($imagesPath + 'backgrounds/black-60pct.png')
+		background-repeat repeat
+
+	.registration-section-text
+
+		&.pure-u-md-1-2
+			padding-right 20px
+
+		.registration-text-title
+			font-size 3em
+
+		.registration-text-body
+			font-family $font--sans-serif
+			font-size 1.2em
+			line-height 2em
+
+	.registration-section-form
+		&.pure-u-md-1-2
+			padding-left 5px
+
+	.registration-section-form-content
+		border 7px solid $gray-medium
+		padding 0 2em 2em 2em
+
+	/* SPECIFIC STYLES FOR THE SALELIST */
+	.page-salelist &
+		background-image url($imagesPath + 'backgrounds/boutique/boutique-bg.jpg')
+
+
+
+/* *********************************** *
+ * ---- SPECIAL SALE LANDING PAGE ---- *
+ * *********************************** *
+ *
+ * These styles are for the special landing page
+ * created for special event sales.
+ */
+
+.special-sale-header
+	background-image url($imagesPath + 'earlyaccess/diners/header.jpg')
+	height 430px
+
+.additional-sales
+	.sale-block
+		border 0
+
+		&:hover
+			border 0
+
+
+
+/* ******************************* *
+ * --------- SEM PAGES ----------- *
+ * ******************************* *
+ *
+ * Applying the larger screen media queries.
+ */
+
+.other-sales-list
+	ul.genre-menu
+		white-space nowrap
+		overflow-x visible
+
+#header.sem-header
+	padding 2em
+
+	.sem-header-content
+		-webkit-align-items center
+		align-items center
+
+	.sem-header-nav
+		margin-top 0
+		text-align right
+
+		li
+			border-left 1px dotted $gray-medium
+
+.sem-product-list
+	#product-list
+		.product-preview
+			border 0
+
+.sem-product-page-container
+	#product-page-register-action
+		margin-top 2em
+		width auto
+
+.page-branddetail
+	.registration-section
+		.registration-section-text
+			.registration-text-title
+				font-size 4em
+
+
+
+/* ******************************* *
+ * -------- RETURNS PAGE --------  *
+ * ******************************* *
+ *
+ * Returns interface within the account area.
+ */
+
+#return-after-submission
+	.arrow
+		display inline-block
+
+.return-item
+	.return-item-container
+		padding-bottom 30px
+	.return-item-face .return-item-img
+		margin-top 0
+		top 0
+	.return-item-secondary-info
+		padding-top 0
+
+.return-request-item .request-item-detail .return-request-product .return-item-face .return-item-img
+	margin-top 0
+	top 0
+
+
+
+
+/* **************************************** *
+ * ------- ORDER CONFIRMATION PAGE -------- *
+ * **************************************** *
+ *
+ * Styles for the confirmation page.  These are the styles
+ * applied on in the desktop scenario.
+ *
+ */
+
+.final
+	.actions-final
+		padding 0
+
+		.action
+			width auto
+
+
+
+
+/* ********************************** *
+ * ----- FREE SHIPPING CAMPAIGN ----- *
+ * ********************************** *
+ */
+
+
+/*
+ * HEADER
+ */
+
+.campaign-header.free-shipping-header
+	.free-shipping-header-text
+		h3
+			font-size 1.2em
+
+
+/*
+ * CHECKOUT
+ */
+
+.page-shopcheckoutconfirmation
+	.freeshipping-countdown
+		padding 2em
+
+		h1.freeshipping-title
+			margin 1em
+			font-size 1.2em
+
+/*
+ * CAMPAIGN PAGE
+ */
+
+.page-freeshipping
+	#main
+		background-image url($imagesPath + $campaignsPath + 'freeshipping/top-banner/background-banner-women.jpg')
+
+		&.user-male
+			background-image url($imagesPath + $campaignsPath + 'freeshipping/top-banner/background-banner-men.jpg')
+			background-position center -100px
+
+		.free-shipping-header
+			margin-top 7em
+			text-align right
+
+			h1
+				font-size 2em
+				letter-spacing 4px
+				line-height 1.5em
+
+			.sub-title-img
+				display inline-block
+
+		.free-shipping-header-content
+			text-align left
+
+		.steps-section
+			margin-top 11em
+
+			.right-arrow
+				background-image url($imagesPath + $campaignsPath + 'freeshipping/right-arrow.png')
+				background-repeat no-repeat
+				background-position center center
+
+			.step-box
+				&.step-2
+					margin-top 0
+
+		.cta-section
+			border-top 1px solid $gray-medium
+			border-bottom 1px solid lighten($gray-medium, 20%)
+			margin-top 8em
+			padding 6em

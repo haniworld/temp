@@ -1,0 +1,284 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+@import 'fancybox'
+
+/* CCJ IFRAME
+ * ----------
+ * I-frame that appears at the top of the page for CCJ users.
+ *
+ * Set z-index so that iFrame displays above some overlays.
+ */
+
+#ccj-iframe {
+	position: relative;
+	z-index: 10;
+	background-color: white;
+}
+
+#ccj-redeem{
+	input[type=text] {
+		text-align: right;
+	}
+
+	.notice {
+		font-size: em(12/$defFontSize);
+		color: $discrete;
+	}
+}
+
+#product-list{
+	.ccj{
+		margin: 1em 0 0;
+
+		.points {
+			color: $highlight;
+			float: none;
+		}
+	}
+}
+
+.fancybox-wrap * {
+	box-sizing: border-box;
+}
+
+#citi_div {
+	margin: 0 auto;
+	width:960px;
+	color: #4B4B4B;
+	font-family: verdana,sans-serif;
+}
+
+#citi_div h2{
+	color:#000066;
+	font-size:14px;
+	font-weight:bold;
+	margin: 14px 0;
+}
+
+#citi_div .citi_footer {
+	width: 953px;
+	background-color: #fff;
+	clear: both;
+	padding-top:25px;
+}
+#citi_div .cardsPointsContainer {
+	position: relative;
+	/*height: 170px;*/
+	height: 185px;
+	width: 953px;
+	background-color: #FFF;
+	/*border-bottom: 1px dotted #999;*/
+	border-top: 1px dotted #999;
+}
+
+#citi_div .relatedLinksContainer {
+	position: relative;
+	padding: 0 0 30px 0;
+	height: 210px;
+	width: 953px;
+	background-color: #FFF;
+	border-bottom: 1px solid #ccc;
+}
+#citi_div .relatedLinks {
+	position: relative;
+	width: 434px;
+	/*height: 125px;*/
+	height: 150px;
+	margin: 13px 0 0 0;
+	padding: 0 10px 0 0;
+	border-right: 1px dotted #999;
+	float: left;
+}
+#citi_div .apply {
+	position: relative;
+	width: 240px;
+	/*height: 125px;*/
+	height: 150px;
+	margin: 13px 0 0 29px;
+	border-right: 1px dotted #999;
+	float: left;
+}
+#citi_div .customerService {
+	position: relative;
+	width: 200px;
+	height: 125px;
+	margin: 13px 0 0 20px;
+	float: left;
+}
+#citi_div .footerLinksContainer {
+	position: relative;
+	padding: 0;
+	height: 61px;
+	width: 953px;
+	background-color: #FFF;
+	border-bottom: 1px solid #ccc;
+}
+#citi_div .cardsTitleHome {
+	margin: 20px 0 0 0;
+}
+#citi_div .cards {
+	position: relative;
+	width: 506px;
+	height: 144px;
+	margin: 13px 0 0 0;
+	float: left;
+	border-right: 1px dotted #999;
+}
+#citi_div .card1 {
+	position: relative;
+	width: 220px;
+	height: 120px;
+	margin: 8px 0 35px 0;
+	float: left;
+}
+#citi_div .card2 {
+	position: relative;
+	width: 220px;
+	height: 120px;
+	margin: 8px 0 35px 20px;
+	float: left;
+}
+#citi_div .card3 {
+	position: relative;
+	width: 220px;
+	height: 120px;
+	margin: 8px 0 35px 20px;
+	float: left;
+}
+#citi_div .cardsOnePic {
+	position: relative;
+	width: 76px;
+	height: 52px;
+	margin: 0;
+	background-color: #FFF;
+	float: left;
+}
+#citi_div .cardsOneText {
+	position: relative;
+	width: 138px;
+	height: 114px;
+	margin: 0 0 0 18px;
+	padding: 0;
+	float: left;
+}
+#citi_div .cardsTwoPic {
+	position: relative;
+	width: 76px;
+	height: 52px;
+	margin: 0 0 0 18px;
+	background-color: #FFF;
+	float: left;
+}
+#citi_div .cardsTwoText {
+	position: relative;
+	width: 138px;
+	height: 114px;
+	margin: 0 0 0 7px;
+	padding: 0;
+	float: left;
+}
+#citi_div .points {
+	position: relative;
+	width: 425px;
+	height: 144px;
+	margin: 13px 0 0 20px;
+	float: left;
+}
+#citi_div .pointsMallPic {
+	position: relative;
+	width: 137px;
+	height: 103px ;
+	float: left;
+	background-color: #FFF;
+	margin:;
+}
+#citi_div .pointsMallText {
+	position: relative;
+	width: 250px;
+	height: 82px;
+	margin: 0 0 0 25px;
+	float: left;
+}
+#citi_div .footerClear {
+	clear: both;
+	height: 70px;
+}
+#citi_div .logo {
+	width: 28px;
+	float: left;
+	margin: 10px 0 0 0;
+}
+#citi_div .footercopy {
+	width: 350px;
+	float: right;
+	margin: 10px 0 0 0;
+}
+#citi_div .copyrightLogo {
+	text-align: right;
+	padding: 0 0 5px 0;
+}
+#citi_div .dinersLogo {
+	float: left;
+	margin: 0 0 0 10px;
+}
+#citi_div .dinersLink {
+	float: right;
+	margin: 5px 0 0 0;
+}
+#citi_div .footerBold {
+	color:#4B4B4B;
+	font-size:12px;
+	font-weight:bold;
+	font-family: verdana,sans-serif;
+}
+
+#citi_div .customerServiceNumber{
+	color:#4B4B4B;
+	font-size:16px;
+	font-weight:bold;
+	font-family: verdana,sans-serif;
+}
+
+#citi_div p.footerLinks {
+    color: #4B4B4B;
+    font-family: verdana,sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    text-decoration: none;
+    width: 500px;
+    margin-top:12px;
+    margin-bottom:12px;
+}
+
+#citi_div p.footerLinks a {
+    color: #4B4B4B;
+    text-decoration: none;
+}
+
+#citi_div p.footerLinks a:hover {
+    color: #4B4B4B;
+    text-decoration: underline;
+}
+
+#citi_div a.relatedLinksLink {
+    background: url("//stc.brands4friends.jp/partner/ccj/cjp_il_ja-jp_footer_arrow2.gif") no-repeat scroll left center transparent;
+    color: #3399CC;
+    font-size: 12px;
+    padding-left: 10px;
+    text-decoration: underline;
+}
+
+#registrationForm .ccj {
+	font-size: 12px;
+	color: #333;
+	margin: 0.5em;
+}
+
+#registrationForm .ccj .title {
+	margin-bottom: 0.5em;
+}

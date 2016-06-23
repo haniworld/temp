@@ -1,0 +1,473 @@
+/* FILE: layout-margins.styl
+ * -------------------------
+ * This file defines generic margin classes
+ * to be used on any block-level elements on the
+ * site.
+ */
+
+
+$XSMALL_MARGIN = 0.5em
+$SMALL_MARGIN = 1em
+$MEDIUM_MARGIN = 2em
+$LARGE_MARGIN = 3em
+$XLARGE_MARGIN = 4em
+$XXLARGE_MARGIN = 7em
+$XXXLARGE_MARGIN = 12em
+
+
+/* MARGINS
+ * -------
+ * Different types of margins to be reused throughout the site
+ * on any block-level element.
+ *
+ * Format:
+ * (margin)-(direction)--(size)
+ *
+ * EX:  mar-b--medium = margin-bottom: MEDIUM_VALUE
+ *
+ * Directions:
+ * t = top
+ * r = right
+ * b = bottom
+ * l = left
+ */
+
+.mar-b--none
+	margin-bottom 0
+
+.mar-b--xsmall
+	margin-bottom $XSMALL_MARGIN
+
+.mar-b--small
+	margin-bottom $SMALL_MARGIN
+
+.mar-b--medium
+	margin-bottom $MEDIUM_MARGIN
+
+.mar-b--large
+	margin-bottom $LARGE_MARGIN
+
+.mar-b--xlarge
+	margin-bottom $XLARGE_MARGIN
+
+.mar-b--xxlarge
+	margin-bottom $XXLARGE_MARGIN
+
+.mar-b--xxxlarge
+	margin-bottom $XXXLARGE_MARGIN
+
+
+
+.mar-t--none
+	margin-top 0
+
+.mar-t--xsmall
+	margin-top $XSMALL_MARGIN
+
+.mar-t--small
+	margin-top $SMALL_MARGIN
+
+.mar-t--medium
+	margin-top $MEDIUM_MARGIN
+
+.mar-t--large
+	margin-top $LARGE_MARGIN
+
+.mar-t--xlarge
+	margin-top $XLARGE_MARGIN
+
+.mar-t--xxlarge
+	margin-top $XXLARGE_MARGIN
+
+
+
+
+.mar-l--none
+	margin-left 0
+
+.mar-l--xsmall
+	margin-left $XSMALL_MARGIN
+
+.mar-l--small
+	margin-left $SMALL_MARGIN
+
+.mar-l--medium
+	margin-left $MEDIUM_MARGIN
+
+.mar-l--large
+	margin-left $LARGE_MARGIN
+
+.mar-l--xlarge
+	margin-left $XLARGE_MARGIN
+
+
+
+.mar-r--none
+	margin-right 0
+
+.mar-r--xsmall
+	margin-right $XSMALL_MARGIN
+
+.mar-r--small
+	margin-right $SMALL_MARGIN
+
+.mar-r--medium
+	margin-right $MEDIUM_MARGIN
+
+.mar-r--large
+	margin-right $LARGE_MARGIN
+
+.mar-r--xlarge
+	margin-right $XLARGE_MARGIN
+
+
+@media $smallScreensQuery
+
+	.mar-sm-b--none
+		margin-bottom 0
+
+	.mar-sm-b--xsmall
+		margin-bottom $XSMALL_MARGIN
+
+	.mar-sm-b--small
+		margin-bottom $SMALL_MARGIN
+
+	.mar-sm-b--medium
+		margin-bottom $MEDIUM_MARGIN
+
+	.mar-sm-b--large
+		margin-bottom $LARGE_MARGIN
+
+	.mar-sm-b--xlarge
+		margin-bottom $XLARGE_MARGIN
+
+	.mar-sm-b--xxlarge
+		margin-bottom $XXLARGE_MARGIN
+
+	.mar-sm-b--xxxlarge
+		margin-bottom $XXXLARGE_MARGIN
+
+
+
+	.mar-sm-t--none
+		margin-top 0
+
+	.mar-sm-t--xsmall
+		margin-top $XSMALL_MARGIN
+
+	.mar-sm-t--small
+		margin-top $SMALL_MARGIN
+
+	.mar-sm-t--medium
+		margin-top $MEDIUM_MARGIN
+
+	.mar-sm-t--large
+		margin-top $LARGE_MARGIN
+
+	.mar-sm-t--xlarge
+		margin-top $XLARGE_MARGIN
+
+	.mar-sm-t--xxlarge
+		margin-top $XXLARGE_MARGIN
+
+
+
+
+	.mar-sm-l--none
+		margin-left 0
+
+	.mar-sm-l--xsmall
+		margin-left $XSMALL_MARGIN
+
+	.mar-sm-l--small
+		margin-left $SMALL_MARGIN
+
+	.mar-sm-l--medium
+		margin-left $MEDIUM_MARGIN
+
+	.mar-sm-l--large
+		margin-left $LARGE_MARGIN
+
+	.mar-sm-l--xlarge
+		margin-left $XLARGE_MARGIN
+
+
+
+	.mar-sm-r--none
+		margin-right 0
+
+	.mar-sm-r--xsmall
+		margin-right $XSMALL_MARGIN
+
+	.mar-sm-r--small
+		margin-right $SMALL_MARGIN
+
+	.mar-sm-r--medium
+		margin-right $MEDIUM_MARGIN
+
+	.mar-sm-r--large
+		margin-right $LARGE_MARGIN
+
+	.mar-sm-r--xlarge
+		margin-right $XLARGE_MARGIN
+
+
+
+
+@media $mediumScreensQuery
+
+	.mar-md-b--none
+		margin-bottom 0
+
+	.mar-md-b--xsmall
+		margin-bottom $XSMALL_MARGIN
+
+	.mar-md-b--small
+		margin-bottom $SMALL_MARGIN
+
+	.mar-md-b--medium
+		margin-bottom $MEDIUM_MARGIN
+
+	.mar-md-b--large
+		margin-bottom $LARGE_MARGIN
+
+	.mar-md-b--xlarge
+		margin-bottom $XLARGE_MARGIN
+
+	.mar-md-b--xxlarge
+		margin-bottom $XXLARGE_MARGIN
+
+	.mar-md-b--xxxlarge
+		margin-bottom $XXXLARGE_MARGIN
+
+
+
+	.mar-md-t--none
+		margin-top 0
+
+	.mar-md-t--xsmall
+		margin-top $XSMALL_MARGIN
+
+	.mar-md-t--small
+		margin-top $SMALL_MARGIN
+
+	.mar-md-t--medium
+		margin-top $MEDIUM_MARGIN
+
+	.mar-md-t--large
+		margin-top $LARGE_MARGIN
+
+	.mar-md-t--xlarge
+		margin-top $XLARGE_MARGIN
+
+	.mar-md-t--xxlarge
+		margin-top $XXLARGE_MARGIN
+
+
+
+
+	.mar-md-l--none
+		margin-left 0
+
+	.mar-md-l--small
+		margin-left $SMALL_MARGIN
+
+	.mar-md-l--medium
+		margin-left $MEDIUM_MARGIN
+
+	.mar-md-l--large
+		margin-left $LARGE_MARGIN
+
+	.mar-md-l--xlarge
+		margin-left $XLARGE_MARGIN
+
+
+
+	.mar-md-r--none
+		margin-right 0
+
+	.mar-md-r--small
+		margin-right $SMALL_MARGIN
+
+	.mar-md-r--medium
+		margin-right $MEDIUM_MARGIN
+
+	.mar-md-r--large
+		margin-right $LARGE_MARGIN
+
+	.mar-md-r--xlarge
+		margin-right $XLARGE_MARGIN
+
+
+
+
+
+@media $largeScreensQuery
+
+
+	.mar-lg-b--none
+		margin-bottom 0
+
+	.mar-lg-b--xsmall
+		margin-bottom $XSMALL_MARGIN
+
+	.mar-lg-b--small
+		margin-bottom $SMALL_MARGIN
+
+	.mar-lg-b--medium
+		margin-bottom $MEDIUM_MARGIN
+
+	.mar-lg-b--large
+		margin-bottom $LARGE_MARGIN
+
+	.mar-lg-b--xlarge
+		margin-bottom $XLARGE_MARGIN
+
+	.mar-lg-b--xxlarge
+		margin-bottom $XXLARGE_MARGIN
+
+	.mar-lg-b--xxxlarge
+		margin-bottom $XXXLARGE_MARGIN
+
+
+
+	.mar-lg-t--none
+		margin-top 0
+
+	.mar-lg-t--xsmall
+		margin-top $XSMALL_MARGIN
+
+	.mar-lg-t--small
+		margin-top $SMALL_MARGIN
+
+	.mar-lg-t--medium
+		margin-top $MEDIUM_MARGIN
+
+	.mar-lg-t--large
+		margin-top $LARGE_MARGIN
+
+	.mar-lg-t--xlarge
+		margin-top $XLARGE_MARGIN
+
+	.mar-lg-t--xxlarge
+		margin-top $XXLARGE_MARGIN
+
+
+
+
+	.mar-lg-l--none
+		margin-left 0
+
+	.mar-lg-l--small
+		margin-left $SMALL_MARGIN
+
+	.mar-lg-l--medium
+		margin-left $MEDIUM_MARGIN
+
+	.mar-lg-l--large
+		margin-left $LARGE_MARGIN
+
+	.mar-lg-l--xlarge
+		margin-left $XLARGE_MARGIN
+
+
+
+	.mar-lg-r--none
+		margin-right 0
+
+	.mar-lg-r--small
+		margin-right $SMALL_MARGIN
+
+	.mar-lg-r--medium
+		margin-right $MEDIUM_MARGIN
+
+	.mar-lg-r--large
+		margin-right $LARGE_MARGIN
+
+	.mar-lg-r--xlarge
+		margin-right $XLARGE_MARGIN
+
+
+
+@media $xlargeScreensQuery
+
+	.mar-xl-b--none
+		margin-bottom 0
+
+	.mar-xl-b--xsmall
+		margin-bottom $XSMALL_MARGIN
+
+	.mar-xl-b--small
+		margin-bottom $SMALL_MARGIN
+
+	.mar-xl-b--medium
+		margin-bottom $MEDIUM_MARGIN
+
+	.mar-xl-b--large
+		margin-bottom $LARGE_MARGIN
+
+	.mar-xl-b--xlarge
+		margin-bottom $XLARGE_MARGIN
+
+	.mar-xl-b--xxlarge
+		margin-bottom $XXLARGE_MARGIN
+
+	.mar-xl-b--xxxlarge
+		margin-bottom $XXXLARGE_MARGIN
+
+
+
+	.mar-xl-t--none
+		margin-top 0
+
+	.mar-xl-t--xsmall
+		margin-top $XSMALL_MARGIN
+
+	.mar-xl-t--small
+		margin-top $SMALL_MARGIN
+
+	.mar-xl-t--medium
+		margin-top $MEDIUM_MARGIN
+
+	.mar-xl-t--large
+		margin-top $LARGE_MARGIN
+
+	.mar-xl-t--xlarge
+		margin-top $XLARGE_MARGIN
+
+	.mar-xl-t--xxlarge
+		margin-top $XXLARGE_MARGIN
+
+
+
+	.mar-xl-l--none
+		margin-left 0
+
+	.mar-xl-l--small
+		margin-left $SMALL_MARGIN
+
+	.mar-xl-l--medium
+		margin-left $MEDIUM_MARGIN
+
+	.mar-xl-l--large
+		margin-left $LARGE_MARGIN
+
+	.mar-xl-l--xlarge
+		margin-left $XLARGE_MARGIN
+
+
+
+	.mar-xl-r--none
+		margin-right 0
+
+	.mar-xl-r--small
+		margin-right $SMALL_MARGIN
+
+	.mar-xl-r--medium
+		margin-right $MEDIUM_MARGIN
+
+	.mar-xl-r--large
+		margin-right $LARGE_MARGIN
+
+	.mar-xl-r--xlarge
+		margin-right $XLARGE_MARGIN

@@ -1,0 +1,197 @@
+@import 'typography'
+
+
+/* FILE: variables.styl
+ * --------------------
+ * This file contains variables for various sizes and colors repeated
+ * throughout the entire site.  Page-specific variables are relegated
+ * to the specific files themselves.
+ *
+ * Image paths are also repeated here as variables to avoid repetition,
+ * however, this may not be the most ideal way of handling this.
+ */
+
+
+
+// TYPOGRAPHY - FONT STACKS
+$font-title = $font--sans-serif
+
+$font--sans-serif = 'DINPro', 'Open Sans', 'Avenir', 'Helvetica Neue', 'Helvetica', 'Hiragino Kaku Gothic Pro', "メイリオ", "Meiryo", "MS UI Gothic", "MS PGothic", Arial, sans-serif
+
+$font--serif = "Didot", Garamond, Georgia, "Times New Roman", Times, "Kozuka Mincho Pro", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", "MS Mincho", serif
+
+/* Typography used for product info. */
+$font--serif-product = Garamond, Georgia, "Times New Roman", Times, "Kozuka Mincho Pro", "Hiragino Mincho Pro", "ＭＳ Ｐ明朝", "MS PMincho", "MS Mincho", serif
+
+
+// FONT SIZES
+
+$defFontSize = 14
+$mobFontSize = 15
+
+
+
+// Colors from B4F brand guidelines (legacy)
+
+$orange = #ff5a05
+$orange-light = #f59766
+$orange-dark = #9d3500
+// $gray-warm = #efe8e3
+$coolgray = #999
+$puce = #4d0d00 // Very brownish red, almost black actually... -_-;
+$priceColor = #75726f // Color slightly changed from branding color
+$productNameColor = #838383 // Color slightly changed from branding color
+
+// End of Legacy colors
+
+
+
+// MILLEPORTE brand colors
+
+$blue = #61B4E4
+$white = #fff
+$black = #000
+$blue-light = lighten($blue, 80%)
+$brown = #67564d
+$gray-cool = #999
+$gray-cold = #8b9297
+$gray-dark = #333
+$gray-light = #f6f6f6
+$gray-xlight = #fcfcfc
+$gray-medium = #cacaca
+$gray-warm = #e5e5e5
+$red = #ff0000;
+
+// End of MILLEPORTE brand colors
+
+
+$default = #5d5d5d // previously #838383
+$title = $gray-dark
+$discrete = #b0b0b0
+
+$link = #000
+$highlight = $orange
+$highlight-alt = $blue
+
+$input-highlight = $blue
+$input-border = #CCCCCC
+
+$selectionBackground = #d9d9d9
+$selectionText = $default
+
+
+//Xmas Colors
+
+$lighterRed = #D55651//#bf0023
+$deepRed = #C35652 //#98001e
+
+
+// PATHS
+$imagesPath = "/static/images/"
+$logoPath = "logo/"
+$loginPath = "login/"
+$arrowsPath = "arrows/"
+$campaignsPath = "campaign/"
+
+
+// IMAGES
+$login-img-path = $imagesPath + $loginPath
+$topBackground-img = $login-img-path + "background_1700x1215.jpg"
+$topBackground-img-sp = $login-img-path + "background_600x1500.jpg"
+$regBackground-img = $login-img-path + "reg_background.jpg"
+$regBackground-img-sp = $login-img-path + "reg_background_m.jpg"
+
+
+$arrowLeft = $imagesPath + $arrowsPath + "arrow_left.png"
+$arrowRight = $imagesPath + $arrowsPath + "arrow_right.png"
+
+$iconQuestion = $imagesPath + "icon_question.png"
+
+
+
+/* ************************ *
+ * -------- SIZES --------- *
+ * ************************ *
+ */
+
+$logoWidth = 221px
+$logoHeight = 23px
+
+$logoWidthMobile = 123px
+$logoHeightMobile = 31px
+
+$topPageFormsHeight = 35px
+$topPageFormsSpacing = 0.65em
+
+$account-menu-max-width = 340px
+$account-menu-width = 340px
+
+
+
+/* ************************ *
+ * ----- BREAKPOINTS ------ *
+ * ************************ *
+ *
+ * Control the responsive breakpoints used on the site.
+ * Currently not implemented everywhere.
+ * Used on grid and special sale page.
+ */
+
+$xsmallScreens = 375px		/* iPhone 6 */
+$smallScreens = 568px
+$mediumScreens = 720px		/* iPads and tablets */
+$largeScreens = 1010px
+$xlargeScreens = 1400px
+$xxlargeScreens = 1700px
+
+/* Used for flex-wrap */
+$largerScreens = 1200px
+
+$xsmallScreensQuery = "screen and (min-width: " + $xsmallScreens + ")"
+$smallScreensQuery = "screen and (min-width: " + $smallScreens + ")"
+$mediumScreensQuery = "screen and (min-width: " + $mediumScreens + ")"
+$largeScreensQuery = "screen and (min-width: " + $largeScreens + ")"
+$largerScreensQuery = "screen and (min-width: " + $largerScreens + ")"
+$xlargeScreensQuery = "screen and (min-width: " + $xlargeScreens + ")"
+$xxlargeScreensQuery = "screen and (min-width: " + $xxlargeScreens + ")"
+
+
+
+// MIXINS - EXPERIMENTAL
+triangle-left(size color)
+	content ''
+	display block
+
+	height 0
+	width 0
+
+	position absolute
+	top 50%
+	left 0
+	margin-top: -size/2
+
+	border-right size/2 solid color
+	border-top size solid transparent
+	border-bottom size solid transparent
+
+triangle-right(size color)
+	content ''
+	display block
+
+	height 0
+	width 0
+
+	position absolute
+	top 50%
+	left 0
+	margin-top: -size/2
+
+	border-left size/2 solid color
+	border-top size solid transparent
+	border-bottom size solid transparent
+
+triangle-left-mp()
+	triangle-left(10px, $blue)
+
+triangle-right-mp()
+	triangle-right(10px, $blue)

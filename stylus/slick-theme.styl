@@ -1,0 +1,411 @@
+@charset 'UTF-8';
+.editorial-slider, .category-submenu, .product-gallery, .product-thumbnails {
+
+    /* ------ Arrows ------- */
+    .slick-prev,
+    .slick-next
+    {
+        font-size: 0;
+        line-height: 0;
+
+        position: absolute;
+        top: 50%;
+
+        display: block;
+
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        padding: 0;
+
+        cursor: pointer;
+
+        color: $gray-medium;
+        border: none;
+        outline: none;
+        background: transparent;
+    }
+    .slick-prev:hover,
+    .slick-prev:focus,
+    .slick-next:hover,
+    .slick-next:focus
+    {
+        color: transparent;
+        outline: none;
+        background: transparent;
+    }
+    .slick-prev:hover:before,
+    .slick-prev:focus:before,
+    .slick-next:hover:before,
+    .slick-next:focus:before
+    {
+        opacity: 1;
+    }
+    .slick-prev.slick-disabled:before,
+    .slick-next.slick-disabled:before
+    {
+        opacity: .25;
+    }
+
+    .slick-prev.slick-disabled,
+    .slick-next.slick-disabled {
+        cursor default
+    }
+
+    .slick-prev:before,
+    .slick-next:before
+    {
+        font-family  'Glyphicons Halflings'
+        font-style normal
+        font-size 20px
+        font-weight normal
+        line-height 1
+        opacity .75
+        color $gray-medium
+        -webkit-font-smoothing antialiased
+        -moz-osx-font-smoothing grayscale
+    }
+
+    .slick-prev
+    {
+        left 0
+    }
+
+    [dir='rtl'] .slick-prev
+    {
+        right: 0px;
+        left: auto;
+    }
+
+    .slick-prev:before
+    {
+        content "\e257"
+    }
+    [dir='rtl'] .slick-prev:before
+    {
+        content "\e258"
+    }
+
+    .slick-next
+    {
+        right: 0;
+    }
+
+    [dir='rtl'] .slick-next
+    {
+        right: auto
+        left: 0
+    }
+
+    .slick-next:before
+    {
+        content "\e258"
+    }
+    [dir='rtl'] .slick-next:before
+    {
+        content "\e257"
+    }
+
+
+
+
+    /* ------ Dots ------- */
+
+    .slick-slider
+    {
+        margin-bottom: 5em;
+    }
+
+    .slick-dots
+    {
+        position: absolute;
+        bottom: 0;
+
+        display: block;
+
+        width: 100%;
+        padding: 0.25em 0;
+
+        list-style: none;
+
+        text-align: center;
+    }
+    .slick-dots li
+    {
+        position: relative;
+
+        display: inline-block;
+
+        width: 20px;
+        height: 20px;
+        margin: 0 5px;
+        padding: 0;
+
+        cursor: pointer;
+    }
+    .slick-dots li button
+    {
+        font-size: 0;
+        line-height: 0;
+
+        display: block;
+
+        width: 15px;
+        height: 15px;
+        padding: 5px;
+
+        cursor: pointer;
+
+        color: black;
+        border: 0;
+        outline: none;
+        background: transparent;
+    }
+    .slick-dots li button:hover,
+    .slick-dots li button:focus
+    {
+        outline: none;
+    }
+    .slick-dots li button:hover:before,
+    .slick-dots li button:focus:before
+    {
+        opacity: 1;
+    }
+    .slick-dots li button:before
+    {
+        font-family: 'slick';
+        font-size: 6px;
+        line-height: 11px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 11px;
+        height: 11px;
+
+        content: '';
+        background-color: $gray-medium;
+        border-radius: 11px;
+        text-align: center;
+
+        opacity: .5;
+        color: black;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    .slick-dots li.slick-active button:before
+    {
+        background-color $highlight
+        color $highlight
+        opacity 0.75
+    }
+}
+
+#category-nav, #sales-nav{
+    .slick-slide{
+    padding: 0 2em;
+    }
+}
+
+
+
+.category-submenu {
+    .slick-prev,
+    .slick-next
+    {
+        height 30px
+        width 30px
+    }
+
+    .slick-prev:before,
+    .slick-next:before
+    {
+        font-size 30px
+    }
+}
+
+
+
+.product-thumbnails {
+
+    .slick-prev, 
+    .slick-next {
+        position absolute
+        left 0
+        right 0
+        width 100%
+        text-align center
+
+        &:before {
+            display block
+            color $gray-cool
+            padding 0 1em
+        }
+    }
+
+    .slick-prev,
+    [dir='rtl'] .slick-next {
+        top -10px
+        bottom auto
+        border-bottom 1px solid $gray-warm
+    }
+
+    [dir='rtl'] .slick-next:before,
+    .slick-prev:before {
+        content "\E260"
+    }
+
+    .slick-next,
+    [dir='rtl'] .slick-prev {
+        top auto
+        bottom -20px
+        border-top 1px solid $gray-warm
+    }
+
+    [dir='rtl'] .slick-prev:before,
+    .slick-next:before {
+        content "\E259"
+    }
+}
+
+
+
+
+.product-gallery {
+    .slick-slider
+    {
+        margin-bottom: 1em;
+    }
+
+    .slick-dots 
+    {
+        text-align center
+    }
+
+    .slick-dots li
+    {
+
+        width: 20px;
+        height: 20px;
+        margin: 0 2px;
+    }
+
+
+    .slick-dots li button:before
+    {
+        line-height: 9px;
+        width: 9px;
+        height: 9px;
+        border-radius: 9px;
+    }
+
+
+
+    .slick-prev,
+    .slick-next
+    {
+        height 25px
+        width 25px
+        margin-top -12.5px
+    }
+
+    .slick-prev:before,
+    .slick-next:before
+    {
+        font-size 25px
+    }
+
+    .slick-prev
+    {
+        left 10px
+    }
+
+    [dir='rtl'] .slick-prev
+    {
+        right: 10px;
+        left: auto;
+    }
+
+    .slick-next
+    {
+        right: 10px;
+    }
+
+    [dir='rtl'] .slick-next
+    {
+        right: auto
+        left: 10px
+    }
+}
+
+.editorial-slider {
+    .slick-prev
+    {
+        left 5px
+    }
+
+    [dir='rtl'] .slick-prev
+    {
+        right: 5px;
+        left: auto;
+    }
+
+    .slick-next
+    {
+        right: 5px;
+    }
+
+    [dir='rtl'] .slick-next
+    {
+        right: auto
+        left: 5px
+    }
+}
+
+
+
+
+
+
+
+@media $largeScreensQuery
+    .product-gallery
+    .editorial-slider {
+        .slick-prev,
+        .slick-next
+        {
+            height 40px
+            width 40px
+            margin-top -20px
+        }
+
+        .slick-prev:before,
+        .slick-next:before
+        {
+            font-size 40px
+        }
+
+        .slick-prev
+        {
+            left 10px
+        }
+
+        [dir='rtl'] .slick-prev
+        {
+            right: 10px;
+            left: auto;
+        }
+
+        .slick-next
+        {
+            right: 10px;
+        }
+
+        [dir='rtl'] .slick-next
+        {
+            right: auto
+            left: 10px
+        }
+    }

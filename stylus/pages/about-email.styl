@@ -1,0 +1,28 @@
+@import '../nib'
+@import '../helpers'
+@import '../variables'
+
+.page-aboutemail
+	.collapse
+		overflow visible!important
+		height auto!important
+		display inline-block
+	.down
+		display none!important
+
+
+@media only screen and (max-width: 1009px)
+	.page-aboutemail
+		.collapse
+			display block
+		.down
+			display block
+		.right
+			display none!important
+
+@media only screen and (max-width: 477px)
+	.page-aboutemail
+		.content
+			p
+				margin-left 0!important
+				margin-right 0!important

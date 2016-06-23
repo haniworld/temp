@@ -1,0 +1,512 @@
+@import 'variables'
+@import 'helpers'
+
+/* ******************* *
+ * ---- VARIABLES ---- *
+ * ******************* *
+ */
+
+
+$google-color = #4285f4
+$paypal-color = #002f85
+
+
+/* **************** *
+ * ---- STYLES ---- *
+ * **************** *
+ */
+
+.login-signup
+	/* Necessary for some reason */
+	font-weight 500
+	text-align center
+
+	label
+		width 100%
+
+	.close
+		display none
+
+		.modal &
+			margin-top 0
+
+	.border-header
+		img
+			display none
+		.modal &
+			margin-top 2em
+			img
+				display inline-block
+
+	h1
+		.modal &
+			margin-bottom 0
+
+	/* Placeholders for old browsers */
+	.control-group.isText-field
+		.theplaceholder
+			text-align left
+			position absolute
+			bottom 50%
+			left 1em
+			margin-bottom -1em
+
+	.ie7 &
+	.ie8 &
+	.ie9 &
+		input[type=email],
+		input[type=password],
+		input[type=text]
+			padding-left 10em
+
+	.control-group
+		position relative
+		margin-top 3px
+
+		.field-title
+			display block
+
+		/*
+		 * Input fields
+		 */
+
+		input[type=email],
+		input[type=text],
+		input[type=password],
+		input[type=submit],
+		input[type=number]
+			font-size 1em
+			width 100%
+			max-width 100%
+			line-height 1
+
+		input[type=email],
+		input[type=text],
+		input[type=password],
+		input[type=number]
+			background $gray-light
+			border 0
+			box-shadow none
+			transition all 0.4s ease
+
+			&:focus
+				background darken($gray-light, 5%)
+				box-shadow inset 0 0 5px rgba($black, 0.15)
+
+			&.error
+				background lighten($red, 90%)
+
+		input[type=number]::-webkit-inner-spin-button,
+		input[type=number]::-webkit-outer-spin-button
+			-webkit-appearance none
+			margin 0
+
+
+		/*
+		 * Info Button
+		 */
+
+		.glyphicon-info-sign
+			color $gray-medium
+
+			&:hover
+				color $highlight
+
+
+		.info-gender
+		.info-dob
+		.info-name
+			& + .tooltip
+				max-width 150px
+
+		/*
+		 * Specific control groups
+		 */
+
+		&.isRequired
+			.required-symbol
+				font-size 1em
+				position absolute
+				right 1.25em
+				top 50%
+				margin-top -0.5em
+
+				& + .tooltip
+					min-width 75px
+					text-align center
+				span::before
+					z-index -1
+
+		&.password
+			margin-top 1em
+
+		&.gender
+			background-color $gray-light
+			text-align left
+			padding 1em 1.25em 1em 1em
+
+			label
+				margin-right 1.5em
+
+		&.name
+		&.birthdate
+			label
+				position relative
+				display block
+				text-align left
+
+		&.name
+			margin-top 2em
+
+		&.birthdate
+			margin-top 1em
+
+			label
+				padding-right 3px
+
+				&:after
+					position absolute
+					right 5px
+					top 50%
+					margin-top -0.75em
+					padding-right 0.5em
+
+				&.dob-year:after
+					content '年'
+				&.dob-month:after
+					content '月'
+				&.dob-day:after
+					content '日'
+				&.dob-day
+					padding-right 0
+		&.error
+			color inherit
+			background lighten($red, 90%)
+
+	.error-messages
+		color #ff3f00
+
+	/* Container for login messages */
+	.login-message
+		font-family $font--sans-serif
+
+	/* Actual messages */
+	.signup-notice
+	.login-message-content
+		font-size 0.9em
+		font-weight normal
+		letter-spacing normal
+		text-align left
+		padding 0 1em
+
+		&:empty
+			display none
+
+		&.required
+			font-weight bold
+
+
+	.control-group-password
+		position relative
+
+	.forgot-password
+		position absolute
+		bottom 50%
+		right 1em
+		margin-bottom -1em
+		font-size .8em
+		color $highlight
+
+	.agreement-acceptance
+		text-align left
+		font-size .8em
+		padding 0
+		margin 0
+
+		input
+			float none
+			margin 0
+
+	.remember
+		font-size .8em
+
+	/*
+	 * Not unique to login, but only appears here at
+	 * this point.
+	 */
+
+	.line-divider
+		position relative
+
+		h3
+			display inline-block
+			background-color $white
+			padding 0 2em
+			position relative
+			z-index 2
+
+		&:after
+			content ''
+			display block
+			border-top 1px dotted $gray-dark
+			position absolute
+			top 50%
+			width 100%
+			z-index 1
+
+
+
+
+
+
+	.social-login
+
+		.pure-u-1
+			margin-bottom 3px
+
+			&:last-child
+				margin-bottom 0
+
+		.action
+			&:hover
+			&:focus
+				opacity 0.7
+
+		/*
+		 * Google social login button.
+		 */
+
+		.google-button
+			background-color $google-color
+			border-color $google-color
+
+		/*
+		 * Paypal social login button.
+		 */
+		 
+		.paypal-button
+			background-color $paypal-color
+			border-color $paypal-color
+
+	.login,
+	.signup
+		margin-top 2em
+		background $gray-light
+		border-top 1px solid $gray-medium
+
+		.modal &
+			margin-top 1em
+
+		hr
+			color gray-medium
+
+	.signup
+
+		a
+			transition color 0.3s ease-in-out
+
+			&:hover
+				cursor pointer
+				text-decoration none
+
+	.switch-to-signup, .switch-to-login
+		margin-left auto
+		margin-right auto
+
+	.member-benefits
+		text-align left
+		font-family $font--sans-serif
+
+		.faq, .about-us
+			text-align left
+		h2
+			border-bottom 1px dotted $gray-medium
+			color $gray-dark
+			font-weight 500
+			margin-bottom 1em
+			text-align left
+		ul
+			text-align left
+			list-style-type disc
+			list-style-position inside
+			li
+				text-align left
+				font-size .8em
+
+	.secondary-option-content
+		font-size .9em
+
+/* Hide singup form on the dedicated login page */
+.page-login .form-signup
+	display none
+/* Hide login form on the dedicated signup page */
+.page-signup .form-login
+	display none
+
+
+/* **************************** *
+ * ---- LOGIN MODAL WINDOW ---- *
+ * **************************** *
+ *
+ * Styles for the login/signup component which
+ * is also used in the modal window.
+ */
+
+#quicklogin
+	display none
+	padding 1em 0 0
+
+	.close
+	.login
+	.signup
+		display none
+
+	.btn-submit
+		input[type=submit]
+			background-size 0
+
+	.btn-submit.loading
+		input[type=submit]
+			background-image url($imagesPath + "spinners/spinner-ring-white.gif")
+			color transparent
+			background-repeat no-repeat
+			background-position center center
+			background-size 25px
+			transition color 0.5s ease-in-out, opacity 0.3s ease-in-out, background-size 0.5s ease-in-out
+
+	/*
+	 * Thank you modal after signup.
+	 */
+
+	&.thankyou-signup
+		padding 0
+		#banner
+			background-image: url("../../static/images/registration_confirmation/banner_small.jpg")
+
+		/*
+		 * Change spacing around the action button
+		 * depending on if the user has a coupon
+		 * or not.  Ensures better design balance.
+		 */
+
+		.content-main-action
+			margin-bottom 2em
+
+		&.hasCoupon
+			.content-main-action
+				margin-bottom 1em
+
+	/*
+	 * Always show the signup form first in the modal
+	 */
+
+	.form-login
+		display none
+
+	/*
+	 * Certain show certain elements when quicklogin
+	 * is a modal.
+	 */
+
+	&.modal
+		.close
+		.login
+		.signup
+			display block
+
+
+	/*
+	 * For certain pages show the form in the page.
+	 */
+
+	.registration-section &
+		display block
+
+		.signup-notice
+		.login-message-content
+			display none
+
+		.signup-notice.promotion
+		.signup-notice.required
+			display block
+
+		&.modal
+			display none
+
+			/* Hide all message notices */
+			.login-message-content
+			.signup-notice
+				display block
+
+			&.in
+				display block
+
+
+
+
+
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+
+@media $xsmallScreensQuery
+	.login-signup
+		.narrow-wrap
+			.modal &
+				padding-left 2em
+				padding-right 2em
+
+		.control-group
+			&.gender
+				label
+					margin-right 2em
+
+			&.birthdate
+				label
+					&:after
+						padding-right 1em
+
+
+@media $mediumScreensQuery
+	.login-signup
+		.login,
+		.signup
+			margin-top 4em
+
+		.social-login
+			/*
+			 * Grid Spacing
+			 */
+
+			.pure-u-1
+				margin-bottom 0
+
+			.pure-u-md-1-2:nth-child(odd)
+				padding-right 2px
+				
+			.pure-u-md-1-2:nth-child(even)
+				padding-left 2px
+
+	/* for iPad */
+	.touch
+		#quicklogin.modal.in
+			margin-top 5em
+
+
+/*
+ * Make the 'Thank You' modal position absolute to
+ * keep the action button clickable and associated
+ * text readable on shorter screens.
+ */
+
+@media screen and (min-width: 720px) and (max-height: 700px)
+
+	.no-touch
+		#quicklogin.thankyou-signup
+			position absolute
+
+
+

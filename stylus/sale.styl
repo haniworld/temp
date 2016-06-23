@@ -1,0 +1,531 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+
+
+$filter-width = 33.333%
+$product-img-width = 300px
+
+.currency
+	font-size .7em
+
+.brand-masthead
+	position relative
+	text-align center
+
+	.sale-ends
+		position absolute
+		background-color rgba(0, 0, 0, 0.5)
+		top 0
+		left 0
+		width 100%
+		height 100%
+		font-size 2em
+		.sale-end-info
+			margin 10%
+		.remaining-time
+			margin .5em
+
+.brand-title
+	text-align center
+	-webkit-tap-highlight-color transparent
+
+	.sale-end-info
+		color $gray-cool
+		font-size 12px
+		letter-spacing 0
+		line-height 15px
+		margin-top 0.75em
+
+
+.product-filters
+	display block
+	width 100%
+	transition(all)
+	transition-duration(.8s)
+	transition-delay (0)
+	text-align center
+
+	-webkit-tap-highlight-color transparent
+
+
+	&.hideIt
+		bottom -50px
+
+	> span
+		position absolute
+
+	label
+		position relative
+		display inline
+		background $gray-xlight
+		border 1px solid $gray-warm
+		color $default
+		cursor pointer
+		transition-property(background-color,border,color)
+		transition-duration(.3s)
+		transition-delay (0)
+		white-space nowrap
+		overflow hidden
+		text-overflow ellipsis
+
+		&:before, &:after
+			position absolute
+			content ""
+			right .5em
+			top 30%
+			border-right .5em solid transparent
+			border-left .5em solid transparent
+		&:before
+			top 40%
+			border-top .5em solid $gray-medium
+			border-bottom-width 0
+		&:after
+			border-top .5em solid $gray-xlight
+			border-bottom-width 0
+
+		&.open
+			background-color $gray-warm
+			border-color darken($gray-warm, 5%)
+			color $gray-dark
+
+			&:before
+				top 30%
+				border-bottom .5em solid $gray-medium
+				border-top-width 0
+			&:after
+				top 40%
+				border-bottom .5em solid $gray-warm
+				border-top-width 0
+
+		&.size-filter-select
+		&.category-filter-select
+			display inline-block
+			font-size 12px
+			padding .5em 3em .5em 1em
+			width 100%
+			text-align center
+			-webkit-touch-callout: none
+			-webkit-user-select: none
+			-khtml-user-select: none
+			-moz-user-select: moz-none
+			-ms-user-select: none
+			user-select: none
+
+		&:hover
+			background-color $gray-warm
+			border-color darken($gray-warm, 5%)
+			color $gray-dark
+			text-decoration none
+
+			&:after
+				border-top-color $gray-warm
+			&.open:after
+				border-color-bottom $gray-warm
+
+	select
+		display none
+		max-width 100%
+		float left
+
+
+
+	.count
+		color #a0a0a0
+		display inline-block
+		font-size 8px
+		line-height 0
+		position absolute
+		padding-left 10px
+		right  5px
+		top 50%
+
+
+
+	form
+		clear both
+		padding 2em 0 0
+
+	select
+		display none
+
+.size-filter #size-selector
+.category-filter #category-selector
+		background $gray-xlight
+		z-index 9
+		display none
+		max-height 100%
+		min-width 100%
+		list-style none
+		position absolute
+		top 3em
+		left 0
+		font-size 12px
+
+		&.active
+			display block
+
+		div
+		li
+			float none
+			position relative
+			background #fff
+			text-align left
+
+			a
+				color #676767
+				font-size 12px
+				border 1px solid $gray-warm
+				border-bottom 0
+				cursor pointer
+				display block
+				margin 0 0 0 0
+				font-size 12px
+				padding 0.75em 2em 0.75em 1em
+				display block
+				position relative
+				-webkit-touch-callout: none
+				-webkit-user-select: none
+				-khtml-user-select: none
+				-moz-user-select: moz-none
+				-ms-user-select: none
+				user-select: none
+				transition-property(background-color,color)
+				transition-duration(.25s)
+				transition-delay (0)
+				white-space nowrap
+				overflow hidden
+				text-oveflow ellipsis
+
+				&.selected
+					background-color $gray-light
+					color $gray-dark
+
+					&:before
+						content '\E013'
+						display inline-block
+						font-family  'Glyphicons Halflings'
+						font-style normal
+						font-weight normal
+						line-height 1
+						margin-right 1em
+						-webkit-font-smoothing antialiased
+						-moz-osx-font-smoothing grayscale
+
+				&:hover
+					color $gray-dark
+					background-color $gray-light
+					text-decoration none
+
+				&.disabled,
+				&.disabled:hover
+					background-color $white
+					color $gray-warm
+					cursor default
+					text-decoration line-through
+
+
+		/*
+		 * Makes the last child put a border at the bottom of the list
+		 */
+
+		> li:last-child
+
+			li:last-child > a
+			> a
+				border-bottom 1px solid $gray-medium
+
+		/*
+		 * Indents sub category options
+		 */
+		li.sub
+			li a
+				padding-left 3em
+
+
+.category-filter, .size-filter
+	position relative
+	display inline-block
+	width $filter-width
+
+	-webkit-tap-highlight-color transparent
+
+.ie8
+	.shareBtn
+		background transparent url(../images/ie8_shareBtn.png) no-repeat 0 4px
+
+#product-list
+	font-size em(13/14)
+	line-height em(18/13)
+
+	a:hover
+		text-decoration none
+
+	.product-preview
+		display block
+		cursor pointer
+		transition-property(background-color,color)
+		transition-duration(.25s)
+		transition-delay (0)
+		transition color .3s, box-shadow .3s
+
+		img
+			width 100%
+			max-width $product-img-width
+			margin auto
+			border 1px solid $gray-warm
+
+
+	.product-details
+		padding 0.5em 0 0.5em
+		text-align left
+		font-size 0.9em
+		margin auto
+		max-width $product-img-width
+
+	.product-name
+		color $gray-dark
+		font-size .9325em
+		line-height 1.5625em
+		margin .5em 0 0 0
+		word-wrap break-word
+
+	.members-only
+		display block
+		color $highlight
+		font-size 0.9em
+
+		&:hover
+			cursor pointer
+			text-decoration underline
+
+			.nobreak
+				text-decoration underline
+
+	.priceretail,
+	.priceshop,
+		display block
+		margin-bottom 5px
+
+	.priceretail
+		color $gray-medium
+		font-size 12px
+		padding-right.5em
+		margin-bottom 0
+
+	.priceshop
+		color $highlight
+		font-size 1.35em
+		font-weight normal
+
+	.image-wrap
+		position relative
+
+		img
+			display block
+
+		a
+			background white
+			display block
+
+
+	.inmemberscart
+	.soldout
+		display block
+		position absolute
+		background-color rgba($white, 0.9)
+		color $default
+		overflow hidden
+		padding-top 0.5em
+		padding-bottom 0.5em
+		text-align center
+		width 100%
+
+		h2
+			color $gray-dark
+			font-size 1.5em
+			font-style italic
+			font-family $font--serif
+			letter-spacing 1px
+			text-transform uppercase
+			margin-bottom 5px
+
+		.status-subtitle
+			font-size 0.75em
+			line-height 0.8em
+			display block
+
+
+	.inmemberscart
+		color $highlight
+		bottom 20px
+
+	.soldout
+		bottom 50%
+		margin-bottom -1.8em
+		color $red
+
+
+.staffdiscounts
+	margin 1em auto
+	text-align center
+	max-width 500px
+	font-size em(12/14)
+
+	h1
+	ul
+	li
+		display inline-block
+
+	ul
+		background $gray-warm
+		border 1px solid darken($gray-warm, 15%)
+		border-radius 5px
+		padding 5px 0
+
+	h1
+		font-weight strong
+		font-size em(16/12)
+		margin 0 20px 0 0
+		color $title
+
+	li
+		margin 0 20px
+
+	.rate.notnull
+		font-size em(16/12)
+		margin 0 0 0 5px
+		font-weight bold
+
+
+
+
+.loading-products
+	box-sizing border-box
+	image-replacement url('/static/images/loader.gif') 100% 16px
+	background-position center
+	border 1px dotted $gray-warm
+	margin 1em auto
+	padding 2em 0
+	clear both
+
+
+
+.sale-nav-section
+	padding 1em
+
+	.sale-nav-link
+		color $highlight
+		font-family $font--sans-serif
+		font-size 0.8em
+		padding 0 1em
+		text-transform uppercase
+		transition all 0.3s ease
+
+		&:hover
+			color $gray-dark
+			text-decoration none
+
+	.brand-name
+		@extend .header-base
+		font-weight 500
+		letter-spacing 1px
+
+	&:first-child
+		-webkit-align-items center
+		align-items center
+		vertical-align center
+		border-top 1px solid $gray-warm
+
+		.sale-nav-link
+			color $gray-cool
+			font-size 0.8em
+
+			&:hover
+				color $highlight
+
+
+
+@media screen and (min-width: 1200px)
+	.sale-nav-section
+
+		&.wide-wrap
+			padding-left 1em
+			padding-right 1em
+
+		.sale-nav-link
+			padding 0
+
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+
+
+
+@media $smallScreensQuery
+	#product-list
+		.priceretail,
+		.priceshop,
+			display inline-block
+			margin-bottom 0
+
+		.product-name
+			margin-top 0
+
+
+@media $mediumScreensQuery
+
+	.sale-nav-section
+		.sale-nav-link
+			font-size 1em
+
+	#product-list
+
+		.members-only
+			font-size 1em
+
+		.product-details
+			padding 1em 0.5em 0.75em
+
+		.product-preview
+			.priceshop
+				transition color 0.3s ease
+
+			.product-name
+				margin-top 0
+
+			img
+				transition all 0.3s ease
+
+			&:hover
+				img
+					border-color $gray-medium
+
+				.priceshop
+					color $highlight
+
+				.product-name
+					color $black
+
+
+		.inmemberscart
+		.soldout
+			h2
+				font-size 1.6em
+
+@media only screen and (min-device-width: 720px) and (orientation: portrait)
+	#product-list
+		.product-details
+			padding 1em 0.5em 1.5em
+
+
+@media $largeScreensQuery
+
+	.no-touch
+		#product-list
+			.AVAILABLE_false
+				.product-name
+					top 60%

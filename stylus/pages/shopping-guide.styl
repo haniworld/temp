@@ -1,0 +1,302 @@
+@import '../helpers'
+@import '../variables'
+
+
+/* FILE: shopping-guide.styl
+ * -------------------------
+ * This file contains styles for the shopping guide
+ * pages.  This file is compiled as a separate
+ * css file that is loaded in the shopping guide
+ * pages.
+ */
+
+
+/* ******************* *
+ * ---- VARIABLES ---- *
+ * ******************* *
+ */
+
+$shopping_guide_path = 'shopping-guide/'
+
+
+
+/* ************************ *
+ * ---- GENERAL STYLES ---- *
+ * ************************ *
+ */
+
+/*
+ * Shopping Guide Header Styles
+ */
+
+.sg-header
+	background-color #f4f4f4
+	background-image url($imagesPath + $shopping_guide_path + 'header-bg/header-shoes.jpg')
+	background-position center center
+	padding 7em 0
+	position relative
+	box-shadow inset 0 1px 3px -1px rgba($black, 0.2)
+	border-bottom 1px solid $gray-medium
+
+	h1
+		color $gray-dark
+		font-size 1.5em
+		font-weight 700
+		line-height 1.3em
+
+.sg-nav
+	position absolute
+	bottom 0
+	text-align center
+	width 100%
+
+	ul 
+		display block
+
+		li
+			display inline-block
+			margin 0 1.5em
+
+			a
+				color $gray-dark
+				display inline-block
+				transition all 0.3s ease-in-out
+
+				&:hover
+					color $highlight
+					text-decoration none
+
+				&.active
+					border-bottom 3px solid $highlight
+					font-weight bold
+
+
+/* 
+ * General page content container.
+ * Contains the registration box and page
+ * content.  Above page footer.
+ */
+
+.sg-page
+	margin-bottom 4em
+
+
+/*
+ * Page intro text and primary image.
+ */
+
+.sg-page-intro
+	margin-top 5em
+	margin-bottom 5em
+
+	h1
+		color $gray-dark
+		font-family $font--serif
+		font-size 1.8em
+		font-weight 500
+		line-height 1.4em
+		margin-bottom 0.75em
+	p
+		font-size 1.2em
+		line-height 1.8em
+		margin-bottom 0
+
+		br
+			display none
+
+.sg-page-intro-image
+	margin-bottom 5em
+
+
+/*
+ * Intro page topic boxes
+ */
+
+.sg-topic
+	padding 1em
+
+	a
+		display block
+		background-color $white
+		border 3px solid $gray-medium
+		height 100%
+		padding 2em
+		text-align center
+		text-decoration none
+		transition all 0.4s ease-out
+
+		h2
+			font-family $font--serif
+			font-size 1.4em
+			font-weight bold
+			margin-bottom 1em
+			transition all 0.4s ease-in-out
+
+		p
+			color $default
+			text-align left
+
+			&:last-child
+				margin-bottom 0
+
+		.read-more
+			color $highlight
+
+		&:hover
+			text-decoration none
+				
+
+/*
+ * List styles
+ */
+
+.sg-number-list
+.sg-icon-list
+	margin-bottom 4em
+
+	&:last-child
+		margin-bottom 0
+
+	h2
+		font-family $font--serif
+		font-weight 700
+		text-align center
+
+	figure
+		line-height 1em
+		margin-bottom 10px
+		text-align center
+		vertical-align bottom
+
+
+.sg-number-list
+	figure
+		color $gray-medium
+		font-family $font--serif
+		font-size 5em
+		font-style italic
+
+.sg-icon-list
+	figure
+		margin-bottom 20px
+
+		img
+			max-width 100%
+			height auto
+
+
+/*
+ * Registration box in the shopping guide.
+ */
+
+.sg-registration
+	margin-top 4em
+	padding 0 1em
+
+	.sg-registration-content
+		padding 3em 0
+
+		h2
+			font-family $font--serif
+			font-weight bolder
+			margin 1em
+
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+
+
+@media $smallScreensQuery
+	
+	.sg-number-list
+	.sg-icon-list
+		margin-bottom 5em
+
+		figure
+			margin-bottom 0
+			text-align left
+			vertical-align top
+		h2
+			text-align left
+
+	.sg-icon-list
+		figure
+			text-align center
+
+	.sg-registration
+		margin-top 5em
+
+	.sg-page
+		margin-bottom 5em
+
+
+
+@media $mediumScreensQuery
+
+	.sg-nav
+		ul 
+			li
+				a
+					padding-bottom 0.5em
+	
+	.sg-topic
+		a
+			min-height 290px
+			position relative
+			padding-bottom 3em
+
+			.read-more
+				position absolute
+				bottom 2em
+				left 0
+				line-height 1em
+				transition all 0.3s ease-out
+				width 100%
+
+			.no-touch &
+				.read-more
+					opacity 0.3
+
+				&:hover
+					box-shadow 0 2px 12px rgba($black,0.22)
+
+					h2
+						color $highlight
+						text-shadow none
+					p
+						color $default
+
+					.read-more
+						opacity 1
+
+	.sg-page-intro
+		h1
+			font-size 2.2em
+		p
+			br
+				display inline
+
+
+@media $largeScreensQuery
+
+	.sg-nav
+		ul 
+			li
+				a
+					font-size 1.1em
+					letter-spacing 1px
+	
+	.sg-topic
+		a
+			min-height 220px
+
+		&:nth-child(odd)
+			padding-left 0
+		&:nth-child(even)
+			padding-right 0
+
+	.sg-registration
+		padding 0

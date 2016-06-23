@@ -1,0 +1,720 @@
+/* FILE: return.styl
+ * -----------------
+ * Specific styling for return pages.
+ */
+
+
+/* ******************************** *
+ * --- RETURNS INTERFACE STYLES --- *
+ * ******************************** *
+ *
+ * General styles here for the returns interface page.
+ * Remember, these classes can be called elsewhere! :O
+ */
+
+
+.tab-header
+	border-bottom 1px solid $gray-warm
+	a
+		display inline-block
+		margin-right 1em
+		padding 0 1em
+		&.active
+			border-bottom 3px solid $highlight
+
+.return-header-accordion
+	border 1px solid $gray-warm
+	.accordion-header
+		background-color $gray-light
+		padding 1em
+		font-weight bold
+		a
+			color $default
+
+.header-step
+.header-request
+	padding 20px
+	font-size 17px
+	font-weight bold
+	border 1px solid $gray-warm
+	.action-cancel
+		border 1px solid $white
+	.state-step
+	.state-request
+		margin-right 20px
+		display inline-block
+		width 34px
+		height 34px
+		border-radius 17px
+		vertical-align middle
+		line-height 34px
+		.status-icon
+			@extend .glyphicon
+			font-size 24px
+			padding 5px
+			&.status-pending
+				padding 3px
+				&:before
+					@extend .glyphicon-envelope:before
+			&.status-requested:before
+				@extend .glyphicon-envelope:before
+			&.status-cancelled
+				padding 3px
+				&:before
+					@extend .glyphicon-remove:before
+			&.status-received
+				&:before
+					@extend .glyphicon-tags:before
+			&.status-inspected
+				&:before
+					@extend .glyphicon-eye-open:before
+			&.status-reimbursed
+				padding 3px
+				&:before
+					@extend .glyphicon-yen:before
+			&.status-reimburse_failed
+				&:before
+					@extend .glyphicon-remove:before
+			&.status-reimburse_pending
+				&:before
+					@extend .glyphicon-minus:before
+
+
+.unreturnable
+	.unreturnable-item-form
+		padding-left 0
+		padding-right 0
+		textarea
+			min-height 100px
+
+.no-returnable-items
+	background-color $white
+
+.form-bankinfo
+	.form-group
+		margin-top 1.5em
+	label
+		font-weight bold
+
+.refund-table-container
+	background $white
+	padding 20px
+	border-top 1px solid $gray-warm
+
+.refund-table-wrapper
+	text-align left
+	padding-top .5em
+	overflow-y hidden
+	overflow-x scroll
+	-webkit-overflow-scrolling touch
+
+	.table-footer
+		font-size .8em
+		line-height 150%
+
+.refund-method-table
+	font-size .8em
+	line-height 150%
+	min-width 580px
+	width 100%
+	border-right 1px solid $gray-warm
+	border-top 1px solid $gray-warm
+	.table-row
+		background-color $white
+	td,
+	th
+		font-weight normal
+		line-height 170%
+		padding 0.8em
+		border-left 1px solid $gray-warm
+		border-bottom 1px solid $gray-warm
+		min-width 90px
+
+	th
+		background-color $gray-light
+
+.return-item
+	background-color $white
+	margin-bottom 6px
+	.return-item-container
+		padding 13px
+	.return-item-face
+		position relative
+		min-height 90px
+		.return-item-img
+			position absolute
+			top 50%
+	.return-item-desc
+		line-height 1.3em
+		font-size .9em
+		padding-left 15px
+		.order-detail-link a
+			font-size .9em
+	.return-item-secondary-info
+		font-size 10px
+		color $gray-cool
+		padding-top 20px
+	.display-available
+		display block
+	.display-selected
+		display none
+	.return-item-selection
+		position relative
+		vertical-align middle
+		label.checkbox
+			position absolute
+			top 50%
+			margin-top -11px
+	.return-detail-actions
+		.action
+			padding 10px
+			margin 2px
+	&.open
+		position relative
+		background #fff
+		z-index 212 /* higher than return-overlay */
+	&.return-selected
+		.display-available
+			display none
+		.display-selected
+			display block
+	.return-item-detail-wrapper
+		background-color $gray-light
+		.return-item-detail
+			h4
+				font-weight bold
+				width auto
+				&.error
+					color red
+
+.return-overlay
+	display block
+	background-color $gray-medium
+	opacity .88
+	z-index 211  /* higher than the top menu dropdown 210 */
+	&.modal-on
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+
+	.loading-container
+		text-align center
+		display none
+		width 300px
+		position fixed
+		top 50%
+		left 50%
+		margin-top -120px
+		margin-left -150px
+		border-top 4px solid $gray-dark
+		background-color $white
+		padding 35px 50px 25px
+		box-shadow 0 5px 25px rgba(0, 0, 0, 0.3)
+		padding 50px 50px 50px
+		.loading-title
+			margin-top 1em
+			margin-bottom 1em
+	&.loading
+		.loading-container
+			display block
+		position absolute
+		z-index 10000
+		top 0
+		left 0
+		width 100%
+		height 100%
+
+.modal-cancel-request.modal
+.modal-cs-request.modal
+	top -100%
+	.header-icon
+		font-size 40px
+		display block
+		margin-bottom 10px
+		margin-top 10px
+
+
+
+.return-detail-inputs-list
+	margin-top: 0.5em;
+	label
+		line-height 1.7em
+
+#return-products
+	.floating-footer
+		position fixed
+		bottom 0
+		right 0
+		background-color $gray-light
+		box-shadow 0 -1px 7px rgba(0, 0, 0, 0.23)
+		padding 10px 20px
+
+
+.error-messages
+	color $red
+	padding .5em 0
+
+/* ----------------------------------------------------- *
+ * Styles specific to the 3 main parts of the returns
+ * interface.
+ * ----------------------------------------------------- */
+
+#return-products,
+#return-paymentinfo,
+#return-confirmation
+	border 1px solid $gray-warm
+	background-color $gray-light
+
+	.section-content-main
+		padding 20px
+		position relative
+
+	.refund-method-box .payment-type
+		border 1px solid $gray-warm
+		background-color $white
+		color $default
+		padding 10px
+		margin-bottom 10px
+		p
+			font-weight normal
+
+	.payment-type
+		display none
+	.note
+		font-size .85em
+		line-height 1.6em
+		margin-bottom 0
+
+	.action-edit
+		height 34px
+		line-height 34px
+		padding-top 0
+		padding-bottom 0
+
+	.ssl-seal
+		vertical-align middle
+		height 3em
+
+	&.not-started
+		.section-content-main
+			padding 0
+		.header-step
+			background-color $white
+			color $default
+			.state-step
+				color $gray-medium
+				border 2px solid $gray-medium
+		.action-edit
+			display none
+
+		.refund-table-container
+			display none
+
+	&.editing
+		.header-step
+			background-color $orange-light
+			h2
+				color $white
+			.state-step
+				color $orange-light
+				background-color $white
+
+		.action-edit
+			display none
+
+		.return-item
+			transition background-color 0.35s ease-in-out
+
+			&.open
+				&:hover
+					background-color $white
+					cursor default
+
+			&.return-selected
+				&:hover
+					background-color $white
+					cursor default
+
+		.return-selected
+			background-color $gray-warm
+
+		.refund-table-container
+			display block
+
+		.payment-type-cc,
+		.payment-type-paypal,
+		.payment-type-cod,
+		.payment-type-paidy
+			display none
+
+			&.payment-type-selected
+				display block
+
+		tr.payment-type-cc,
+		tr.payment-type-paypal,
+		tr.payment-type-cod,
+		tr.payment-type-paidy
+
+			&.payment-type-selected
+				display table-row
+
+		.form-bankinfo
+			display block
+
+		.display-bankinfo,
+		#edit-return-bankinfo
+			display none
+
+	&.finalized
+		border-bottom 1px solid $gray-warm
+		.section-content-main
+			background-color $white
+		.header-step
+			.state-step
+				color $white
+				background-color $orange-light
+				@extend .glyphicon
+				.step-number
+					display none
+				&:before
+					@extend .glyphicon-ok:before
+					font-size 20px
+					position absolute
+					top 6px
+					left 6px
+
+		.return-products-note,
+		.order-detail-link
+			display none
+
+		.action-edit
+			background-color $white
+
+		.return-item
+			display none
+
+			&.return-selected
+				display block
+				border 1px solid $gray-warm
+
+				.return-item-selection
+					display none
+
+		.action-next,
+		.action-container
+			display none
+
+		.payment-type
+			display none
+
+		.payment-type-cc,
+		.payment-type-paypal,
+		.payment-type-cod,
+		.payment-type-paidy
+			display none
+
+			&.payment-type-selected
+				display block
+
+		tr.payment-type-cc,
+		tr.payment-type-paypal,
+		tr.payment-type-cod,
+		tr.payment-type-paidy
+
+			&.payment-type-selected
+				display table-row
+
+		.form-bankinfo,
+		.ssl-seal
+			display none
+
+		.display-bankinfo,
+		.edit-return-bankinfo
+			display block
+
+#return-confirmation
+
+	&.finalized
+		border 0
+
+
+/* ******************************* *
+ * -- RETURNS HISTORY PAGE ------- *
+ * ******************************* *
+ */
+
+.return-requests-message
+	line-height 2em
+
+.return-address-box
+	border 1px solid $gray-warm
+	padding 1em
+
+.return-request-item
+	border 1px solid $gray-warm
+	margin-bottom 1em
+	.header-request
+		.header-request-title
+			position relative
+			color $white
+			font-weight normal
+			.state-request
+				margin-top -17px
+			& > div
+				display inline-block
+		&.status-closed
+			background-color $gray-cold
+			border 2px solid $gray-cold
+			.state-request
+				color $gray-cold
+				border 2px solid $gray-cold
+				background-color $white
+		&.status-active
+			background-color $orange-light
+			.state-request
+				color $orange-light
+				background-color $white
+	.request-item-detail
+		padding 1em
+		background-color $gray-light
+		.return-request-product
+			background-color $white
+			margin-bottom 6px
+			min-height 116px
+			.return-item-face
+				position relative
+				.return-item-img
+					position absolute
+					top 50%
+					left 50%
+					margin-left -40px
+			.return-request-prod-info
+			.return-request-secondary-info
+				font-size 0.9em
+		.shipping-label
+			background-color $white
+
+
+/* ******************************* *
+ * -- RETURNS CONFIRMATION PAGE -- *
+ * ******************************* *
+ *
+ */
+
+#return-after-submission
+	text-align center
+	.next-step
+		.border-header
+			margin-top 0
+
+	.request-sent
+		line-height 30px
+
+	.checkmark
+		height 30px
+		width 30px
+		background-color $highlight
+		border-radius 15px
+		vertical-align middle
+		line-height 30px
+		@extend .glyphicon
+		&:before
+			@extend .glyphicon-ok:before
+			color $white
+			vertical-align top
+	.step-icon
+		width 120px
+		height 120px
+
+	.step-circle
+		position relative
+		width 40px
+		height 40px
+		border-radius 20px
+		background-color $highlight
+		margin-left auto
+		margin-right auto
+		line-height 40px
+		color $white
+
+	.step-container
+		position relative
+
+		.or-circle
+			position absolute
+			top 50%
+			margin-top -22px
+			left 50%
+			margin-left -22px
+			height 40px
+			width 40px
+			border-radius 22px
+			line-height 40px
+			letter-spacing normal
+			font-size 12px
+			box-sizing content-box
+			background-color $gray-cold
+			color $white
+			border 2px solid $white
+			text-align center
+			vertical-align middle
+			box-shadow 0 1px 3px rgba(0, 0, 0, 0.3)
+
+	.return-icon
+		width 25%
+		height auto
+
+	.step-box
+		border 1px solid $gray-warm
+		border-top 4px solid $orange-light
+		padding 25px
+		background-color $gray-light
+
+	.step-title
+		margin 0.5em 0
+		font-weight bold
+
+	.table-row
+		display none
+
+		&.payment-type-selected
+			display table-row
+	.notes
+		font-size .8em
+
+	.about-refund
+		& > p
+			margin-bottom 0
+
+
+
+
+.return-steps-diagram
+	text-align center
+	h4
+		font-size 1.1em
+		font-weight bold
+		letter-spacing 1px
+		padding .5em
+
+	.arrow
+		display none
+		margin-left auto
+		margin-right auto
+		padding 1em
+		picture
+			vertical-align middle
+
+	p
+		font-size .85em
+
+	.notes
+		font-size .8em
+
+	.return-step
+		margin-left auto
+		margin-right auto
+		margin-bottom 2em
+
+#return-submit
+	display none
+
+.finished #return-submit
+		display inline-block
+
+.in-edit #return-submit
+		display none
+
+/* if any of the section is in edit mode, don't show other edit buttons */
+.in-edit.finished
+	.action-edit
+		display none
+
+
+
+
+
+/* ******************************* *
+ * ------ RESPONSIVE STYLES ------ *
+ * ******************************* *
+ *
+ * Styles that are uniquely responsive to the returns page.
+ * Yay.
+ */
+
+@media $smallScreensQuery
+	.return-header-accordion
+		border-style none
+	.return-overlay .loading-container
+		width 400px
+		margin-left -200px
+	.return-item
+		.return-item-container
+			padding 15px
+		.return-item-face .return-item-img
+			top 0
+		.return-item-desc
+			line-height 1.5em
+		.return-item-secondary-info
+			padding-top 0
+		.return-detail-actions
+			.action
+				padding 1em 1.5em
+				margin 0
+	#return-paymentinfo
+		.refund-method-box .payment-type
+			padding 30px
+	#return-after-submission
+		.step-box
+			min-height 270px
+	.return-request-item
+		.request-item-detail .return-request-product
+			.return-item-face .return-item-img
+				top 0
+				margin-top 0
+
+@media $mediumScreensQuery
+
+	/* Remove scroll bar on larger screens for table */
+	.refund-table-wrapper
+		overflow-y visible
+		overflow-x visible
+
+	.return-steps-diagram
+		.return-step
+			margin-bottom 0
+
+		.arrow
+			display inline-block
+
+	.return-overlay .loading-container
+		width 600px
+		margin-left -300px
+
+	.modal-cs-request.modal
+		&.fade.in
+			margin 0 auto
+			position fixed
+			left 50%
+			top 50%
+			margin-left -250px
+			margin-top -250px
+
+
+/* ******************************
+ * --------- IE9 styles ---------
+ * ******************************
+ */
+
+.ie9
+	.return-item
+		.return-item-container
+			padding-bottom 30px
+		.return-item-face .return-item-img
+			margin-top 0
+		.return-item-secondary-info
+			padding-top 0
+
+

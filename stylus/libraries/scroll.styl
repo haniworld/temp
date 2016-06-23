@@ -1,0 +1,63 @@
+/* FILE: scroll.styl
+ * -----------------
+ * Defines scrollable divs, particularly for mobile devices.
+ */
+
+/* *** MIXIN *** */
+
+h-scroll()
+	height auto
+	width 100%
+	overflow-x scroll
+	-webkit-overflow-scrolling touch
+	white-space nowrap
+
+
+/* *** STYLES *** */
+
+.h-scroll
+	h-scroll()
+
+.h-scroll-table
+
+	/*
+	 * Add a shadow to the right side of 
+	 * the table so it looks scrollable 
+	 * on touch devices.
+	 */
+
+	.touch &
+		box-shadow inset -11px 0 11px -11px rgba($black, 0.32)
+
+	td
+		white-space normal
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+
+@media $mediumScreensQuery
+
+	.h-scroll-md
+		h-scroll()
+
+	.h-scroll-md-none
+		overflow-x visible
+		white-space normal
+
+	.h-scroll-table-md-none
+		.touch &
+			box-shadow none
+		td
+			white-space inherit
+
+@media $largeScreensQuery
+
+	.h-scroll-lg
+		h-scroll()
+
+	.h-scroll-lg-none
+		overflow-x visible
+		white-space normal

@@ -1,0 +1,374 @@
+@import '../nib'
+@import '../helpers'
+@import '../variables'
+
+
+
+/* ********************** *
+ * ----- VARIABLES ------ *
+ * ********************** *
+ */
+
+$freeShippingImgPath = $imagesPath + $campaignsPath + "freeshipping/"
+$freeShippingBannerPath = $freeShippingImgPath + "top-banner/"
+$freeShippingCtaBgPath = $freeShippingImgPath + "cta-bg/"
+
+
+
+/* ******************* *
+ * ----- HEADER ------ *
+ * ******************* *
+ */
+
+.campaign-header.free-shipping-header
+	border-bottom 1px solid darken($gray-light, 3%)
+	box-shadow inset 0 1px 3px -1px rgba($black, 0.2) 
+	display none
+	text-align left
+	position relative
+
+	/* 
+	 * To hide the header notice on certain pages.
+	 */
+
+	.page-freeshipping &
+	.page-signupsuccess &
+	.page-shopcheckoutaddress &
+	.page-shopcheckoutpaymentmethod &
+	.page-shopcheckoutpaymentmethodfinal &
+		height 0
+		overflow hidden
+		padding 0
+
+	.free-shipping-header-wrap
+		padding 1em 2em 1em 1em
+
+	.free-shipping-header-text
+		position relative
+
+		h3
+			color $gray-dark
+			font-size 0.9em
+			margin-bottom 0.25em
+		p
+			color $default
+			font-size .8em
+			margin 0
+		a
+			color $highlight
+
+		nav
+			a
+				font-size .8em
+				text-decoration underline
+
+		.btn-close
+			position absolute
+			top 0
+			right -1em
+
+#header
+	.shopping-bag
+		text-align right
+
+		.freeshipping
+			line-height 1.4em
+			border-style none
+			box-shadow none
+
+			.countdown
+				color black
+				font-size 0.8em
+
+.freeshipping
+	border-top 1px solid #eee
+	padding 0 25px 0 55px
+	box-shadow 0 0px 4px rgba(0,0,0,0.1)
+	font-size .9em
+	background-image url($freeShippingImgPath + 'free-shipping-icon-small-gray.png') 
+	background-repeat no-repeat 
+	background-position left center
+
+	h1
+		color $highlight
+
+	a
+		color $highlight
+		display inline-block
+		text-align left
+
+	&.freeshipping-mobile
+		background-color $gray-light
+		background-position 15px center
+		box-shadow inset 0 -1px 2px rgba(0,0,0,0.1)
+		color $default
+		font-size 0.8em
+		padding 15px 15px 12px 70px;
+
+
+
+/* ************************************** *
+ * ----- CHECKOUT CONFIRMATION PAGE ----- *
+ * ************************************** *
+ */
+
+.page-shopcheckoutconfirmation
+	.freeshipping-countdown
+		background-color $gray-light
+		margin 40px 0 20px
+		padding 0.5em
+
+		h1.freeshipping-title
+			margin 1.5em
+			font-size 1em
+			
+			.highlight
+				color $highlight
+
+		.countdown-wrap
+			color $gray-dark
+			font-size 30px	/* Height of truck icon */
+			line-height 40px
+			margin-top 0.75em
+			margin-bottom 0.75em
+			vertical-align bottom
+
+		.countdown
+			display inline-block
+
+		p
+			text-align left
+			margin 1em
+
+
+
+/* ************************* *
+ * ----- CAMPAIGN PAGE ----- *
+ * ************************* *
+ */
+
+.page-freeshipping
+	
+	#header
+		box-shadow 0 1px 3px rgba(0,0,0,0.2)
+
+	#main
+		//background-image url($freeShippingBannerPath + 'background-banner-women-mobile.jpg')
+		background-repeat no-repeat
+		background-position center top
+
+		.free-shipping-header
+			margin-top 2em
+			text-align center
+
+			.title-note
+				color $highlight
+				border-bottom 1px solid $highlight
+				padding-bottom 0.25em
+				letter-spacing 3px
+
+			h1
+				color $gray-dark
+				font-size 1.5em
+				font-weight 700
+				line-height 1.4em
+				letter-spacing 3px
+				margin 25px 0
+
+			.sub-title
+				border-top 1px dotted $gray-medium
+				color darken($gray-medium, 10%)
+				line-height 1.5em
+				letter-spacing 2px
+				padding-top 25px
+
+		.steps-section
+			-webkit-justify-content center
+			justify-content center
+			margin-top 8em
+			text-align center
+
+			.step-box
+				border 5px solid $gray-medium
+				padding 1.5em 1.5em
+				position relative
+
+				h3
+					position absolute
+					top -2.5em
+					left 0
+
+					color $gray-dark
+					font-weight 700
+					text-transform uppercase
+					letter-spacing 2px
+					width 100%
+
+				p
+					font-size 1.5em
+					line-height 1.5em
+					color darken($gray-medium, 10%)
+					letter-spacing 5px
+					margin 0
+
+					strong
+						color darken($gray-medium, 35%)
+						font-weight normal
+
+				&.step-2
+					margin-top 4em
+
+				.step-note
+					display block
+					position absolute
+					bottom -3em
+					right 1em
+					font-weight bold
+					text-align center
+						
+
+		.cta-section
+			margin-top 6em
+			padding 4em 0
+			background-image url($freeShippingCtaBgPath + 'cta-bg-shoes.jpg')
+			background-position center top
+			background-repeat no-repeat
+			box-shadow inset 0 1px 4px rgba(0,0,0,0.2)
+
+			h2
+				letter-spacing 2px
+				color $gray-dark
+				font-size 1.2em
+				line-height 1.7em
+
+
+
+
+
+
+/* ***************************** *
+ * ----- RESPONSIVE STYLES ----- *
+ * ***************************** *
+ */
+
+
+@media $mediumScreensQuery
+
+	/*
+	 * HEADER
+	 */
+
+	.campaign-header.free-shipping-header
+		.free-shipping-header-text
+			h3
+				font-size 1.2em
+
+	/*
+	 * CHECKOUT
+	 */
+
+	.page-shopcheckoutconfirmation
+		.freeshipping-countdown
+			padding 2em
+
+			h1.freeshipping-title
+				margin 1em
+				font-size 1.2em
+
+
+	/*
+	 * CAMPAIGN PAGE
+	 */
+
+	.page-freeshipping
+
+		#header
+			box-shadow 0 1px 18px rgba(0,0,0,0.1)
+
+		#main
+			.free-shipping-header
+				margin-top 4em
+
+				h1
+					font-size 2em
+					letter-spacing 4px
+					line-height 1.5em
+
+			.steps-section
+				margin-top 8em
+
+				.right-arrow
+					background-image url($freeShippingImgPath + 'right-arrow.png')
+					background-position -130px center
+					background-repeat no-repeat
+
+				.step-box
+
+					&.step-2
+						margin-top 0
+
+			.cta-section
+				margin-top 6em
+				padding 6em
+
+
+
+@media $largeScreensQuery
+
+	.page-freeshipping
+		#main
+			background-image url($freeShippingBannerPath + 'background-banner-women.jpg')
+
+			&.user-male
+				background-image url($freeShippingBannerPath + 'background-banner-men.jpg')
+				background-position center -100px
+
+			.free-shipping-header
+				margin-top 7em
+				text-align right
+
+				.sub-title-img
+					display inline-block
+
+			.free-shipping-header-content
+				text-align left
+
+			.steps-section
+				margin-top 11em
+
+				.right-arrow
+					background-position center center
+
+			.cta-section
+				margin-top 8em
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2)
+
+	.freeshipping
+		background-image url($freeShippingImgPath + 'free-shipping-icon-small-gray@2x.png')
+		background-size 43px 28px
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 720px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 720px)
+
+	.page-freeshipping
+		#main
+			.steps-section
+				margin-top 11em
+
+				.right-arrow
+					background-image url($freeShippingImgPath + 'right-arrow@2x.png')
+					background-size 187px 31px
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1010px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1010px)
+
+	.page-freeshipping
+		#main
+			background-image url($freeShippingBannerPath + 'background-banner-women@2x.jpg')
+			background-size 1698px 436px
+
+			&.user-male
+				background-image url($freeShippingBannerPath + 'background-banner-men@2x.jpg')
+				background-position center -100px
+				background-size 1400px 529px

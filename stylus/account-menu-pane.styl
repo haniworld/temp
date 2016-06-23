@@ -1,0 +1,181 @@
+/* FILE: account-menu-pane.styl
+ * ----------------------------
+ * Styles for the account menu that appears on the
+ * right side of the page.
+ */
+
+
+
+/* ***************************** *
+ * --------- VARIABLES --------- *
+ * ***************************** *
+ */
+
+$account-menu-pane-small-width = 85%
+
+
+
+/* ************************** *
+ * --------- STYLES --------- *
+ * ************************** *
+ */
+
+#account-menu-pane
+	position absolute
+	top 0
+	background-color $white
+	font-weight 300
+	height 100vh
+	width $account-menu-pane-small-width
+	overflow-y auto
+	overflow-x hidden
+	box-sizing border-box
+	text-align center
+	transform translateX(-100%)		// Ensures that the menu is moved to be completely off the page.
+	transition all .3s ease
+	z-index 1000
+	-webkit-overflow-scrolling touch
+
+
+	li:not(.menu-group)
+		text-align left
+		border-bottom 1px solid $gray-warm
+
+	li a
+		background-color $white
+		padding .75em 2em
+		display block
+		transition all 0.3s ease-in-out
+
+		&:hover
+			text-decoration none
+			background-color $gray-light
+
+	
+
+	li.menu-group-specials-empty
+		background-color $white
+		padding .75em 2em
+
+		.h5
+			text-transform none
+
+	.menu-group-header
+		display block
+		border-bottom 1px solid $gray-cool
+		font-size 1.1em
+		padding-top 2em
+		letter-spacing 2px
+		text-transform uppercase
+		
+		.user-name
+			display block
+			text-transform none
+			letter-spacing 0
+			font-size 0.8em
+			font-style italic
+			font-family $font--serif
+
+	.menu-group:last-child
+		border-bottom 1px solid $gray-cool
+		margin-bottom 4em	/* Keeps the bottom from being hidden on mobile */
+
+		.menu-group-header
+			border-bottom 0
+
+		li:first-child
+			border-top 1px solid $gray-cool
+
+		li:last-child
+			border-bottom 0
+
+
+
+#sliding-pane
+
+	/* Currently the sliding pane is not used and 
+	 * therefore is set to display none.
+	 * Remove this to display the sliding pane.
+	 *
+	 * There was a previous issue with the sliding pane
+	 * covering CCJ iFrame info.  Test to ensure this 
+	 * issue is resolved when revealing the sliding pane.
+	 */
+
+	display none
+
+	position absolute
+	top 0
+	background-color $gray-cool
+	font-weight 300
+	height 100vh
+	width 100%
+	overflow-y auto
+	overflow-x hidden
+	box-sizing border-box
+
+	/*
+	 * Low z-index so that it will appear under the page content 
+	 */
+	z-index 1
+
+	/* Ensures that the menu is moved to be completely off 
+	 * the page to the right
+	 */
+	//transform translateX(100%)
+	transition transform .3s ease, -webkit-transform .3s ease, background-color .3s ease
+	-webkit-overflow-scrolling touch
+
+	*
+		box-sizing border-box
+
+
+
+#page
+	background-color $white
+	transition all .3s ease
+
+	.modal-open &
+		z-index auto // Fix for Bootstrap-modal
+
+
+/* When sliding account menu is open */
+body.menu-open
+	overflow hidden
+
+	#account-menu-pane
+		transform translateX(0)
+
+	#page
+		border-left 1px solid $gray-medium
+		box-shadow -1px 0 2px rgba(0,0,0, 0.15)
+		position fixed
+		transform translateX($account-menu-pane-small-width)
+
+		.overlay
+			display block
+
+/* When sliding pane is open */
+body.sliding-pane-open
+	overflow hidden
+
+	#sliding-pane
+		background-color $white
+		//transform translateX(0)
+		//width 100%
+
+	#page
+		border-right 1px solid $gray-medium
+		box-shadow 1px 0 2px rgba(0,0,0, 0.15)
+		transform translateX(-100%)  /* main page is moved completely off the page */
+
+
+@media $smallScreensQuery
+
+	#account-menu-pane
+		transform translateX(-($account-menu-width))
+		width $account-menu-width
+
+	body.menu-open
+		#page
+			transform translateX($account-menu-width)

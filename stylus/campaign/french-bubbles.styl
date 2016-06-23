@@ -1,0 +1,133 @@
+/* french-bubbles.styl */
+
+@import '../nib'
+@import '../helpers'
+@import '../var'
+
+
+p
+	font-size 1em
+
+.campaign-header
+	background-image url($imagesPath + $campaignsPath + "/frenchbubbles/hero_mobile.jpg")
+	background-position center top
+	background-size 100% auto
+	background-repeat no-repeat
+	position relative
+	min-height 470px
+
+	.campaign-title
+		font-family $font--serif
+		color $gray-dark
+		font-size 1.8em
+		line-height 1.5em
+		padding 1em
+		padding-top 3em
+	.campaign-subtitle
+		font-style italic
+	.campaign-text
+		padding 0 3em
+		font-size 1em
+
+.campaign-sales
+	li
+		width 100%
+		background-repeat no-repeat
+		.sale-container
+			margin-top 0
+		&.row-0
+			background-image url($imagesPath + $campaignsPath + "/frenchbubbles/bg1_mobile.jpg")
+		&.row-1
+			background-image url($imagesPath + $campaignsPath + "/frenchbubbles/bg2_mobile.jpg")
+		&.row-2
+			background-image url($imagesPath + $campaignsPath + "/frenchbubbles/bg3_mobile.jpg")
+
+	a.linked-section:hover
+		text-decoration none
+		color $default
+	.category-text
+		padding-left 3em
+		padding-right 3em
+	.sale-block-banner-container
+		position relative
+		padding 3em 3em 0
+		.sale-banner
+			max-width 100%
+			height auto
+	.sale-block-info
+		.sale-name
+			font-family $font-title
+			text-transform uppercase
+			font-size 1.2em
+			letter-spacing .2em
+		.sale-text
+			font-size 1em
+			padding-right 3em
+			padding-left 3em
+		.sale-start-date
+			color $highlight
+	.go-to-sale
+		width 200px
+		height auto
+
+	.sale-banner-overlay
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		img
+			position absolute
+			bottom -5px
+			left 0
+			max-width 100%
+			height auto
+
+.about-story-marche
+	background-color $gray-light
+
+
+@media $mediumScreensQuery
+	p
+		font-size 1.7em
+		line-height 1.3em
+	.compaign-header-container
+		background linear-gradient(#fffef0, $white)
+	.campaign-header
+		background-image url($imagesPath + $campaignsPath + "/frenchbubbles/hero.jpg")
+		min-height 655px
+		.campaign-title
+			font-size 3em
+			padding-top 2em
+			line-height 1.5em
+			letter-spacing .1em
+		.campaign-text
+			padding 0
+			font-size 1.2em
+			line-height 1.5em
+			margin-bottom 0
+
+	.campaign-sales
+		li
+			&.row-0
+				background-image url($imagesPath + $campaignsPath + "/frenchbubbles/bg1.jpg")
+				margin-top 0
+			&.row-1
+				background-image url($imagesPath + $campaignsPath + "/frenchbubbles/bg2.jpg")
+			&.row-2
+				background-image url($imagesPath + $campaignsPath + "/frenchbubbles/bg3.jpg")
+
+	.sale-block-info
+		.sale-name
+			min-height 2.3em
+		.sale-text
+			padding 1em 4em
+			min-height 6em
+
+
+@media $largeScreensQuery
+	.campaign-header-container
+		background linear-gradient(#fffef0, $white)
+	.campaign-header
+		.campaign-title
+			font-size 3.2em

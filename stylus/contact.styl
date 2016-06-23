@@ -1,0 +1,105 @@
+@import 'variables'
+@import 'helpers'
+@import 'nib'
+
+
+form.contactus
+
+	fieldset
+
+		&.user
+			float none
+			width auto
+			margin 0 0 1em
+
+		&.message
+			float none
+			width auto
+
+	/* To Override other form styles on the site */
+	.control-label
+		float none
+		width auto
+		text-align left
+
+	.controls
+		margin-left 0
+
+	.actions
+		padding-left 0
+
+	input[type=text],
+	input[type=text].order
+	input[type=submit]
+	select
+	textarea
+		width 100%
+
+
+.memberdesk
+	background $gray-warm
+	margin 4em 0 0
+	padding 25px 30px
+	font-size em(14/$mobFontSize)
+	line-height em(18/14)
+	clearfix()
+
+	h1
+		font-size em(16/14)
+		float none
+		margin 0 0 1em
+
+	.wrap
+		float none
+
+	section
+		float none
+		margin 0
+
+	.tel
+		margin 0 0 1em
+		background-position 5px 0
+
+		div
+			display block
+
+	.number
+		font-size 1em
+
+	.hours
+		font-size em(12/14)
+		margin-left 0
+
+	.tel
+		background-image url(/static/images/contact/tel.png)
+		background-repeat no-repeat
+		min-height 25px
+		padding-left 45px
+
+		div
+			display inline
+
+	.email
+		background-image url(/static/images/contact/email.png)
+		background-repeat no-repeat
+		min-height 24px
+		padding-left 45px
+
+.supportClose
+	font-size em(12/14)
+
+
+
+
+/* Purely here to override default form styles on the site.
+ * those styles should be changed this removed.
+ */
+@media only screen and (max-width: 1009px) and (min-width: 568px)
+
+	form.contactus
+		textarea,
+		input[type=text],
+		input[type=password],
+		input[type=email],
+		input[type=tel]
+			max-width none

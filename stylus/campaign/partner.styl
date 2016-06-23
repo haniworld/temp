@@ -1,0 +1,125 @@
+@import '../nib'
+@import '../helpers'
+@import '../variables'
+
+			
+.page-partner
+	text-align center
+	
+	a:hover
+		opacity 0.6
+		transition opacity 0.3s
+	
+	.content
+		width 800px
+
+	section.campaign
+
+		.leftside
+			float left
+			width 430px
+			text-align right
+			p
+				image-replacement url(/static/images/campaign/partner/coach/lp_01.gif) 430px 331px
+				
+			div.right
+				padding-left 100px
+				
+			a
+				image-replacement url(/static/images/campaign/partner/coach/lp_03.gif) 225px 16px
+				width 225px
+				padding-left 100px
+			
+		.rightside
+			width 360px
+			float right
+			p
+				image-replacement url(/static/images/campaign/partner/coach/lp_02.jpg) 346px 437px
+	
+	section.sales
+		clear both
+
+		padding-top 50px
+		
+		h1
+			image-replacement url(/static/images/campaign/partner/coach/lp_04.gif) 800px 34px
+			padding-bottom 30px
+		
+		.leftside
+			float left
+			text-align center
+			width 322px
+			padding-left 40px
+			a
+				image-replacement url(/static/images/campaign/partner/coach/lp_05.jpg) 322px 213px
+
+		.rightside
+			float right
+			text-align center
+			width 322px
+			padding-right 40px
+			a
+				image-replacement url(/static/images/campaign/partner/coach/lp_06.jpg) 322px 213px
+
+@media only screen and (max-width: 568px)
+
+	.page-partner
+		.content
+			width auto
+		section.campaign
+			.rightside
+				margin 0 auto
+				clear both
+				float none
+				p
+					width 80%
+					background-size contain
+			.leftside
+				margin 0 auto
+				clear both
+				float none
+				div.right
+					padding-left 0px
+				a
+					padding-bottom 30px
+					width 30%
+					height auto
+					background-size contain
+				p
+					width 70%
+					height 250px
+					background-size contain
+
+		section.sales
+			.rightside
+				clear both
+				float none
+			.leftside
+				clear both
+				float none
+
+
+@media only screen and (min-width: 568px) and (max-width: 800px)
+
+	.page-partner
+		.content
+			width auto
+		section.campaign
+			.rightside
+				margin 0 auto
+				clear both
+				float none
+			.leftside
+				margin 0 auto
+				clear both
+				float none
+				a
+					padding-bottom 30px
+		section.sales
+			.rightside
+				clear both
+				float none
+			.leftside
+				clear both
+				float none
+

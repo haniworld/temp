@@ -1,0 +1,39 @@
+
+/* FILE: account-shippingdetails.styl
+ * ----------------------------------
+ * Styles for the shipping details page.  This page is used
+ * for specific promotions requiring the user to select 
+ * specific shipping dates for their products.
+ */
+
+
+.page-checkout
+
+	/* 
+	 * Hides the account navigation sidebar.
+	 */
+	.account-nav
+		display none
+
+	.account-wrap
+		text-align center
+		justify-content center
+
+		.account-main
+			margin-left 0
+			text-align left
+
+.page-accountshippingdetails
+	.h-scroll-table
+		.order-items
+			td.product-info
+				min-width 110px
+
+
+@media $xsmallScreensQuery
+
+	.page-accountshippingdetails
+		.h-scroll-table
+			.order-items
+				td.product-info
+					min-width 150px

@@ -1,0 +1,61 @@
+// All Admin view only styles
+
+body.admin
+	#admininfo
+		font-size em(12/14)
+		line-height em(18/12)
+
+		.num
+			text-align center
+
+		th
+			font-weight bold
+			text-align center
+			border-bottom 1px solid #e0e0e0
+
+		td
+			padding 0.75em 0.75em
+			border-top 1px solid white
+			border-bottom 1px solid #e0e0e0
+			border-right 1px solid #e0e0e0
+
+			&:first-child
+				border-left 1px solid #e0e0e0
+
+			&:nth-child(2n)
+				background #f0f0f0
+
+		tr:last-child th
+			border-bottom none
+
+	.qc-product-description, .qc-brand-history
+		text-align left
+		padding 3em
+
+		p
+			padding 0
+
+	.product-gallery.admin-product-view
+		ul li
+			float left
+			width 10%
+		.product-gallery-image img
+			display inline
+			margin 0
+			margin-left 0
+			margin-right 0
+			min-width 0
+			width 100%
+			height auto
+
+	#product-list
+		.admininfo
+			background #eee
+			padding 0.5em 10px
+			box-shadow 0 1px 4px #888
+
+
+@media screen and (min-width: 568px)
+	body.admin
+		.product-gallery-image img
+			min-width 0

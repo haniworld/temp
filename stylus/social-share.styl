@@ -1,0 +1,78 @@
+
+/* From sale page */
+
+.social-share
+	opacity 0
+	background transparent
+	position absolute
+	transition(all)
+	transition-duration(.4s)
+	transition-delay (0)
+	right 17px
+	bottom 18px
+	width 205px
+	&.displayShare
+		opacity 1
+	a
+		display block!important
+		height 100%
+
+
+.social-share
+	display block
+	margin 2em 0 0
+	width auto
+	z-index 14
+
+	li.twitterLogo
+		background transparent url(../images/twitterLogo.png) no-repeat 0 0
+		cursor pointer
+		display block
+		float left
+		width 24px
+		height 25px
+	li.facebookLogo
+		background transparent url(../images/facebookLogo.png) no-repeat 0 0
+		cursor pointer
+		display block
+		float left
+		margin-left .5em
+		width 24px
+		height 25px
+
+
+/* From brand page */
+.sem-brand-info
+
+	/* Temporary 'fix' for social-share until figuring
+	 * out the best way to style these.
+	 */
+
+	.social-share
+		display none
+
+
+/* From var.styl */
+
+.social-share
+	margin 2em 0
+	clearfix()
+
+	.fb-like
+	.twitter
+		float left
+		margin 0 10px 0 0
+
+			#facebookContainer
+				display block
+				height 50px
+
+	.fb-like span
+	.twitter iframe
+		transition width .25s
+
+@media only screen and (max-width: 1009px)
+		.social-share
+			display none
+
+

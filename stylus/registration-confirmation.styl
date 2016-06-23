@@ -1,0 +1,38 @@
+/* FILE registration-confirmation.styl
+ * -----------------------------------
+ * Contains styles specific to the registration confirmation
+ * page.  Most of the styles were general enough to be put
+ * into the layout.styl file for reuse on other pages.
+ *
+ * Any styles that are deemed reusable here should be made
+ * more general and put into the layout.styl file.
+ */
+
+
+.page-signupsuccess
+	#banner
+		background-image url('../../static/images/registration_confirmation/banner_small.jpg')
+
+
+@media $mediumScreensQuery
+	.page-signupsuccess
+		#banner
+			background-image url('../../static/images/registration_confirmation/banner_large.jpg')
+			background-size contain
+			background-repeat no-repeat
+			background-position center center
+
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 719px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 719px)
+	.page-signupsuccess
+		#banner
+			background-image url('../../static/images/registration_confirmation/banner_small@2x.jpg')
+
+
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 720px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 720px)
+	.page-signupsuccess
+		#banner
+			background-image url('../../static/images/registration_confirmation/banner_large@2x.jpg')

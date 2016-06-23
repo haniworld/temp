@@ -1,0 +1,231 @@
+/* FILE: nagbar.styl
+ * -----------------
+ * Contains styling for the nagbar and nagbutton appearing at
+ * the bottom of sale and brand pages while logged out.
+ */
+
+/*
+ * NAG BUTTON
+ * Close cousin of the nagbar
+ */
+
+.nagbutton
+	display none
+	position fixed
+	bottom 10px
+	right 15px
+	border 2px solid $gray-dark
+	background-color rgba($white, 0.75)
+	color $gray-dark
+	font-size 0.7em
+	opacity 0.7
+	padding 5px 1em
+	transition all 0.4s ease-in-out
+	z-index 10
+
+	.glyphicon
+		margin-right 5px
+
+	&:hover
+		background-color $white
+		color $gray-dark
+		opacity 1
+		text-decoration none
+
+
+	/*
+	 * Show the nagbutton on certain pages.
+	 */
+
+	.page-salelist &
+	.page-saledetail &
+	.page-saleproductdetail &
+	.page-branddetail &
+		display block
+
+
+/*
+ * NAG BAR STYLES.  Oh nagbar
+ */
+
+.nagbar
+	position fixed
+	bottom 0
+	border-top 4px solid $gray-medium
+	display none
+	background-color $white
+	background-color rgba($white, 0.95)
+	box-shadow 0 -1px 29px rgba($black, 0.16)
+	line-height 1.2em
+	font-size 0.8em
+	transition all 0.4s ease-out
+	width 100%
+	z-index 20
+
+	h2
+		color $gray-dark
+		font-family $font--serif
+		font-weight bold
+		font-size 1.3em
+		line-height 1.4em
+
+	p
+		line-height 1.4em
+
+	.nagbar-action
+	p.nag-text
+		max-height 0
+		overflow hidden
+		transition all 0.4s ease-out
+		margin-bottom 0
+
+	.nagbar-registration
+		display block
+
+	/*
+	 * Make nagbar fields smaller
+	 */
+
+	.email
+	.action
+		font-size 14px
+		line-height 1.7em
+		padding 0.35em 1.25em
+
+	.email
+		background-color $gray-light
+
+	/*
+	 * Close button set to the left to not interfere
+	 * with the scroll up button.
+	 */
+
+	.nagbar-close
+		display none
+		position absolute
+		top 0.5em
+		left 1em
+		color $gray-dark
+		font-size 1.2em
+
+	.nagbar-wrapper
+		position relative
+
+	.pure-g
+		-webkit-align-items center
+		align-items center
+
+	/*
+	 * Styles when the nagbar is open.
+	 */
+
+	.ie8 &.nagbar-open
+	.ie9 &.nagbar-open
+	&.nagbar-open
+		padding-top 3em
+
+		h2
+			margin-bottom 0.75em
+
+		p.nag-text
+		.nagbar-action
+			max-height 10em
+
+		.nagbar-close
+			display block
+
+	&.nagbar-open
+		p.nag-text
+			margin-bottom 1em
+
+
+
+
+
+/* ********************* *
+ * ----- IE FIXES ------ *
+ * ********************* *
+ */
+
+.ie8
+.ie9
+	.nagbar
+		.nagbar-close
+			left auto
+			right 1em
+
+		.theplaceholder
+			margin-top 0
+			text-align left
+
+		/*
+		 * Hide the action button and show on selection of email field
+		 */
+
+		.nagbar-action
+			max-height 0em
+
+
+
+/* ***************************** *
+ * ----- RESPONSIVE STYLES ----- *
+ * ***************************** *
+ */
+
+
+@media $xsmallScreensQuery
+
+	.nagbar
+		h2
+			margin-bottom 0
+
+		p.nag-text
+			margin-bottom 0
+
+		&.nagbar-open
+			p.nag-text
+				margin-bottom 0
+			h2
+				margin-bottom 0.75em
+
+@media $mediumScreensQuery
+
+	.nagbutton
+		display none
+
+		/*
+		 * Hide the nagbutton from all pages it appears on
+		 * on larger screens
+		 */
+
+		.page-salelist &
+		.page-saledetail &
+		.page-saleproductdetail &
+		.page-branddetail &
+			display none
+
+
+
+	.nagbar
+		font-size 1em
+
+		p.nag-text
+		.nagbar-action
+			max-height 10em
+
+		.action
+			font-size 1em
+
+		h2
+			margin-bottom 0.5em
+
+		&.nagbar-open
+			padding-top 1em
+
+			.nagbar-close
+				display none
+
+		/* Show the nagbar on certain pages */
+		.page-saledetail &
+		.page-saleproductdetail &
+			display block

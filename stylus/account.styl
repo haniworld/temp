@@ -1,0 +1,281 @@
+@import 'nib'
+@import 'variables'
+@import 'helpers'
+
+
+.account-wrap
+	@extend .general-wrap
+	padding-bottom 30px
+	padding-top 30px
+
+
+/*
+ * Navigation links appearing to the left of the account
+ * page content.
+ *
+ * These links only appear on $largeScreens and up.
+ */
+
+.account-nav
+	padding-right 2em
+
+	li
+		margin-bottom 10px
+
+		.action
+			border-width 1px
+			width 100%
+
+			/*
+			 * Show specific links as 'selected' based on body
+			 * page class.
+			 */
+
+			&:active
+			&.selected
+			.page-accountorders &#account-nav-order-history
+			.page-accountshippingdetails &#account-nav-order-history
+			.page-accountorderdetails &#account-nav-order-history
+			.page-accountcoupons &#account-nav-coupons
+			.page-accountinvitefriends &#account-nav-invite-friends
+			.page-accountpersonaldata &#account-nav-personal-data
+			.page-accountmail &#account-nav-mail
+			.page-accountaddress &#account-nav-address
+			.page-accountchangepassword &#account-nav-change-password
+			.page-accounthelp &#account-nav-help
+			.page-accountcontactus &#account-nav-contact-us
+			.page-accountunregister &#account-nav-unregister
+			.page-accountunregisterfinal &#account-nav-unregister
+			.page-accountreturns &#account-nav-returns
+			.page-accountreturnhistory &#account-nav-returns
+				background-color $gray-dark
+				border-color $gray-dark
+				color $white
+
+
+.tabs
+	border-bottom 1px solid $gray-medium
+	margin-top 4em
+
+	li
+		display inline-block
+
+		a
+			display block
+			padding .5em 1em
+			transition all 0.3s ease-in-out
+
+			&:hover
+				text-decoration none
+
+
+	&.invitation-tab0
+		.invitation-mail
+			border-bottom 3px solid $highlight
+			font-weight bold
+	&.invitation-tab1
+		.invitation-link
+			border-bottom 3px solid $highlight
+			font-weight bold
+
+.pane
+	padding 1em
+	padding-top 2em
+	background $gray-light
+
+
+.account-table
+	width 100%
+
+	td
+		padding 0.75em 0.75em
+		border-top 1px solid white
+		border-bottom 1px solid #e0e0e0
+		border-right 1px solid #e0e0e0
+		background white
+
+		&:first-child
+			border-left 1px solid #e0e0e0
+
+	.evencol
+		background #f0f0f0
+
+	tr:first-child td
+		border-top 1px solid #e0e0e0
+
+	.type
+	.status
+		white-space nowrap
+
+	.desc
+	.name
+	.email
+		word-wrap break-word
+		word-break break-all
+
+
+
+
+.order-infos
+	clearfix()
+	margin 0 0 2em
+
+	dt
+	dd
+		float left
+		margin 0 0 .5em
+
+	dt
+		clear both
+		min-width 150px
+		font-weight bold
+		margin-right 15px
+
+
+
+.includevat
+	margin .5em 0 2em
+	text-align right
+
+
+.secondary-email
+	input.email
+		width 270px
+
+
+.invitation-link input
+	width 300px
+	text-align center
+	float left
+
+
+.invitation-mail
+	.controls
+	.control-group-actions
+	.control-group-nolabel
+		margin-left 0
+
+	input
+		margin 0 0 1em
+
+
+.invite-message .control-label
+	float none
+	text-align left
+	width auto
+
+.invitation-import
+	input[type=text],
+	input[type=password]
+		width 250px
+
+.invite-message textarea
+	width 100%
+	max-width 550px
+
+
+
+@media only screen and (max-width: 920px)
+
+	// Hide sidebar links navigation
+	#main .account-nav
+		max-width 1000px
+
+		h1
+		ul
+			display none
+
+
+@media only screen and (max-width: 719px)
+
+	// Show select-based navigation
+	.account-nav
+		float none
+		margin 0 0 2em
+
+	// Hide title on account top
+	.account-nav + #content h1:not(.tab-header)
+		display none
+
+
+
+
+@media only screen and (max-width: 567px)
+
+	.invitation-import
+		input[type=text],
+		input[type=password]
+			width 100%
+
+
+@media only screen and (min-width: 480px) and (max-width: 568px)
+
+	// Hide some columns
+	.orders-table
+		.sale
+			display none
+
+		td
+			&
+			&.evencol
+				background transparent
+
+			&.date
+			&.amount
+				background #f0f0f0
+
+
+	.available-coupons
+		.startdate
+			display none
+
+		td
+			&
+			&.evencol
+				background transparent
+
+			&.desc
+			&.enddate
+				background #f0f0f0
+
+
+
+
+@media only screen and (max-width: 479px)
+
+	// Hide some columns
+	.orders-table
+		.sale
+		.quantity
+			display none
+
+		th.ordernum
+			white-space normal
+
+		td
+			&
+			&.evencol
+				background transparent
+
+			&.date
+			&.status
+				background #f0f0f0
+
+
+	.available-coupons
+		.type
+		.startdate
+			display none
+
+		td
+			&
+			&.evencol
+				background transparent
+
+			&.amount
+			&.status
+				background #f0f0f0
+
+			&.desc
+				border-left 1px solid #e0e0e0
+

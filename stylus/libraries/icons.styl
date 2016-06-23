@@ -1,0 +1,101 @@
+/* FILE: icons.styl
+ * ----------------
+ * Various icons used on the site made purely with CSS.
+ * >:)
+ */
+
+
+/* *********************** *
+ * ------ VARIABLES ------ *
+ * *********************** *
+ */
+
+$xsmall-icon = 1em
+$small-icon = 1.5em
+$medium-icon = 2em
+$large-icon = 3em
+$xlarge-icon = 4em
+
+
+
+/* ******************* *
+ * ------ ICONS ------ *
+ * ******************* *
+ */
+
+.mp-icon
+	position relative
+	display inline-block
+	color $gray-medium
+	width 100%
+	height 100%
+
+.mp-icon-circle
+	border-radius 50%
+	border 2px solid $gray-medium
+
+.mp-icon-plus
+
+	&:after,
+	&:before
+		content ''
+		position absolute
+		top 50%
+		left 50%
+
+	&:before
+		border-bottom 2px solid $gray-medium
+		margin-left -33.3333%
+		margin-top -1px
+		width 66.6666%
+
+	&:after
+		border-left 2px solid $gray-medium
+		margin-left -1px
+		margin-top -33.3333%
+		height 66.6666%
+
+.mp-icon-minus:after
+	content ''
+	position absolute
+	top 50%
+	left 50%
+
+	border-bottom 2px solid $gray-medium
+	margin-left -33.3333%
+	margin-top -1px
+	width 66.6666%
+
+.mp-icon-x
+	@extend .mp-icon-plus
+
+	/* ROTATE FOR EVERYTHING GOOD */
+	transform rotate(45deg)
+
+
+
+
+/* ******************* *
+ * ------ SIZES ------ *
+ * ******************* *
+ */
+
+.mp-icon--xsmall
+	height $xsmall-icon
+	width $xsmall-icon
+
+.mp-icon--small
+	height $small-icon
+	width $small-icon
+
+.mp-icon--medium
+	height $medium-icon
+	width $medium-icon
+
+.mp-icon--large
+	height $large-icon
+	width $large-icon
+
+.mp-icon--xlarge
+	height $xlarge-icon
+	width $xlarge-icon

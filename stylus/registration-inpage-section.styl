@@ -1,0 +1,172 @@
+/* FILE: registration-inpage-section.styl
+ * --------------------------------------
+ * Styles for registration section that
+ * appears inside a page.
+ */
+
+
+.registration-section
+	background-position center center
+	background-repeat no-repeat
+	background-size cover
+
+	.registration-section-container
+		background-color rgba($black, 0.5)
+		padding 3em 0
+
+		.registration-section-content-wrap
+			padding 0 15px
+
+	.registration-section-text
+		color $white
+		text-shadow 1px 1px 0 rgba($black, 0.5)
+
+		&.pure-u-1-1:not(:only-child)
+		&.pure-u-1:not(:only-child)
+			padding-bottom 2em
+
+		.registration-text-title
+			color $white
+			font-family $font--serif
+			font-size 1.8em
+			font-weight 700
+			line-height 1.3em
+
+		.registration-text-body
+			font-family $font--sans-serif
+			font-size 1em
+			line-height 1.7em
+
+	.registration-section-form-content
+		background-color $white
+		box-shadow 0 5px 30px rgba($black, 0.4)
+		padding 0 0 1em 0
+		min-height 470px	/* Added to reduce 'jump' when modal opens */
+
+
+
+
+	/* SPECIFIC STYLES FOR SPECIFIC PAGES */
+
+	/*
+	 * Only load the background image when the
+	 * user is NOT logged in to reduce bandwidth
+	 * cost of downloading the image.
+	 */
+
+	.page-salelist:not(.logged-in) &
+		background-image url($imagesPath + 'backgrounds/boutique/boutique-bg.jpg')
+
+	/*
+	 * Hide the registration section when the user
+	 * is logged in.
+	 */
+
+	.page-salelist.logged-in &
+		display none
+
+	.page-branddetail.logged-in &
+		.registration-section-text
+			padding-bottom 0
+
+		.registration-section-form
+			display none
+
+	/*
+	 * Show the registrations section when the modal
+	 * is open so the signup success modal can be
+	 * displayed.  Hide all other elements of the form.
+	 */
+
+	.page-salelist.logged-in.modal-open &
+		display block
+		padding 0
+		margin 0
+
+		/*
+		 * Leave the container visible, but remove
+		 * all styling that adds height.
+		 */
+
+		.registration-section-container
+			padding 0
+			margin 0
+
+		/* 
+		 * Set text next to form to be hidden as
+		 * the signup success dialog is contained
+		 * inside the form.
+		 */
+
+		.registration-section-text
+			display none
+
+
+	.page-salelist.logged-in.modal-open &
+	.page-branddetail.logged-in.modal-open &
+
+		/*
+		 * Leave the form visible, but remove height.
+		 */
+
+		.registration-section-form
+			display block
+			max-height 0
+
+		/*
+		 * Form is still displayed but has no
+		 * visible height.
+		 */
+
+		.registration-section-form-content
+			border 0
+			box-shadow none
+			min-height 0
+			padding 0
+
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+
+@media $xsmallScreensQuery
+	.registration-section-form-content
+		border 7px solid $gray-medium
+
+@media $mediumScreensQuery
+
+	.registration-section
+		.no-touch &
+			background-attachment fixed
+
+		.registration-section-text
+
+			&.pure-u-md-1-2
+				padding-right 5px
+
+			.registration-text-title
+				font-size 3em
+
+			.registration-text-body
+				font-family $font--sans-serif
+				font-size 1.2em
+				line-height 2em
+
+		.registration-section-form
+
+			&.pure-u-md-1-2
+				padding-left 5px
+
+			.registration-section-form-content
+				padding 0 2em 2em 2em
+
+
+@media $largeScreensQuery
+
+	.registration-section
+		.registration-section-text
+
+			&.pure-u-md-1-2
+				padding-right 20px

@@ -1,0 +1,56 @@
+<div class="header-request pure-g status-{{activeStatusClass}}">
+	<div class="pure-u-1 pure-u-sm-2-3 align-left header-request-title">
+		<div class="state-request"><span class="status-icon status-{{status}}"></span></div>
+		<div>
+			<div>リクエスト番号：{{request-external-id}}</div>
+			<div>返品ステータス：{{status-name}}</div>
+		</div>
+	</div>
+	<div class="pure-u-1 pure-u-sm-1-3 align-right pad-t--xsmall pad-t-sm--none">
+	{{#if cancelable}}
+		<form class="form-cancel-request align-right" method="DELETE" action="/json/return">
+			<input type="button" class="pure-u-1 action action-cancel" value="リクエストのキャンセル"/>
+		</form>
+	{{/if}}
+	</div>
+</div>
+<div class="request-item-detail" {{#if isClosed}}style="display:none;"{{/if}}>
+	<div class="pure-g pad-t--small pad-b--medium">
+		<div class="pure-u-2-3 align-left">
+			<div>返品申請日時：<span class="nobreak">{{requested-date}}</span></div>
+			<div>合計金額：{{amount}}</div>
+		</div>
+		<div class="pure-u-1-3 align-right">
+			{{#unless isClosed}}
+			<a href="{{shipping-slip}}" class="pure-u-1 action action--outline action--outline-tier-2 shipping-label">返品明細書を印刷する</a>
+			{{/unless}}
+		</div>
+	</div>
+	{{#each items}}
+	<div class="pure-u-1">
+		<div class="pure-g return-request-product pad--small">
+			<div class="return-item-face pure-u-1-3 pure-u-sm-1-4 align-center">
+				<img class="return-item-img" src="{{img}}" />
+			</div>
+			<div class="pure-u-2-3 pure-u-sm-3-8 return-request-prod-info">
+				<div>
+					<div><b>{{sale-name}}</b></div>
+					<div class="return-item-name pad-r--small">{{prod-name}}</div>
+					<div>{{variant}} – JAN:{{product-code}}</div>
+				</div>
+			</div>
+			<div class="pure-u-1-3 pure-u-sm-0"></div>
+			<div class="pure-u-1-2 pure-u-sm-1-3 mar-t--small mar-sm-t--none return-request-secondary-info">
+				<div>
+					<div>アイテム数：{{qty}}</div>
+					<div>ご注文金額：{{price}}</div>
+					<div>返品理由：{{reason-name}}{{#if ../isReasonOther}} - {{reason-description}}{{/if}}</div>
+					{{#unless ../isClosed}}
+					<div class="return-request-refund-method">返金方法: {{pay-type}}</div>
+					{{/unless}}
+				</div>
+			</div>
+		</div>
+	</div>
+	{{/each}}
+</div>

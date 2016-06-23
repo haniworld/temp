@@ -1,0 +1,857 @@
+@import 'nib'
+@import 'helpers'
+@import 'variables'
+@import 'backgrounds'
+@import 'brand-logo'
+@import 'libraries/grid-extensions'
+@import 'libraries/grid-responsive'
+@import 'libraries/grid-responsive-extensions'
+@import 'libraries/layout-alignment'
+@import 'libraries/layout-margins'
+@import 'libraries/layout-padding'
+@import 'libraries/layout-line-breaks'
+@import 'libraries/icons'
+@import 'libraries/overlays'
+@import 'libraries/scroll'
+@import 'libraries/tracking'
+@import 'tables'
+
+
+/* ****************************************** */
+/* ---------- GENERAL PAGE STYLES ----------- */
+/* ****************************************** */
+/*
+ * General styles used throughout various information
+ * pages, as well as the top, registration, and teaser
+ * pages.
+ */
+
+
+html
+	background $white
+
+	&.checkout
+		background white
+
+
+#page
+	width 100%
+	margin 0 auto
+	position relative
+	z-index 1
+	min-width 320px
+
+#main
+	padding-top 0
+
+
+.general-wrap
+	width 980px
+	margin-left auto
+	margin-right auto
+	clearfix()
+
+.narrow-wrap
+	box-sizing border-box
+	max-width 600px
+	margin-left auto
+	margin-right auto
+	padding 0 1em
+
+.home-content-wrap
+	box-sizing border-box
+	max-width 800px
+	margin-left auto
+	margin-right auto
+
+.medium-wrap
+	box-sizing border-box
+
+.product-wrap
+	margin-left auto
+	margin-right auto
+	max-width 1000px
+	box-sizing border-box
+
+.wide-wrap
+	box-sizing border-box
+
+#content
+	min-height 350px
+	clearfix()
+
+
+.general-wrap
+	width 980px
+	margin 0 auto
+
+.pure-g *
+	box-sizing border-box
+
+
+/* HEADERS
+ * -------
+ * Various headers used throughout the site
+ */
+
+.header-base
+	color $title
+	font-family $font-title
+	letter-spacing 1px
+	line-height 1.4em
+	text-transform uppercase
+
+.border-header
+	margin 1em 0 /* This is overriding the margin class applied */
+	text-align center
+
+	h1
+		@extend .header-base
+		display inline-block
+		border-top 1px solid $title
+		border-bottom 1px solid $title
+		font-size 0.9em
+		font-weight 700
+		letter-spacing 1px
+		padding 0.2em 0.75em
+		vertical-align middle
+
+	.countdown
+		color $gray-dark
+		font-size 3.5em
+		line-height 0.85em
+
+	.sub-text
+		color $gray-dark
+		font-size 0.85em
+
+
+.h1, .content h1
+	@extend .header-base
+	font-size 28px
+	letter-spacing 2px
+
+.h2, .content h2
+	@extend .header-base
+	font-size 24px
+	letter-spacing 1px
+
+.h3, .content h3
+	@extend .header-base
+	font-size 20px
+	letter-spacing 2px
+
+.h4, .content h4
+	@extend .header-base
+	font-size 18px
+	letter-spacing 1px
+
+.h5, .content h5
+	@extend .header-base
+
+	letter-spacing 0
+	font-family $font--serif
+	font-size 15px
+	font-style italic
+	text-transform lowercase
+
+.h6, .content h6
+	@extend .header-base
+
+	color $gray-medium
+	font-size .8em
+	font-weight 700
+	letter-spacing 2px
+	text-transform uppercase
+
+
+
+
+h1, h2, h3, h4, h5, span
+	&.title-leadin
+		display block
+		font-size 14px
+		font-family $font--serif
+		font-style italic
+		letter-spacing 0
+		line-height 15px
+		margin-bottom 0.35em
+		text-transform lowercase
+
+
+
+
+/* TEXT AND TITLES
+ * ---------------
+ * Styling of text alignment, title sizes, colors.  Some of these
+ * styles are duplicating the need of the above classes and are
+ * here for now to support both until a more unified direction
+ * is determined.
+ */
+
+.section-title
+.subsection-title
+	color $title
+
+
+.section-title
+	font-size em(22/14)
+	line-height em(28/22)
+	margin 2em 0 1.5em
+
+	&:first-child
+		margin-top 0
+
+	.windows &
+		font-weight bold
+
+	a
+		color #d9d9d9
+
+		&.active
+			color $gray-dark
+
+
+.subsection-title
+	font-size em(18/14)
+	margin 2em 0 1em
+
+	&:first-child
+		margin-top 0
+
+.section-title + .subsection-title
+	margin-top 0
+
+
+.small-text
+	font-size 0.8em
+	line-height 1.44em
+
+.content--tier-1
+	font-size 120%
+	line-height 2em
+
+.content--tier-2
+	font-size 100%
+	line-height 1.9em
+
+.content--tier-3
+	font-size 90%
+	line-height 1.6em
+
+.brand-name
+	text-transform uppercase
+
+.brand-name-title
+	letter-spacing 0.1em
+
+.highlight
+	color $highlight
+
+.text-light
+	color $gray-medium
+
+.text-dark
+	color $gray-dark
+
+
+
+/* BORDER BOX
+ * ----------
+ * Box with a dark border.  Used in headings
+ * and other standout content.
+ */
+
+.border-box-text
+	border 4px solid $gray-dark
+	color $gray-dark
+	padding 2em 1.5em
+
+	.headline
+		font-size 1em
+		font-weight 700
+		letter-spacing 1px
+		line-height 2em
+
+	p.headline
+		margin-bottom 0
+
+	&.border-box-text--white
+		border-color $white
+		color $white
+
+
+
+
+/* FORMATS
+ * -------
+ * These are styles for various types of content formatting
+ * that can appear on pages throughout the site.
+ */
+
+
+.content-section
+	padding-top 4em
+	padding-bottom 4em
+
+	& + #footer
+		margin-top 0
+
+.content-subsection
+	border 1px solid #eee
+
+	& + .content-subsection
+		border-top 0
+
+.content--standout
+	margin-left auto
+	margin-right auto
+	text-align center
+
+
+.content--hasDivider
+	border-top 1px dotted $gray-medium
+	padding-top 2em
+
+.content--full-width
+	position absolute
+	left 0
+	width 100%
+
+
+
+
+
+
+
+
+
+/* BANNER STYLES
+ * -------------
+ * General styles defined for banner display and
+ * behavior on site.  Also includes, banner text
+ * which appears in the center of the banner.
+ */
+
+.banner
+	valign-middle-parent()
+	height 400px
+	width 100%
+	background-repeat no-repeat
+	background-position center center
+
+.banner--cover
+	background-size cover
+
+.banner--contain
+	background-size contain
+	height 550px
+
+img.banner
+	width 100%
+
+.banner-text
+	valign-middle-child()
+	margin auto
+	color white
+
+	h1&
+		font-family $font-title
+		font-size 1.4em
+		letter-spacing 0.1em
+		line-height 1.2em
+		text-transform uppercase
+
+
+
+/* IMAGE GENERAL STYLES
+ * --------------------
+ * Defines general ways of displaying images in containers
+ */
+
+.contain-img-to-container
+	img
+		max-width 100%
+
+
+
+
+
+/* DISPLAY STYLES
+ * --------------
+ * Specifies hidden content.  This content will be
+ * displayed if placed inside the fancybox plugin.
+ * This allows for the display of embedded pop-up
+ * content on the site.
+ */
+
+.display--hidden
+	display none
+
+
+.display--desktop-only
+	display none
+
+.display--mobile-only
+	display block
+
+/* for general user for js */
+.hidden
+	display none
+
+.display-block
+	display block
+	width 100%
+
+
+/* For Touch and Non-Touch Devices */
+.touch
+	.display--touch-only
+		display block
+
+	.display--no-touch-only
+		display none
+
+.no-touch
+	.display--touch-only
+		display none
+
+	.display--no-touch-only
+		display block
+
+
+
+
+
+/* MIDDLE VERTICAL ALIGN
+ * ---------------------
+ * Appliable class to markup for vertical alignment.  Uses
+ * styles in the valign-middle-parent() and valign-middle-child()
+ * helper mixins in "helpers.styl".
+ */
+
+.valign-middle-parent
+	valign-middle-parent()
+
+	.pure-g > &
+		vertical-align middle
+
+
+.valign-middle-child
+	valign-middle-child()
+
+
+
+
+
+
+/* PLACEHOLDER
+ * -----------
+ * Used for browsers that don't support the HTML5 placeholder
+ * feature. Placeholders are hidden on newer browsers.
+ */
+
+label.theplaceholder
+	display none
+	margin-top 1em
+
+.ie6
+.ie7
+.ie8
+.ie9
+	label.theplaceholder
+		display block
+
+
+
+
+
+/* LIST STYLES
+ * -----------
+ * List styles for general content pages (not the stores)
+ */
+
+.list--dot
+		list-style disc outside
+		margin 0 0 1em 20px
+	& > li
+		margin 0.5em 0
+
+
+/* BREADCRUMBS
+ * -----------
+ * Breadcrumbs that appear in site information and
+ * account pages.
+ */
+
+
+#breadcrumbs
+	margin -2em 0 1em
+	text-align right
+	border-top none
+	font-size em(10/14)
+
+	li
+		display inline
+
+	&
+	a
+		color $default
+
+
+
+/* BACK TO TOP BUTTON
+ * ------------------
+ * Button that appears on the bottom half of long pages.
+ */
+
+
+#backtotop
+	image-replacement url(../images/layout_2012/pagetop.png) 34px 34px
+	background-color rgba($gray-cool, 60%)
+	border-radius 4px
+	position fixed
+	z-index 600
+	bottom 23%
+	right 1em
+	transition all 0.3s ease-in-out
+	display none
+
+	&:hover
+		background-color rgba($gray-cool, 90%)
+
+	&:active
+		background-color rgba($highlight, 90%)
+
+
+
+/* RESPONSIVE IMAGES
+ * -----------------
+ * Used on IMG tags to make the images resize to their containers
+ */
+
+.responsive-img
+	max-width 100%
+	height auto
+
+
+
+/* MESSAGE BOX
+ * -----------
+ * Styles for general message box.
+ */
+
+.message-box
+	text-align center
+	border 3px solid $gray-warm
+	padding 2em 1em
+
+	p:last-child
+		margin-bottom 0
+		padding-bottom 0
+
+
+
+/* STATUS MESSAGE BOX
+ * ------------------
+ * Used for displaying a status to the user.
+ *
+ * Examples:
+ *   - Form submitted
+ *   - No available items
+ *   - Purchase completed
+ */
+
+.status-message-box
+	text-align center
+	border 3px solid $gray-warm
+	padding 5%
+
+	/* NOTE: For boxes that don't need the smaller text,
+	 * don't use the <p> tag.  Janky, yes.
+	 */
+	h2
+		font-size 1.2em
+		font-weight bold
+		line-height 1.3em
+		margin-bottom 0.75em
+		padding 0
+
+	h2:only-child
+		margin-bottom 0
+	p
+		font-size 0.85em
+		margin-bottom 0
+
+.cta-box
+	background-color $gray-light
+	border 1px solid $gray-warm
+	padding 1em 2em
+	text-align center
+
+
+/* PAGENATION
+ * ____________________
+ */
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  border-radius: 4px;
+}
+.pagination > li {
+  display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  text-decoration: none;
+  border: 1px solid #ddd;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  z-index: 2;
+  cursor: default;
+  background-color: $orange-light;
+  color: $white;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #777;
+  cursor: not-allowed;
+  border-color: #ddd;
+}
+
+
+/* ---------- END OF GENERAL PAGE STYLES ----------- */
+
+
+
+
+
+
+
+
+
+
+
+
+/* **************************************** *
+ * ---------- RESPONSIVE STYLES ----------- *
+ * **************************************** *
+ *
+ * These styles need to be all standardized as there are
+ * many different media queries of all different ranges and
+ * sizes doing different things.
+ *
+ * In general, a more "mobile-first" approach should be
+ * adopted to simplify things.
+ */
+
+
+
+/* ----- MOBILE-FIRST STYLES ----- */
+
+
+@media $xsmallScreensQuery
+
+	#main
+		padding-top 5.1em
+
+		.page-saleproductdetail &
+			padding-top 0
+
+	.border-box-text
+		.headline
+			font-size 1em
+			letter-spacing 3px
+
+
+@media $smallScreensQuery
+
+	.banner-text
+		h1&
+			font-size 1.6em
+
+	.banner--contain
+		height 600px
+
+
+@media $mediumScreensQuery
+
+	#main
+		padding-top 0
+
+		.page-saleproductdetail &
+			padding-top 0
+
+	.border-header
+		margin 2em 0
+		h1
+			font-size 1em
+
+	.banner--contain
+		height 350px
+
+	.display--desktop-only
+		display block
+
+	.display--mobile-only
+		display none
+
+	.wide-wrap
+		margin-left auto
+		margin-right auto
+		max-width $largerScreens
+
+	.narrow-wrap
+		padding-left 0
+		padding-right 0
+
+	.medium-wrap
+		margin-left auto
+		margin-right auto
+		max-width 1000px
+
+	.border-box-text
+		.headline
+			font-size 1.25em
+			letter-spacing 5px
+
+	#backtotop
+		bottom 25%
+		right 40px
+
+	.message-box
+		padding 2em
+
+
+
+
+@media $largeScreensQuery
+
+	.border-header
+		h1
+			font-size 1.2em
+
+	.banner-text
+		h1&
+			font-size 2.4em
+
+	.banner--contain
+		height 400px
+
+	#backtotop
+		bottom 40%
+
+@media $xlargeScreensQuery
+
+	.banner--contain
+		height 500px
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- NON-MOBILE-FIRST STYLES ----------- */
+
+
+/*
+ * Target iPhone 5 and add padding because the header is sticky.
+ * Remove padding on Android devices with a viewport height
+ * of 640px because header is not sticky.
+ */
+
+@media only screen and (max-width: 374px) and (min-height: 450px)
+
+	#main
+		padding-top 5.1em
+
+		.android &
+		.page-saleproductdetail &
+			padding-top 0
+
+
+
+@media only screen and (max-width: 568px)
+
+	.general-wrap
+		padding-left 1em
+		padding-right 1em
+
+
+
+
+
+@media only screen and (max-width: 1009px)
+
+	.general-wrap
+		width auto
+
+	.section-title
+		font-size em(20/$mobFontSize)
+		line-height em(28/20)
+
+
+	.subsection-title
+		font-size em(18/$mobFontSize)
+		line-height em(24/18)
+
+
+
+
+
+@media only screen and (max-width: 719px)
+
+	#breadcrumbs
+		display none
+
+	#content
+		min-height 322px
+
+
+
+
+@media only screen and (min-width: 568px) and (max-width: 1009px)
+
+	.general-wrap
+		max-width 980px  //Changed from 700px
+
+	.general-wrap
+		padding-left 1em
+		padding-right 1em

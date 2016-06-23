@@ -1,0 +1,44 @@
+/* FILE: layout-line-breaks.styl
+ * ---------------------
+ * For helping to format Japanese.  styles to
+ * show and ignore BR tags for various sized
+ * devices.
+ */
+
+.br-ignore
+	br
+		display none
+
+.br-show
+	br
+		display inline
+
+@media $smallScreensQuery
+
+	.br-show-sm
+		br
+			display inline
+
+	.br-ignore-sm
+		br
+			display none
+
+@media $mediumScreensQuery
+
+	.br-show-md
+		br
+			display inline
+
+	.br-ignore-md
+		br
+			display none
+
+@media $largeScreensQuery
+
+	.br-show-lg
+		br
+			display inline
+
+	.br-ignore-lg
+		br
+			display none

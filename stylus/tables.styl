@@ -1,0 +1,33 @@
+/* FILE: tables.styl
+ * -----------------
+ * Standard table styling for various tables used
+ * throughout the site.
+ */
+
+$table-line-color = $gray-medium
+
+
+table.info-table
+	background-color $gray-light
+	width 100%
+	border-top 1px solid $table-line-color
+
+	th
+	td
+		padding	0.75em 1.25em
+		border-bottom 1px solid $table-line-color
+
+	th
+		color $gray-dark
+		font-family $font--sans-serif
+		font-weight bold
+
+	thead
+		th
+			text-align center
+
+	tbody
+		th
+		td
+			text-align left
+

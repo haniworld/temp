@@ -1,0 +1,94 @@
+@import '../nib'
+@import '../helpers'
+@import '../var'
+
+$hero-bg-gray = #f4f4f4
+
+@keyframes pop
+	0%
+		transform scale(1)
+	70%
+		transform scale(1)
+	75%
+		transform scale(1.1, 1.1)
+	85%
+		transform scale(1.2, 1.2)
+	95%
+		transform scale(1.1, 1.1)
+	100%
+		transform scale(1)
+
+@keyframes spin
+	0%
+		transform rotate(0deg)
+	100%
+		transform rotate(360deg)
+
+.page-sixyearanniversary
+	.campaign-header
+		background-color $hero-bg-gray
+		img
+			margin auto
+			display block
+
+	.campaign-1
+		.stamp-card
+			background-color $gray-light
+			border 5px solid $gray-warm
+			h1
+				font-weight bold
+			li
+				display inline-block
+				.sale-name
+					max-width 100%
+
+			.times-number
+				animation pop 1s ease-in 0.2s 1 forwards
+				color $highlight
+
+		.qualifying-sales
+			background-color $gray-light
+			border 1px solid $gray-warm
+			transition all 0.3s ease-in-out
+			padding 0.5em
+
+			h1
+				font-weight bold
+				padding 0.5em
+				color $highlight
+
+			&:hover
+				border-color $gray-medium
+
+		.sale-name
+			font-family $font--sans-serif
+			font-size 0.8em
+			padding 0.5em
+
+	.steps
+		.step p
+			padding 1em
+	.campaign-2
+		header.border-header h1
+			color $white
+			border-color $white
+	.questionaire
+		background-color $gray-light
+		margin-right auto
+		margin-left auto
+		.h3
+			font-weight bold
+
+
+
+/* ***************************** *
+ * ----- RESPONSIVE STYLES ----- *
+ * ***************************** *
+ */
+
+@media only screen and (max-width: 374px) and (min-height: 450px)
+
+	#main
+		.page-sixyearanniversary &
+			padding-top 3.5em
+

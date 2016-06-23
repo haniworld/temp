@@ -1,0 +1,201 @@
+
+.gallery-image a {
+  outline-style: none;
+  text-decoration: none;
+}
+
+.zoomPad{
+  position: relative;
+  cursor: crosshair;
+  height: 100%;
+  z-index: 19;
+
+  .zoom-small-image {
+    opacity: 1;
+  }
+}
+
+.zoom-large-image {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+.zoomPreload {
+  color: #333;
+  font-size: 12px;
+  font-family: Tahoma;
+  text-decoration: none;
+  border: 1px solid $gray-warm;
+  background-color: white;
+  padding: 8px;
+  text-align:center;
+  background-image: url(../images/loader.gif);
+  background-repeat: no-repeat;
+  background-position: center center;
+  z-index: 19;
+  width: 100%;
+  height: 100%;
+  opacity 0
+  position:absolute;
+  top:0px;
+  left:0px;
+  transition opacity 0.3s ease-in-out
+
+  &.active {
+    opacity: 0.8;
+    position: absolute
+  }
+}
+
+
+.zoomPup{
+  display: none;
+  overflow: hidden;
+  background-color: #FFF;
+  opacity: 0.6;
+  z-index: 19;
+  position: absolute;
+  border: 1px solid $gray-medium;
+  cursor: crosshair;
+
+  &.active {
+    display: block;
+  }
+}
+
+.zoomOverlay{
+  position:absolute;
+  left:0px;
+  top:0px;
+  background:#FFF;
+  z-index: 20;
+  width:100%;
+  height:100%;
+  display:none;
+}
+
+.zoomWindow{
+  position:absolute;
+  background:#FFF;
+  width: 100%;
+  height: 100%;
+  z-index: 20; /* lower than floating banner */
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+
+  &.active {
+    opacity: 1;
+  }
+  &.inner-zoom {
+    cursor: default;
+  }
+}
+
+.zoomWrapper{
+  position: relative;
+  border:1px solid $gray-warm;
+  z-index: 18;
+  width: 100%;
+  height: 100%;
+}
+
+.zoomWrapperTitle{
+  width: 100%;
+  position: absolute;
+  background:#999;
+  color:#FFF;
+  height:18px;
+  line-height:18px;
+  width:100%;
+  overflow:hidden;
+  text-align:center;
+  font-size:10px;
+  position:absolute;
+  top:0px;
+  left:0px;
+  z-index: 19;
+  -moz-opacity:0.6;
+  opacity: 0.6;
+
+  /* Remove title for now */
+  display: none;
+}
+
+.zoomWrapperImage {
+  display: block;
+  position: relative;
+  z-index: 18;
+  width: 100%;
+  height: 100%;
+  img {
+    border: 0px;
+    z-index: 17;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
+}
+
+html.no-touch {
+  .zoomWrapperImage {
+    position: relative;
+    overflow: hidden;
+
+    img {
+      position: absolute;
+    }
+  }
+}
+
+html.touch {
+  .zoomWrapperImage {
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    img {
+      position: relative;
+    }
+  }
+}
+
+.zoomIframe{
+  z-index: -1;
+  -moz-opacity: 0.80;
+  opacity: 0.80;
+  position:absolute;
+  display:block;
+}
+
+/* For inner zoom */
+.product-gallery-image{
+  .zoomPad{
+    .zoomWrapperImage img{
+      max-width: none !important;
+      max-height: none !important;
+    }
+  }
+}
+
+
+
+
+
+/* ***************************** *
+ * ----- RESPONSIVE STYLES ----- *
+ * ***************************** *
+ */
+
+
+@media $mediumScreensQuery
+
+  .zoomWindow {
+    height: 100%
+  }
+
+
+@media $largeScreensQuery
+  .zoomPad {
+    display: inline-block;
+  }

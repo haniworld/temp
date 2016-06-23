@@ -1,0 +1,296 @@
+/* story-marche-june2016.styl */
+
+@import '../nib'
+@import '../helpers'
+@import '../variables'
+@import '../layout'
+
+
+p
+	font-size 1em
+
+$font-gray-campaign = #e6e6e6
+$font-subtitle = #c7b98c
+
+.page-storymarchejune2016
+	#page
+		@extend .wide-wrap
+		background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/hero_mobile.jpg")
+		background-position center top
+		background-repeat no-repeat
+		background-size 100% auto
+		#header
+			position relative
+			background transparent
+			box-shadow none
+			#account-menu a
+				color $white
+			.site-header .shopping-bag .bag
+				display none
+			.login-menu
+				.signup-link
+				.login-link
+					background-color transparent
+					color $white
+					border-color $white
+			#shop-menu
+				.sale-category a
+					color $font-gray-campaign
+		#main
+			padding-top 0
+
+.campaign-header
+	position relative
+	min-height 500px
+
+	.campaign-title
+		font-family $font--serif
+		color $font-gray-campaign
+		font-style italic
+		font-size 1.8em
+		line-height 1.5em
+		padding 0 1em 1em
+	.campaign-subtitle
+		font-size 0.8em
+	.campaign-text
+		margin-top 40%
+		color #e6e6e6
+		padding 0 3em
+		font-size 1em
+
+.campaign-main
+	background $white
+
+.campaign-sales
+	li
+		width 100%
+		background-repeat no-repeat
+		&.row-0
+			background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg2_mobile.jpg")
+			.sales-container
+				margin-top 0
+				padding-top 0
+		&.row-1
+			background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg1_mobile.jpg")
+		&.row-2
+			background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg2_mobile.jpg")
+
+	a.linked-section:hover
+		text-decoration none
+		color $default
+	.category-text
+		padding-left 3em
+		padding-right 3em
+	.sale-block-banner-container
+		position relative
+		padding 3em 3em 0
+		.sale-banner
+			max-width 100%
+			height auto
+	.sale-block-info
+		.sale-name
+			font-family $font-title
+			text-transform uppercase
+			font-size 1.2em
+			letter-spacing .2em
+		.sale-text
+			font-size 1em
+			padding-right 3em
+			padding-left 3em
+		.sale-start-date
+			color $highlight
+	.go-to-sale
+		width 200px
+		height auto
+
+	.sale-banner-overlay
+		position absolute
+		top 0
+		left 0
+		width 100%
+		height 100%
+		img
+			position absolute
+			bottom -5px
+			left 0
+			max-width 100%
+			height auto
+
+$article-bg = #ebebeb
+$article-btn-bg = #9ac843
+.articles-container
+	background-color $article-bg
+	min-height 200px
+	.houzz-logo
+		max-width 170px
+	.article-container
+		margin 2em
+		padding 2em 1em 1em
+		background-color $white
+		p
+			font-size 1em
+			min-height 55px
+		a
+			display block
+			margin 1.5em
+			padding 0.5em
+			color $white
+			background-color $article-btn-bg
+
+
+.about-story-marche
+	background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/storytxt_bg.jpg")
+
+@media $media screen and (min-width: 440px)
+	.campaign-header
+		min-height 700px
+
+@media $smallScreensQuery
+	.campaign-header
+		min-height 900px
+		.campaign-title
+
+			padding 1em
+		.campaign-text
+			margin-top 80%
+
+
+@media $mediumScreensQuery
+	p
+		font-size 1.7em
+		line-height 1.3em
+	.campaign-header
+		min-height 900px
+		max-height 910px
+		.campaign-title
+			font-size 2.5em
+			line-height 1.5em
+			letter-spacing .1em
+			padding 1em
+		.campaign-text
+			margin-top 65%
+			margin-bottom 5em
+			padding 0
+			font-size 1.2em
+			line-height 2em
+
+
+	.campaign-sales
+		li
+			&.row-0
+				background-image none
+				margin-top 0
+			&.row-1
+				background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg1.jpg")
+				.category-text
+					margin-top 2em
+			&.row-2
+				background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg2.jpg")
+				.category-text
+					margin-top 2em
+		.sales-container:not(:first-child)
+			padding-top 27%
+
+
+	.sale-block-info
+		.sale-name
+			min-height 2.3em
+		.sale-text
+			padding 1em 4em
+			min-height 6em
+
+	.articles-container
+		.article-container
+			margin 1em
+			padding 2em 1em 1em
+			a
+				margin 0.5em
+				padding 0.5em
+
+@media screen and (min-width: 840px)
+	.campaign-header
+		.campaign-text
+			margin-top 80%
+
+@media $largeScreensQuery
+	.page-storymarchejune2016
+		#page
+			background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/hero.jpg")
+	.campaign-header
+		min-height 800px
+		.campaign-title
+			font-size 3.5em
+			line-height 1.5em
+			letter-spacing .1em
+			padding 0.5em 1em 1em
+		.campaign-text
+			margin-top 50%
+			margin-bottom 5em
+			padding 0
+			font-size 1.2em
+			line-height 2em
+	.campaign-sales
+		.sales-container
+			padding-top 20%
+		li
+			&.row-0
+				background-image none
+				margin-top 0
+			&.row-1
+				background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg1.jpg")
+				.category-text
+					margin-top 2em
+			&.row-2
+				background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg2.jpg")
+				.category-text
+					margin-top 2em
+
+
+@media $largerScreensQuery
+	.campaign-header
+		.campaign-text
+			margin-top 65%
+
+
+.ie8
+	.page-storymarchejune2016
+		#page
+			background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/hero.jpg")
+	p
+		font-size 1.7em
+		line-height 1.3em
+	.campaign-header
+		min-height 900px
+		.campaign-title
+			font-size 2.5em
+			line-height 1.5em
+			letter-spacing .1em
+			padding 1em
+		.campaign-text
+			margin-top 67%
+			margin-bottom 5em
+			padding 0
+			font-size 1.2em
+			line-height 2em
+
+
+	.campaign-sales
+		li
+			&.row-0
+				background-image none
+				margin-top 0
+			&.row-1
+				background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg1.jpg")
+			&.row-2
+				background-image url($imagesPath + $campaignsPath + "/storymarchejune2016/bg2.jpg")
+
+		.sales-container:not(:first-child)
+			padding-top 27%
+
+
+	.sale-block-info
+		.sale-name
+			min-height 2.3em
+		.sale-text
+			padding 1em 4em
+			min-height 6em

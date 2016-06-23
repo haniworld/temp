@@ -1,0 +1,19 @@
+/* FILE: tracking.styl
+ * -------------------
+ * This file contains styles for tracking tags inserted
+ * through tag manager.
+ */
+
+
+/* Not using display: none because some browsers will not
+ * fire the http request.  This would defeat the purpose
+ * of the tag itself!
+ */
+
+.hidden-tag
+	visibility hidden
+	position absolute
+	left -9999px
+	top -9999px
+	height 0
+	width 0

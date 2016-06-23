@@ -1,0 +1,224 @@
+/* fblg.styl
+// For FB experimental landing pages
+*/
+
+@import '../layout.styl'
+@import '../variables'
+@import '../nib'
+@import '../helpers'
+@import '../var'
+
+.page-fblpweba
+	#main
+		.campaign-container
+			padding-top 1em
+			padding-bottom 1em
+			display table-row
+
+		.campaign-body
+			display table-cell
+
+	.side-left
+		display table-cell
+		height auto
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/products-left-bg.jpg')
+		background-size 100% auto
+		background-repeat repeat-y
+
+	.side-right
+		display table-cell
+		height auto
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/products-right-bg.jpg')
+		background-size 100% auto
+		background-repeat repeat-y
+
+	.campaign-header,
+	.campaign-body-main
+		.h1
+			font-family $font--serif
+	.campaign-body-main
+		p
+			@extend .h4
+			font-family $font--serif
+			line-height 2em
+			padding-bottom 1em
+		.big-no
+			font-size 5em
+			font-weight bold
+			font-style italic
+			letter-spacing 2px
+
+	.campaign-action-text
+			font-size .8em
+			font-weight bold
+
+
+.page-fblpwebb
+	.responsive-img
+		display block
+	.campaign-body
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/notebook-repeat-bg.jpg')
+		background-size 100% auto
+		background-repeat repeat;
+		background-position center top
+
+		.question-list
+			list-style-type decimal
+			padding-left 1em
+		.ans-yes
+			color #c1272d
+		.ans-no
+			color #2e3192
+		li
+			font-size 1em
+			padding-bottom 1.5em
+			padding-left 0
+		.devider
+			position relative
+			border-bottom 2px solid $gray-dark
+			&:after
+				display block
+				margin-top -0.5em
+				left 0
+				position absolute
+				content "〈 判定 〉"
+				font-weight bold
+				font-size 1.5em
+				background #fdfdfb
+
+		.go-to-page
+			border-bottom 1px solid $gray-dark
+			a:hover
+				text-decoration none
+				color $default
+		.logo
+			height 1em
+			width auto
+		.inline
+			display inline
+
+.page-fblpwebc
+	.campaign-header
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/wood-bg.jpg')
+		background-size auto 100%
+		background-repeat no-repeat
+		.h3
+			color $white
+			line-height 3em
+
+
+	.campaign-body-main
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/woman-bg.jpg')
+		background-color #ecf0f6
+		background-position center top
+		background-size 100%
+		background-repeat no-repeat
+		.main-text
+			padding-top 70%
+		p
+			@extend .h4
+			padding-bottom 1em
+			padding-left 0
+
+.page-fblpwebd
+	#main
+		padding-bottom 10em
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/shoe-bg.jpg')
+		background-size 150%
+		background-position center bottom
+		background-repeat no-repeat
+		.campaign-body
+			p
+				@extend .h4
+				font-size 1em
+				padding-bottom 1.5em
+				line-height 2em
+				.logo
+					height 1em
+					width auto
+
+		.campaign-action
+			padding-bottom 20%
+			.campaign-action-text
+				font-size .8em
+				font-weight bold
+
+.page-fblpwebe
+	.window-top
+		position relative
+		.window-curtain
+			z-index 1
+			position absolute
+			top 0
+			right 0
+	.campaign-body
+		background-image url($imagesPath + $campaignsPath + 'fb_landing_pages/window-middle-repeat-bg.jpg')
+		background-size 100% auto
+		background-position center top
+		p
+			@extend .h4
+			line-height 2em
+			margin-bottom 1.5em
+			font-family $font--serif
+		.campaign-action-text
+			margin-bottom 0
+	.campaign-body-main
+		position relative
+		z-index 2
+	.window-top
+	.window-bottom
+		.responsive-img
+			display block
+
+/* Add padding on top so the background appears "stacked" above the text
+*  Remove padding so background image appears to left of text
+*/
+@media $mediumScreensQuery
+	.page-fblpwebc
+		.campaign-header
+			background-size cover
+
+		.campaign-body-main
+			background-size auto 100%
+			.main-text
+				padding-top 0
+				padding-left 50%
+			p
+				margin-bottom 3.5em
+	.page-fblpwebb
+		.campaign-body
+			padding 3em 10em
+
+	.page-fblpwebd
+		#main
+			background-size auto auto
+			padding-bottom 0
+
+.ie8
+	.page-fblpwebc
+		.campaign-header
+			background-repeat repeat-x
+			background-position center center
+
+		.campaign-body-main
+			background-size auto 100%
+			.main-text
+				padding-top 0
+				padding-left 50%
+			p
+				margin-bottom 3.5em
+
+	.page-fblpwebd
+		#main
+			background-size auto auto
+			padding-bottom 0
+	.page-fblpwebb,
+	.page-fblpwebe
+		.medium-wrap
+			max-width 961px
+	.page-fblpwebb
+		.campaign-body
+			padding 3em 10em
+
+
+

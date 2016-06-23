@@ -1,0 +1,627 @@
+@import 'helpers'
+@import 'nib'
+@import 'variables'
+@import 'bag'
+@import 'bootstrap'
+@import 'account-menu-pane'
+
+
+
+/* FILE: HEADER.styl
+ * -----------------
+ * Styles for the site header.
+ */
+
+
+/* ******************** *
+ * ---- VARIABLES ----- *
+ * ******************** *
+ *
+ * Variables for the header.
+ */
+
+$site-header-height = 28px
+$logo-small-width = 123px
+$shop-menu-height = 2.2em
+
+
+/* *********************** *
+ * ---- HEADER STYLES ---- *
+ * *********************** *
+ */
+
+/* When sliding account menu is open */
+body.menu-open #header #account-menu
+	.menu-icon:before
+		@extend .glyphicon-remove:before
+	.menu-text:before
+		content 'CLOSE'
+
+
+/*
+ * Header is set to be position relative on the smallest
+ * devices so that it doesn't take up too much screen
+ * space.
+ */
+
+#header
+	font-family $font-title
+	color $title
+	border-top 4px solid $gray-dark
+	box-shadow 0 1px 3px rgba(0,0,0,0.1)
+	background-color $white
+	z-index 300
+	width 100%
+
+	.header-content
+		position relative
+
+	/* Previous menu link */
+	.header-previous-level-link
+		display inline-block
+		position relative
+		margin-left 0.5em
+		width auto
+		text-align center
+		vertical-align middle
+
+		a
+			color $gray-dark
+			transition all 0.3s ease-in-out
+
+			&:hover
+				color $highlight
+				text-decoration none
+
+			.glyphicon
+				font-size 19px
+
+	.home-link
+		body:not(.page-salelist) &
+			display none
+
+
+	#account-menu
+		display inline-block
+		z-index 2501 /* Bigger than .overlay z-index */
+		vertical-align middle
+
+		a:hover
+			text-decoration none
+			color inherit
+
+		.menu-icon
+			font-size $logoHeight
+
+		.menu-icon:before
+			@extend .glyphicon-menu-hamburger:before
+
+		.menu-text:before
+			content 'MENU'
+			display none
+			font-size 0.8em
+			letter-spacing 1px
+			line-height $site-header-height
+			margin-left 0.5em
+			vertical-align middle
+			text-transform uppercase
+
+	.login-menu
+		position relative
+		font-size 0.8em
+		letter-spacing 1px
+		text-transform uppercase
+		vertical-align middle
+
+		a:hover
+			text-decoration none
+
+		.signup-link
+		.login-link
+			font-weight bold
+
+	.site-header
+		padding 0.5em 1em
+		-webkit-align-items center
+		-moz-align-items center
+		align-items center
+		vertical-align middle
+		line-height $site-header-height
+
+	.menu:before
+		font-size 2em
+
+	.sitename
+		font-family $font-title
+		text-align center
+
+		img
+			width $logo-small-width
+			height auto
+
+	.general-wrap
+		position relative
+
+	.account
+		position relative
+		z-index 210
+		height 30px
+
+		& > a
+			background url(../images/header/sprite_icons_ie.png) no-repeat -41px 0
+			display block
+			width auto
+			height 30px
+			padding 0 2px 0 25px
+
+		& > a.open
+			color $highlight
+
+		.account-nav
+			display none
+			background rgba(white, 95%)
+			position absolute
+			right -5px
+			top 100%
+			z-index 100
+			border 1px solid #aaa
+			box-shadow 1px 1px 2px #aaa
+
+		.user
+			background $gray-warm
+			padding 10px
+			text-align center
+			white-space nowrap
+
+		ul
+			margin 7px 0
+
+		li
+
+			a
+				display block
+				padding 2px 10px
+				white-space nowrap
+
+			&.logout
+				border-top 1px solid $gray-warm
+				margin 7px 10px 0
+				padding 7px 0 0
+
+				a
+					margin 0 -10px
+
+
+		.invite-banner
+			margin 0 0 1px
+			border-top 1px solid #f7f3f1
+			display block
+
+			&:hover
+				opacity .9
+
+
+/* SHOP MENU
+ * ---------
+ * Menu that appears below the logo.  Primary navigation
+ */
+
+#shop-menu
+	//height $shop-menu-height
+	overflow-y hidden
+
+	/*
+	 * General styling on links in the nav
+	 */
+
+	li
+		img
+			margin-left: auto;
+			margin-right: auto;
+
+		> a
+			color $gray-dark
+
+		&.current
+			height 100%
+			> a
+				height 100%
+				display block
+				position relative
+				border-bottom 3px solid $highlight
+
+
+	/*
+	 * For all 3 levels of navigation
+	 */
+
+	#category-nav
+	#sales-nav
+	#products-nav
+		display none
+		font-size 0.8em
+		text-transform uppercase
+
+	/*
+	 * Category level navigation-only styles
+	 */
+
+	#category-nav
+		text-align center
+		width 100%
+		position relative
+
+		.sale-category
+			display inline
+			list-style none
+			height $shop-menu-height
+			position relative
+			transition all 0.3s ease
+
+			> a
+				display inline-block
+				color $gray-dark
+
+				&:hover
+					cursor pointer
+
+				&.invite-friend
+					color $highlight
+					font-weight bold
+
+			&.current
+				> a
+					color $gray-dark
+
+	.category-submenu
+		position absolute
+		top -1000px
+		background-color $white
+		background-color rgba($white, 0.97)
+		border-top 1px solid $gray-warm
+		box-shadow 0 1px 3px rgba(0,0,0,0.2)
+		font-size 0.8em
+		overflow-x hidden
+		opacity 0
+		padding 2em 0 1em
+		width 100%
+		white-space nowrap
+		z-index 10
+		transition opacity 0.3s ease
+
+		ul
+			white-space normal
+			padding 0 6em
+
+		.slick-dots
+			background-color $white
+			padding 0.25em 0 /* Override padding above */
+
+		.brand-name
+			white-space normal
+			letter-spacing 0.5px
+			line-height 1.3em
+
+		.sale-banner
+			display block
+			width 100%
+
+		.sale-item
+			transition opacity 0.3s ease-in-out
+
+			&:hover
+				opacity 0.7
+
+			/* Experimental way to show that
+			 * a user has already visited a sale.
+			 * Not currently working.
+			 */
+			a:visited
+				opacity 0.7
+
+				img
+					-webkit-filter grayscale(80%)
+					-moz-filter grayscale(80%)
+					filter grayscale(80%)
+
+	.submenu-nav-container
+		position absolute
+		left 0
+		right 0
+		top 50%
+		margin-bottom (-3.5em - 15px)
+		padding 0 1em
+		width 100%
+
+		.submenu-nav
+			position relative
+
+	/*
+	 * Sales level navigation
+	 */
+
+	#sales-nav
+		height $shop-menu-height
+
+		.slick-list, .slick-track
+			height 100%
+
+	/*
+	 * Products level navigation
+	 */
+
+	#products-nav
+
+		li
+
+			img
+				height auto
+				width 40px
+
+			&.current
+				> a
+					border-bottom 0
+					color $gray-dark
+
+					img
+						border-bottom 3px solid $highlight
+
+
+/* Hover effect is only in non-touch screen */
+#shop-menu #category-nav .sale-category.open
+	a
+		text-decoration none
+		border-bottom 3px solid $gray-cool
+		color $gray-dark
+
+	&.current
+		a
+			border-bottom 3px solid $highlight
+
+	.category-submenu
+		top auto
+		opacity 1
+		z-index 2502 /* The menu should be above the overlay */
+
+
+
+/* page specific menu styles */
+
+/*
+ * Show the category nav ONLY on the following pages
+ * for mobile.
+ */
+
+.page-salelist
+.page-shoppingguideoverview
+.page-shoppingguidefeatures
+.page-shoppingguiderules
+.page-shoppingguidequality
+.page-shoppingguidebenefits
+.page-branddetail.logged-in
+	#shop-menu
+		#category-nav
+			display block
+
+/*
+ * Show sales nav ONLY on the saledetail page
+ * for mobile.
+ */
+
+.page-saledetail
+	#shop-menu
+		#sales-nav
+			display block
+
+/*
+ * Show the product nav ONLY on the productdetail
+ * page on mobile.
+ */
+
+.page-saleproductdetail
+	#shop-menu
+		#products-nav
+			display block
+
+
+
+.sale-nav-section
+	padding 1em
+
+	.breadcrumbs
+		font-size 0.72em
+		text-transform uppercase
+
+		> li
+			display inline-block
+			margin 0 0.5em
+
+			&:nth-child(odd)
+				color $default
+				font-weight 700
+
+			&:nth-child(even)
+				color lighten($gray-medium, 50%)
+
+			&.truncate-text
+				max-width 170px
+				overflow hidden
+				text-overflow ellipsis
+				white-space nowrap
+
+			a
+				color $default
+				transition all 0.3s ease
+				text-decoration none
+
+				&:hover
+					color $highlight
+
+
+/* *************************** *
+ * ---- RESPONSIVE STYLES ---- *
+ * *************************** *
+ */
+
+
+/*
+ * Allow header to be sticky on iPhone 5, but not iPhone 4.
+ * Remove sticky header on Product page and Android devices
+ * with roughly a viewport height of 640px to eliminate
+ * Xperia Z3 rendering bug of position fixed elements.
+ */
+
+@media only screen and (max-width: 374px) and (min-height: 450px)
+	#header
+		position fixed
+
+		.android &
+		.page-saleproductdetail &
+			position relative
+
+
+@media $xsmallScreensQuery
+
+	#header
+		position fixed
+
+		.header-previous-level-link
+			margin-left 1em
+
+		.page-saleproductdetail &
+			position relative
+
+@media $mediumScreensQuery
+
+	#header
+		box-shadow none
+		position relative
+
+		/*
+		 * Add gray gradient background on
+		 * certain pages.
+		 */
+
+		.page-salelist &,
+		.page-saleproductdetail &
+			box-shadow 0 0 300px rgba($black, 0.1)
+
+		.site-header
+			padding-top 1.5em
+			padding-bottom 1.25em
+			line-height 1
+
+		#account-menu
+			.menu-text:before
+				display inline-block
+
+		.sitename
+			img
+				width $logoWidth
+				height auto
+
+		.previous-level-link-text
+			display inline
+			font-size 0.8em
+			margin-left 0.2em
+			vertical-align top
+			text-transform uppercase
+
+		/*
+		 * Remove previous-level links on larger
+		 * screens until a better way to navigate is
+		 * determined.
+		 */
+
+		.header-previous-level-link
+			display none
+
+		.login-menu
+			.signup-link
+			.login-link
+				padding 5px 15px
+				border-radius 2px
+				border 1px solid $highlight
+				color $highlight
+				font-size 1.1em
+				font-weight normal
+				line-height 1em
+				transition 0.3s all ease-in-out
+
+				&:hover
+					background-color darken($highlight, 10%)
+					border-color darken($highlight, 20%)
+					color $white
+
+			.signup-link
+				background-color $highlight
+				border-color $highlight
+				color $white
+
+
+	#shop-menu
+		height auto
+
+		/*
+		 * Show category nav on all pages.
+		 */
+
+		#category-nav
+			display block
+			position static
+			font-size 0.9em
+			letter-spacing 0.5px
+
+			.sale-category
+				position static
+				border-bottom-style none
+
+				> a
+					color $gray-dark
+					padding 0 1em
+
+					&.invite-friend
+						font-weight normal
+
+				&.selected:after
+					content none
+
+			/*
+			 * Fixes a bug in iOS that causes
+			 * the sub category menu not to show.
+			 */
+
+			.touch.ipad &
+				overflow-x visible
+
+		/*
+		 * Hide sales and product nav on larger
+		 * screens.
+		 */
+
+		.page-saledetail &
+		.page-productdetail &
+			#sales-nav
+			#products-nav
+				display none
+
+@media $largeScreensQuery
+
+	#header
+		#category-nav
+			font-size 1em
+
+		.login-menu
+			.signup-link
+			.login-link
+				padding 6px 20px
+				font-size 1.3em
+
+
+@media $xlargeScreensQuery
+
+	#shop-menu
+		.submenu-nav-container
+			padding 0
+
+

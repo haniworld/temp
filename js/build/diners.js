@@ -1,0 +1,1 @@
+function refreshAt(e){var t=864e5,n=new Date,r=e.getTime()-n.getTime();r>0&&r<t&&(r+=500,window.setTimeout(refreshWindow,r))}function refreshWindow(){window.location.reload(!0)}define("refresh-at",function(){}),require(["refresh-at"],function(){}),define("diners/diners",function(){});

@@ -1,0 +1,267 @@
+@import 'reset'
+
+@import 'nib'
+@import 'helpers'
+
+@import 'base'
+@import 'bootstrap'
+
+
+body
+	background #eee
+
+
+
+
+#main
+	background #fff
+	width 540px
+	margin 0 auto
+	padding 0 0 10px 0
+	position relative
+	font-size em(11/14)
+	line-height em(16/11)
+
+
+p.notice
+	padding:5px 20px 0 20px
+	color #666666
+	margin-left 1.0em
+	text-indent -1.0em
+
+
+h1
+	padding 18px 0 16px 13px
+
+
+
+
+#menu
+	width 540px
+	border-top 1px solid #f5f5f5
+	z-index 10
+	clearfix()
+
+
+	li
+		float left
+
+	a
+		image-replacement url(/static/images/sizeguide/menu.png) 180px 43px
+
+	#menu1 a
+		background-position 0 0
+
+	#menu1.active a
+	#menu1 a:hover
+			background-position 0 -43px
+
+	#menu2 a
+		background-position -180px 0
+
+	#menu2.active a
+	#menu2 a:hover
+		background-position -180px -43px
+
+	#menu3 a
+		background-position -360px 0
+
+	#menu3.active a
+	#menu3 a:hover
+		background-position -360px -43px
+
+
+
+
+.page
+	display none
+
+	&.active
+		display block
+
+
+
+
+.subnav
+	margin 15px
+	color #d9d9d9
+	clearfix()
+
+
+
+
+h2
+	margin 45px 0 0 0
+	background #EEEEEE url(/static/images/sizeguide/title_bg.gif) repeat-x center top
+
+
+.chart
+	width 520px
+	border-collapse collapse
+	margin 10px
+	border 3px solid #FFFFFF
+
+	th
+	td
+		text-align center
+
+	th
+		padding 7px 5px
+		border-right 1px solid #CCCCCC
+
+	tr.horizonal th
+		padding 7px 5px
+		border-right none
+		border-bottom 1px solid #CCCCCC
+		border-right 1px dotted #DDDDDD
+
+	td
+		padding 7px 5px
+		border-right 1px dotted #DDDDDD
+
+
+
+
+.chart.sizes td
+		white-space nowrap
+
+
+
+
+.womensfashion th
+	width 16%
+
+.womensfashion td
+	width 14%
+
+
+
+
+
+.mensfashion th
+	width 16%
+
+
+.mensfashion td
+	width 14%
+
+
+
+
+
+.womensshoes th
+	width 12%
+
+
+.womensshoes td
+	width 8%
+
+
+
+
+
+.mensshoes th
+	width 15%
+
+
+.mensshoes td
+	width 8.5%
+
+
+
+
+
+.kids th
+	width 25%
+
+
+.kids td
+	width 25%
+
+
+
+
+
+
+
+
+#page3 .chart
+	width 520px
+	border-collapse collapse
+	margin 30px 10px 10px 10px
+	border 3px solid #FFFFFF
+
+
+
+#page3 .chart th
+	padding 7px 5px
+	border-right 1px solid #CCCCCC
+	width 100px
+
+#page3 .chart td
+	padding 7px 5px
+	border-right 1px dotted #DDDDDD
+	text-align left
+	line-height 1.5
+	width 400px
+
+
+
+
+.chart tr.size th
+.chart tr.size td
+	background #f5f5f5 !important
+	border-top 1px dotted #DDDDDD !important
+
+.chart tr.japansize th
+.chart tr.japansize td
+	border-top 1px solid #CCCCCC !important
+	background-color $blue-light
+
+.odd
+	background-color #EEEEEE
+
+
+
+.guide
+	text-align center
+	padding 40px 0 0 0
+
+
+.pagetop
+	padding 15px 15px 10px 0
+	clearfix()
+
+	a
+		image-replacement url(/static/images/sizeguide/pagetop.gif) 16px 16px
+		float right
+
+		&:hover
+			background-position 0 -16px
+
+
+
+
+.fixed
+	width 100%
+	position fixed
+	top 0
+
+.world_sizeguide
+	h2
+		margin 25px 0 0 0
+		padding 10px 0 10px 10px
+		background #EEEEEE url(/static/images/sizeguide/title_bg.gif) repeat-x center top
+		color #ffffff
+		font-weight bold
+
+	.pagetop
+		padding 0px 15px 0px 0
+		clearfix()
+	
+		a
+			image-replacement url(/static/images/sizeguide/pagetop.gif) 16px 16px
+			float right
+	
+			&:hover
+				background-position 0 -16px

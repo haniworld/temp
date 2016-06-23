@@ -1,0 +1,117 @@
+/* FILE: shopping-guide-old-ie.styl
+ * --------------------------------
+ * Styles for OLD versions of IE (7+8) for
+ * the shopping guide section of the website.
+ * These styles are primarily the media queries
+ * taken out.
+ */
+
+
+
+/*
+ * PAGE CONTAINER
+ */
+
+.sg-page
+	margin-bottom 5em
+
+
+
+
+/*
+ * PAGE TABS
+ */
+
+.sg-nav
+	ul 
+		li
+			a
+				padding-bottom 0.5em
+
+
+
+/* 
+ * PAGE INTRO
+ */
+
+.sg-page-intro
+	h1
+		font-size 2.2em
+	p
+		br
+			display inline
+
+
+
+
+
+/*
+ * LISTS
+ */
+
+.sg-number-list
+.sg-icon-list
+	margin-bottom 5em
+
+	figure
+		margin-bottom 0
+		text-align left
+		vertical-align top
+	h2
+		text-align left
+
+.sg-icon-list
+	figure
+		text-align center
+
+
+
+
+
+/*
+ * OVERVIEW TOPIC BOXES
+ */
+
+.sg-topic
+	a
+		min-height 200px
+		position relative
+
+		.read-more
+			position absolute
+			bottom 1em
+			left 0
+			line-height 1em
+			transition all 0.3s ease-out
+			width 100%
+			display none
+
+		&:hover
+			h2
+				color $highlight
+				text-shadow none
+			p
+				color $default
+
+			.read-more
+				display block
+
+	&:nth-child(odd)
+		a
+			margin-left 0
+	&:nth-child(even)
+		a
+			margin-right 0
+
+
+
+
+
+
+/*
+ * REGISTRATION BOX
+ */
+
+.sg-registration
+	margin-top 5em
+	padding 0

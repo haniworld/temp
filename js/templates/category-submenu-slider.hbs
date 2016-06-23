@@ -1,0 +1,17 @@
+{{#each salesSlides}}
+	<div class="category-submenu-slide">
+		<ul class="wide-wrap pure-g align-left">
+			{{#each this}}
+			<li class="sale-item pure-u-1-3 pure-u-sm-1-3 pure-u-md-1-4 pure-u-lg-1-6 mar-b--medium pad--xsmall {{current}}">
+				<a href="{{link}}" class="sale-item-link" data-sale-code="{{code}}" data-sale-name="{{name}}">
+					<img data-lazy="{{image}}" class="sale-banner sale-img mar-b--small" />
+					<h4 class="brand-name pad-l--xsmall pad-r--xsmall align-center">{{name}}</h4>
+				</a>
+			</li>
+			{{/each}}
+		</ul>
+	</div>
+{{/each}}
+<nav class="submenu-nav-container wide-wrap">
+	<div class="submenu-nav"></div>
+</nav>

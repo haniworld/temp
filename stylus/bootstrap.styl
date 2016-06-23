@@ -1,0 +1,237 @@
+.fade
+	opacity 0
+	transition opacity 0.15s linear
+
+
+.fade.in
+	opacity 1
+
+
+.collapse
+	position relative
+	height 0
+	overflow hidden
+	transition height 0.35s ease
+
+
+.collapse.in
+	height auto
+
+
+
+
+.modal-open .dropdown-menu
+	z-index 2050
+
+
+.modal-open .dropdown.open
+	*z-index 2050
+
+
+.modal-open .popover
+	z-index 2060
+
+
+.modal-open .tooltip
+	z-index 2080
+
+
+
+
+.modal-backdrop
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	z-index 1040
+	background-color #000000
+
+
+.modal-backdrop.fade
+	opacity 0
+
+
+.modal-backdrop
+.modal-backdrop.fade.in
+	opacity 0.25
+	filter unquote('alpha(opacity=25)')
+
+
+
+
+.modal
+	position absolute
+	top 5em
+	left 50%
+	z-index 1050
+	width 530px
+	margin 0 0 0 -275px
+	overflow auto
+	background-color #ffffff
+	border-radius 6px
+	box-shadow 0 3px 7px rgba(0, 0, 0, 0.3)
+	background-clip padding-box
+	padding 2em 10px
+
+	.no-touch &
+		position fixed
+
+
+.modal h1
+	margin -1em 0 2em
+	padding 0 0 1em
+	border-bottom 1px solid $gray-warm
+	text-align center
+
+
+.modal .close
+	position absolute
+	right 4px
+	top 4px
+
+
+.modal.fade
+	opacity 0
+	top -5em
+	//transition opacity 0.4s linear, top 0.3s ease-out
+
+
+.modal.fade.in
+	opacity 1
+	top 5em
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 568px)
+
+	.modal
+		top 10px
+		right 10px
+		left 10px
+		width auto
+		margin 0
+
+
+
+/* BOOTSTRAP FONT
+*----------------------------
+*/
+
+@font-face
+	font-family  'Glyphicons Halflings'
+	src url('../fonts/glyphicons-halflings-regular.eot')
+	src url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg')
+
+.glyphicon
+	position relative
+	top 1px
+	display inline-block
+	font-family  'Glyphicons Halflings'
+	font-style normal
+	font-weight normal
+	line-height 1
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+
+.glyphicon-asterisk:before
+	content "\002A"
+
+.glyphicon-envelope:before
+	content "\2709"
+
+.glyphicon-menu-hamburger:before
+	content "\e236"
+
+.glyphicon-zoom-in:before
+	content "\e015"
+
+.glyphicon-zoom-out:before
+	content "\e016";
+
+.glyphicon-plus:before
+	content "\2b"
+
+.glyphicon-minus:before
+	content "\2212"
+
+.glyphicon-remove:before
+	content "\e014"
+
+.glyphicon-book:before
+	content "\e043"
+
+.glyphicon-question-sign:before
+	content "\e085"
+
+.glyphicon-info-sign:before
+	content "\E086"
+
+.glyphicon-user:before
+	content "\e008"
+
+.glyphicon-menu-left:before
+	content "\e257"
+
+.glyphicon-menu-up:before
+	content "\E260"
+
+.glyphicon-menu-right:before
+	content "\E258"
+
+.glyphicon-share-alt:before
+	content "\E095"
+
+.glyphicon-lock:before
+	content "\E033"
+
+.glyphicon-info-sign:before
+	content "\e086"
+
+.glyphicon-play-circle:before
+	content "\E029"
+
+.glyphicon-print:before
+	content "\E045"
+
+.glyphicon-up-level
+	transform rotate(270deg)
+
+	/* IE6,IE7 */
+	filter: unquote("progid:DXImageTransform.Microsoft.Matrix(M11=6.123233995736766e-17, M12=1, M21=-1, M22=6.123233995736766e-17, SizingMethod='auto expand')")
+
+	/* IE8 */
+	-ms-filter: unquote("progid:DXImageTransform.Microsoft.Matrix(M11=6.123233995736766e-17, M12=1, M21=-1, M22=6.123233995736766e-17, SizingMethod='auto expand')")
+
+	&:before
+		content "\E095"
+
+.glyphicon-user:before
+	content "\E008"
+
+.glyphicon-calendar:before
+	content "\e109"
+
+.glyphicon-ok:before
+	content "\e013"
+
+.glyphicon-tags:before
+	content "\e042"
+
+.glyphicon-eye-open:before
+	content "\e105"
+
+.glyphicon-yen:before
+	content "\00a5"
+
+.glyphicon-chevron-left:before
+	content "\e079"
+
+.glyphicon-chevron-right:before
+	content "\e080"
+
